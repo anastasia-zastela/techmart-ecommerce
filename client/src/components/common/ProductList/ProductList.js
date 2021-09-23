@@ -4,18 +4,13 @@ import { addToCart, removeFromCart } from '../../../redux/actions/cartActions';
 import ProductCard from '../ProductCard/ProductCard';
 import { useStyles } from './styles';
 
-const ProductList = ({ products, cartView = false }) => {
+const ProductList = ({ products }) => {
   const { addToCart } = useActions();
-  const { removeFromCart } = useActions();
 
   const classes = useStyles();
 
   const addToCartHandler = (productId) => {
     addToCart(productId);
-  };
-
-  const removeFromCartHandler = (productId) => {
-    removeFromCart(productId);
   };
 
   const productsMapped = products.map((product) => (
@@ -28,9 +23,7 @@ const ProductList = ({ products, cartView = false }) => {
       color={product.color}
       brand={product.brand}
       category={product.category}
-      cartView={cartView}
       addToCartHandler={() => addToCartHandler(product._id)}
-      removeFromCartHandler={() => removeFromCartHandler(product.product)}
     />
   ));
 

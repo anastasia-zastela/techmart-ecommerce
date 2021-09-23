@@ -19,9 +19,7 @@ const ProductCard = ({
   color,
   brand,
   price,
-  removeFromCartHandler,
   addToCartHandler,
-  cartView = false,
 }) => {
   const classes = useStyles();
 
@@ -59,25 +57,14 @@ const ProductCard = ({
         </CardActionArea>
       </Link>
       <CardActions>
-        {cartView ? (
-          <Button
-            className={classes.cardButton}
-            variant='contained'
-            color='primary'
-            onClick={removeFromCartHandler}
-          >
-            Remove from cart
-          </Button>
-        ) : (
-          <Button
-            className={classes.cardButton}
-            variant='contained'
-            color='primary'
-            onClick={addToCartHandler}
-          >
-            Add to cart
-          </Button>
-        )}
+        <Button
+          className={classes.cardButton}
+          variant='contained'
+          color='primary'
+          onClick={addToCartHandler}
+        >
+          Добавить в корзину
+        </Button>
       </CardActions>
     </Card>
   );
