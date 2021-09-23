@@ -43,13 +43,13 @@ export const publicRoutes = [
     exact: true,
   },
   {
-    path: PRODUCTS_ROUTE,
-    component: Products,
+    path: PRODUCTS_ROUTE + '/:id',
+    component: Product,
     exact: true,
   },
   {
-    path: PRODUCTS_ROUTE + '/:id',
-    component: Product,
+    path: PRODUCTS_ROUTE,
+    component: Products,
     exact: true,
   },
   {
