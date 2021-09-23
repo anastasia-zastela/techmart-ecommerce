@@ -10,8 +10,10 @@ import {
   CHECKOUT_ROUTE,
   MAIN_PAGE_ROUTE,
   PRODUCTS_ROUTE,
+  SIGNUP_ROUTE,
 } from '../config/consts';
 import Checkout from '../pages/Checkout/Checkout';
+import Signup from '../pages/Signup/Signup';
 
 export const adminRoutes = [
   {
@@ -48,6 +50,11 @@ export const publicRoutes = [
   {
     path: PRODUCTS_ROUTE + '/:id',
     component: Product,
+    exact: true,
+  },
+  {
+    path: SIGNUP_ROUTE,
+    component: Signup,
     exact: true,
   },
 ];
