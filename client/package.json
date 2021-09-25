@@ -35,7 +35,7 @@
       "airbnb/hooks"
     ],
     "rules": {
-      "jsx-quotes": ["warning", "prefer-single"],
+      "jsx-quotes": [1, "prefer-single"],
       "react/jsx-props-no-spreading": "off",
       "react/prop-types": "off",
       "react/jsx-filename-extension": "off",
