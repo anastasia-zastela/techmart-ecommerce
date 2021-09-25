@@ -1,6 +1,6 @@
-import Cart from '../pages/Cart/Cart';
+import Cart from '../pages/Cart/Cart.js';
 import Main from '../pages/Main/Main';
-import Admin from '../pages/Admin/Admin';
+import Admin from '../pages/Admin/Admin.js';
 import Products from '../pages/Products/Products';
 import Product from '../pages/Product/Product';
 
