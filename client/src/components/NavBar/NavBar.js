@@ -13,35 +13,33 @@ const NavBar = () => {
     const classes = useStyles();
 
     return (
-        <AppBar position="static" className={classes.NavBar}>
-            <Toolbar >
-                <Button color="inherit">
-                    <NavLink to="/" className={classes.linkNavBar}>
-                        Main
-                    </NavLink>
-                </Button>
-                <Button color="inherit">
-                    <NavLink to="/products" className={classes.linkNavBar}>
-                        Products
-                    </NavLink>
-                </Button>
-                <Button color="inherit">
-                    <NavLink to="/signin" className={classes.linkNavBar}>
-                        Sign In
-                    </NavLink>
-                </Button>
-                <Button color="inherit">
-                    <NavLink to="/signup" className={classes.linkNavBar}>
-                        Sign Up
-                    </NavLink>
-                </Button>
-                <Button color="inherit">
-                    <Typography variant="h7" className={classes.linkNavBar}>
-                        Log out
-                    </Typography>
-                </Button>
-            </Toolbar>
-        </AppBar>
+        <Toolbar className={classes.NavBar} position="static">
+            <Button color="inherit">
+                <NavLink to="/" className={classes.linkNavBar}>
+                    Main
+                </NavLink>
+            </Button>
+            <Button color="inherit">
+                <NavLink to="/products" className={classes.linkNavBar}>
+                    Products
+                </NavLink>
+            </Button>
+            <Button color="inherit">
+                <NavLink to="/signin" className={classes.linkNavBar}>
+                    Sign In
+                </NavLink>
+            </Button>
+            <Button color="inherit">
+                <NavLink to="/signup" className={classes.linkNavBar}>
+                    Sign Up
+                </NavLink>
+            </Button>
+            <Button color="inherit">
+                <Typography variant="h7" className={classes.linkNavBar}>
+                    Log out
+                </Typography>
+            </Button>
+        </Toolbar>
     );
 };
 
