@@ -15,6 +15,7 @@ const $authHost = axios.create({
 });
 
 const authInterceptor = (config) => {
+  // eslint-disable-next-line no-param-reassign
   config.headers.authorization = localStorage.getItem('token');
   return config;
 };
