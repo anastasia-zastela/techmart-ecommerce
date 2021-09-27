@@ -1,17 +1,17 @@
 import React from 'react';
-import { useActions } from '../../../hooks/useActions';
-import { addToCart, removeFromCart } from '../../../redux/actions/cartActions';
+// import { useActions } from '../../../hooks/useActions';
+// import { addToCart, removeFromCart } from '../../../redux/actions/cartActions';
 import ProductCard from '../ProductCard/ProductCard';
 import { useStyles } from './styles';
 
 const ProductList = ({ products }) => {
-  const { addToCart } = useActions();
+  // const { addToCart } = useActions();
 
   const classes = useStyles();
 
-  const addToCartHandler = (productId) => {
-    addToCart(productId);
-  };
+  // const addToCartHandler = (productId) => {
+  //   addToCart(productId);
+  // };
 
   const productsMapped = products.map((product) => (
     <ProductCard
@@ -23,7 +23,7 @@ const ProductList = ({ products }) => {
       color={product.color}
       brand={product.brand}
       category={product.category}
-      addToCartHandler={() => addToCartHandler(product._id)}
+      // addToCartHandler={() => addToCartHandler(product._id)}
     />
   ));
 
