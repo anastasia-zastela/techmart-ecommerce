@@ -17,7 +17,7 @@ const Header = () => {
             <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Logo />
 
-                <div>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
                     <TextField
                         className={classes.search}
                         InputProps={{
@@ -26,7 +26,7 @@ const Header = () => {
                         label="Поиск"
                         variant="outlined"
                     />
-                    <Button className={classes.buttonSearch}>Поиск</Button>
+                    <button className={classes.buttonSearch}><span>Поиск</span></button>
                 </div>
 
                 <Button color="inherit">

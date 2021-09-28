@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 export const useStyles = makeStyles((theme) => ({
     text: {
         fontSize: "12px",
-        color: "rgb(225, 225, 225)",
+        color: '#A6A6A6',
     },
     container: {
         marginRight: 0,
@@ -16,11 +16,11 @@ export const useStyles = makeStyles((theme) => ({
         marginTop: "9px",
         fontSize: "14px",
         lineHeight: "19px",
-        color: "#FFFFFF",
+        color: '#A6A6A6',
         display: "block",
     },
     footerTitle: {
-        color: "#FFFFFF",
+        color: '#A6A6A6',
         fontWeight: "bolt",
         fontSize: "18px",
         lineHeight: "25px",
@@ -34,13 +34,17 @@ export const useStyles = makeStyles((theme) => ({
         padding: "60px",
     },
     multilineColor: {
-        marginTop: "20px",
-        color: "white",
+        marginTop: "10px",
+        height: '40px',
+        color: '#A6A6A6',
         "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: "white",
+            borderColor: "#A6A6A6",
         },
         "& .MuiInputLabel-formControl": {
-            color: "white",
+            color: "#A6A6A6",
+        },
+        '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#A6A6A6'
         },
     },
 }));

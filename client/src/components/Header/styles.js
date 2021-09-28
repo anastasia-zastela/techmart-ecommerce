@@ -11,7 +11,7 @@ export const useStyles = makeStyles((theme) => ({
     },
     shoppingCart: {
         '&:hover': {
-            stroke: 'grey'
+            stroke: 'rgb(62, 192, 221)'
         }
     },
     header: {
@@ -20,8 +20,8 @@ export const useStyles = makeStyles((theme) => ({
     },
     search: {
         color: "black",
-        height: '30px',
-        width: '300px',
+        height: '40px',
+        width: '500px',
         backgroundColor: "white",
         borderRadius: '0px',
         "& .MuiOutlinedInput-notchedOutline": {
@@ -29,22 +29,38 @@ export const useStyles = makeStyles((theme) => ({
         },
         "& .MuiInputLabel-formControl": {
             color: "grey",
-            top: '-11px',
+            top: '-7px',
         },
         '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: 'white'
         }
     },
     buttonSearch: {
-        color: 'black',
-        border: '1px solid white',
-        height: '30px',
-        textTransform: 'none',
+        width: '70px',
+        height: '40px',
+        background: '#f3f0f1',
+        position: 'relative',
+        background: '#f3f0f1',
+        fontSize: '14px',
         marginLeft: '10px',
+        borderRadius: '10px',
+        border: 'none',
         textAlign: 'center',
-        backgroundColor: 'white',
+        cursor: 'pointer',
+        transition: 'all 0.1s ease-in-out',
+        '& span': {
+            fontWeight: 'semibold',
+        },
+        boxShadow: '2px 2px 10px rgba(62, 192, 221, 0.8), 6px 6px 10px rgba(62, 192, 221, 0.2)',
+        color: 'black',
         '&:hover': {
-            backgroundColor: 'rgb(160, 160, 160)'
+            opacity: 0.5,
+            boxShadow: '2px 2px 10px rgba(62, 192, 221, 0.8), 6px 6px 10px rgba(62, 192, 221, 0.2)',
+        },
+        '&:active': {
+            opacity: 1,
+            boxShadow: 'inset -2px -2px 4px rgba(62, 192, 221, 0.5), inset 2px 2px 8px rgba(62, 192, 221, 0.1)',
+            color: 'rgb(62, 192, 221)',
         },
     }
 }));
