@@ -7,14 +7,14 @@ import NavBar from './components/NavBar/NavBar.js';
 import './styles.css';
 
 function App() {
-    return (
-        <BrowserRouter>
-            <Header />
-            <NavBar />
-            <AppRouter />
-            <Footer />
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <Header />
+      <NavBar />
+      <AppRouter />
+      <Footer />
+    </BrowserRouter>
+  );
 }
 
 export default App;
