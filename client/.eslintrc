@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "airbnb",
+    "airbnb/hooks"
+  ],
+  "rules": {
+    "jsx-quotes": [
+      1,
+      "prefer-single"
+    ]
+  },
+  "plugins": [
+    "only-warn"
+  ]
+}
