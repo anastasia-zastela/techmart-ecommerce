@@ -1,10 +1,8 @@
 import React from 'react';
 import {
   Toolbar,
-  AppBar,
   Typography,
   Button,
-  Grid,
 } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
 import { useStyles } from './styles';

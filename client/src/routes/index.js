@@ -1,8 +1,8 @@
-import Cart from '../pages/Cart/Cart.js';
-import Main from '../pages/Main/Main';
-import Admin from '../pages/Admin/Admin.jsx';
-import Products from '../pages/Products/Products';
-import Product from '../pages/Product/Product';
+import Cart from '../pages/Cart/Cart';
+import Main from '../pages/Main/Main.jsx';
+import Admin from '../pages/Admin/Admin';
+import Products from '../pages/Products/Products.jsx';
+import Product from '../pages/Product/Product.jsx';
 
 import {
   ADMIN_ROUTE,
@@ -13,7 +13,7 @@ import {
   SIGNUP_ROUTE,
 } from '../config/consts';
 import Checkout from '../pages/Checkout/Checkout';
-import Signup from '../pages/Signup/Signup';
+import Signup from '../pages/Signup/Signup.jsx';
 
 export const adminRoutes = [
   {

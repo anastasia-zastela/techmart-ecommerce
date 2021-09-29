@@ -28,8 +28,8 @@ const SelectWrapper = ({ name, options, ...otherProps }) => {
 
   return (
     <TextField {...configSelect}>
-      {Object.keys(options).map((item, pos) => (
-        <MenuItem key={pos} value={item}>
+      {Object.keys(options).map((item) => (
+        <MenuItem key={item} value={item}>
           {options[item]}
         </MenuItem>
       ))}

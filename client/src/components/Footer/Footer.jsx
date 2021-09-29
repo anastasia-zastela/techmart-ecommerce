@@ -5,7 +5,7 @@ import {
   Link,
   TextField,
 } from '@material-ui/core';
-import Logo from '../common/Logo/Logo';
+import Logo from '../common/Logo/Logo.jsx';
 import { useStyles } from './styles';
 import { footerLinks } from './consts';
 
@@ -25,8 +25,8 @@ const Footer = () => {
         <Grid item xs={3}>
           <Logo />
           <div style={{ marginTop: '30px' }}>
-            {footerLinks.info.map((link, index) => (
-              <Link href='#' className={classes.footerLink} key={index}>
+            {footerLinks.info.map((link) => (
+              <Link href='#' className={classes.footerLink} key={link.join(' ')}>
                 {link}
               </Link>
             ))}
@@ -36,8 +36,8 @@ const Footer = () => {
           <Typography href='#' className={classes.footerTitle}>
             Категории
           </Typography>
-          {footerLinks.kategory.map((el, index) => (
-            <Link href='#' className={classes.footerLink} key={index}>
+          {footerLinks.kategory.map((el) => (
+            <Link href='#' className={classes.footerLink} key={el.join(' ')}>
               {el}
             </Link>
           ))}
@@ -46,13 +46,13 @@ const Footer = () => {
           <Typography href='#' className={classes.footerTitle}>
             Связаться с нами
           </Typography>
-          {footerLinks.contacts.map((link, index) => (
-            <Link href='#' className={classes.footerLink} key={index}>
+          {footerLinks.contacts.map((link) => (
+            <Link href='#' className={classes.footerLink} key={link.join(' ')}>
               {link}
             </Link>
           ))}
-          {footerLinks.timeToCall.map((link, index) => (
-            <Typography className={classes.footerLink} key={index}>
+          {footerLinks.timeToCall.map((link) => (
+            <Typography className={classes.footerLink} key={link.substring(0, link.indexOf(':'))}>
               {link}
             </Typography>
           ))}
