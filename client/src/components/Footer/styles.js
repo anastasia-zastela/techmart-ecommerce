@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles(() => ({
     text: {
         fontSize: "12px",
         color: '#A6A6A6',
@@ -46,5 +46,10 @@ export const useStyles = makeStyles((theme) => ({
         '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
             borderColor: '#A6A6A6'
         },
+    },
+    footerEmailInputButton: {
+        position: 'absolute',
+        top: '22px',
+        right: '1px',
     },
 }));

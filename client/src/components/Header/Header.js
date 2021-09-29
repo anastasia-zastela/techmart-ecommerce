@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Toolbar,
     AppBar,
@@ -11,6 +11,15 @@ import { useStyles } from './styles';
 
 const Header = () => {
     const classes = useStyles();
+    const products = [];
+    const [seachInput, setSearchInput] = useState('');
+    const filteredProducts = () => {
+        const filteredProduct = products.filter(product => {
+            return product.name.toLowerCase().includes(seachInput.toLowerCase())
+        })
+
+        console.log(seachInput);
+    }
 
     return (
         <AppBar position="static" className={classes.header}>
@@ -25,8 +34,9 @@ const Header = () => {
                         }}
                         label="Поиск"
                         variant="outlined"
+                        onChange={(e) => setSearchInput(e.target.value)}
                     />
-                    <button className={classes.buttonSearch}><span>Поиск</span></button>
+                    <button className={classes.buttonSearch} onClick={filteredProducts}><span>Поиск</span></button>
                 </div>
 
                 <Button color="inherit">
