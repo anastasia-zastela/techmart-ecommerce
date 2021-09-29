@@ -1,5 +1,6 @@
 import React from 'react';
 import img from '../iphone12.jpg';
+import ProductCard from '../../components/common/ProductCard/ProductCard';
 
 const Main = () => (
   <div>
