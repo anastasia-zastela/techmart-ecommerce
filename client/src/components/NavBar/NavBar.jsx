@@ -33,7 +33,7 @@ const NavBar = () => {
         </NavLink>
       </Button>
       <Button color='inherit'>
-        <Typography variant='h7' className={classes.linkNavBar}>
+        <Typography variant='h6' className={classes.linkNavBar}>
           Log out
         </Typography>
       </Button>

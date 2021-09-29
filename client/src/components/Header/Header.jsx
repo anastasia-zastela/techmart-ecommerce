@@ -6,7 +6,7 @@ import {
   TextField,
 } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
-import Logo from '../common/Logo/Logo.jsx';
+import Logo from '../common/Logo/Logo';
 import { useStyles } from './styles';
 
 const Header = () => {

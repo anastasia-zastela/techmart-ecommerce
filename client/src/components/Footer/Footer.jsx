@@ -5,7 +5,7 @@ import {
   Link,
   TextField,
 } from '@material-ui/core';
-import Logo from '../common/Logo/Logo.jsx';
+import Logo from '../common/Logo/Logo';
 import { useStyles } from './styles';
 import { footerLinks } from './consts';
 
@@ -86,7 +86,7 @@ const Footer = () => {
         container
                 // spacing={2}
         alignItems='center'
-        justify='space-between'
+        justifyContent='space-between'
         className={classes.footer}
       >
         <Typography className={classes.text}>
