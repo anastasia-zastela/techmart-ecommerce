@@ -26,7 +26,7 @@ const Footer = () => {
           <Logo />
           <div style={{ marginTop: '30px' }}>
             {footerLinks.info.map((link) => (
-              <Link href='#' className={classes.footerLink} key={link.join(' ')}>
+              <Link href='#' className={classes.footerLink} key={link.replace(/\s+/g, '')}>
                 {link}
               </Link>
             ))}
@@ -37,7 +37,7 @@ const Footer = () => {
             Категории
           </Typography>
           {footerLinks.kategory.map((el) => (
-            <Link href='#' className={classes.footerLink} key={el.join(' ')}>
+            <Link href='#' className={classes.footerLink} key={el.replace(/\s+/g, '')}>
               {el}
             </Link>
           ))}
@@ -47,7 +47,7 @@ const Footer = () => {
             Связаться с нами
           </Typography>
           {footerLinks.contacts.map((link) => (
-            <Link href='#' className={classes.footerLink} key={link.join(' ')}>
+            <Link href='#' className={classes.footerLink} key={link.replace(/\s+/g, '')}>
               {link}
             </Link>
           ))}
