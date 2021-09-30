@@ -4,6 +4,7 @@ export const useStyles = makeStyles(() => ({
     text: {
         fontSize: "12px",
         color: '#A6A6A6',
+        lineHeight: '3',
     },
     container: {
         marginRight: 0,

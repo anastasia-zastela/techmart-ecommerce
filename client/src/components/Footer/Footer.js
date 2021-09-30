@@ -20,13 +20,11 @@ const Footer = () => {
         <>
             <Grid
                 container
-                // xs={12}
-                // sm={6}
-                // md={6}
-                // spacing={2}
+                spacing={2}
                 className={classes.footerFirst}
+                style={{ margin: 0, width: '100%' }}
             >
-                <Grid item xs={3}>
+                <Grid item xs={12} sm={6} md={3}>
                     <Logo />
                     <div style={{ marginTop: "30px" }}>
                         {footerLinks.info.map((link, index) => (
@@ -36,7 +34,7 @@ const Footer = () => {
                         ))}
                     </div>
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={12} sm={6} md={3}>
                     <Typography href="#" className={classes.footerTitle}>
                         Категории
                     </Typography>
@@ -46,7 +44,7 @@ const Footer = () => {
                         </Link>
                     ))}
                 </Grid>
-                <Grid item xs={2}>
+                <Grid item xs={12} sm={6} md={3}>
                     <Typography href="#" className={classes.footerTitle}>
                         Связаться с нами
                     </Typography>
@@ -61,7 +59,7 @@ const Footer = () => {
                         </Typography>
                     ))}
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={6} md={3}>
                     <Typography className={classes.footerTitle}>
                         Будьте всегда в курсе наших новостей!
                     </Typography>
@@ -93,10 +91,8 @@ const Footer = () => {
                     </Link>
                 </Grid>
             </Grid>
-
             <Grid
                 container
-                // spacing={2}
                 alignItems="center"
                 justify="space-between"
                 className={classes.footer}

@@ -1,10 +1,8 @@
 import React from "react";
 import {
     Toolbar,
-    AppBar,
     Typography,
     Button,
-    Grid
 } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import { useStyles } from './styles';
@@ -35,7 +33,7 @@ const NavBar = () => {
                 </NavLink>
             </Button>
             <Button color="inherit">
-                <Typography variant="h7" className={classes.linkNavBar}>
+                <Typography className={classes.linkNavBar}>
                     Log out
                 </Typography>
             </Button>

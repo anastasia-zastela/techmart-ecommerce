@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles(() => ({
+export const useStyles = makeStyles((theme) => ({
     title: {
         fontSize: "28px",
         textTransform: "uppercase",
@@ -21,7 +21,7 @@ export const useStyles = makeStyles(() => ({
     search: {
         color: "black",
         height: '40px',
-        width: '500px',
+        width: '100%',
         backgroundColor: "white",
         borderRadius: '0px',
         "& .MuiOutlinedInput-notchedOutline": {
@@ -62,5 +62,32 @@ export const useStyles = makeStyles(() => ({
             boxShadow: 'inset -2px -2px 4px rgba(62, 192, 221, 0.5), inset 2px 2px 8px rgba(62, 192, 221, 0.1)',
             color: 'rgb(62, 192, 221)',
         },
-    }
+    },
+    containerInput: {
+        display: 'flex',
+        alignItems: 'center',
+        paddingTop: 7,
+        paddingLeft: 20
+    },
+    [theme.breakpoints.down("sm")]: {
+        gridLogo: {
+            order: 1,
+        },
+        gridCart: {
+            order: 2,
+        },
+        gridInput: {
+            order: 3,
+        },
+        containerInput: {
+            paddingLeft: 70,
+            paddingRight: 70
+        }
+    },
+    [theme.breakpoints.down("xs")]: {
+        containerInput: {
+            paddingLeft: 20,
+            paddingRight: 0
+        }
+    },
 }));
