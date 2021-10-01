@@ -1,14 +1,11 @@
 import { makeStyles } from "@material-ui/core";
+import { styles } from '../../utils/UserInterfaceConstants';
 
 export const useStyles = makeStyles(() => ({
     text: {
         fontSize: "12px",
-        color: '#A6A6A6',
+        color: styles.colorGrey,
         lineHeight: '3',
-    },
-    container: {
-        marginRight: 0,
-        textAlign: "right",
     },
     linkWrapper: {
         marginLeft: "15px",
@@ -17,35 +14,35 @@ export const useStyles = makeStyles(() => ({
         marginTop: "9px",
         fontSize: "14px",
         lineHeight: "19px",
-        color: '#A6A6A6',
+        color: styles.colorGrey,
         display: "block",
     },
     footerTitle: {
-        color: '#A6A6A6',
+        color: styles.colorGrey,
         fontWeight: "bolt",
         fontSize: "18px",
         lineHeight: "25px",
     },
     footer: {
-        backgroundColor: "rgb(29, 28, 28)",
+        backgroundColor: styles.colorDark,
         padding: "20px 100px",
     },
     footerFirst: {
-        backgroundColor: "#292929;",
+        backgroundColor: styles.colorDarkGrey,
         padding: "60px",
     },
     multilineColor: {
         marginTop: "10px",
         height: '40px',
-        color: '#A6A6A6',
+        color: styles.colorGrey,
         "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#A6A6A6",
+            borderColor: styles.colorGrey,
         },
         "& .MuiInputLabel-formControl": {
-            color: "#A6A6A6",
+            color: styles.colorGrey,
         },
         '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#A6A6A6'
+            borderColor: styles.colorGrey
         },
     },
     footerEmailInputButton: {

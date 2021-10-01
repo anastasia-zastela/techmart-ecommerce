@@ -4,17 +4,18 @@ import {
     Typography,
     Link,
     TextField,
-    Button
+    Button,
+    Box
 } from "@material-ui/core";
 import Logo from "../common/Logo/Logo";
 import { useStyles } from './styles';
 import { footerLinks } from './consts';
-
+import Vector from '../icons/vector.svg';
 
 const Footer = () => {
     const classes = useStyles();
-    const clickOnFooterEmailInputButton = () => {
-        console.log('work');
+    const clickOnButtonEmailInput = () => {
+
     }
     return (
         <>
@@ -26,32 +27,32 @@ const Footer = () => {
             >
                 <Grid item xs={12} sm={6} md={3}>
                     <Logo />
-                    <div style={{ marginTop: "30px" }}>
+                    <Box style={{ marginTop: "30px" }}>
                         {footerLinks.info.map((link, index) => (
-                            <Link href="#" className={classes.footerLink} key={index}>
+                            <Link href="/" className={classes.footerLink} key={index}> //* TODO
                                 {link}
                             </Link>
                         ))}
-                    </div>
+                    </Box>
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Typography href="#" className={classes.footerTitle}>
+                    <Link href="/" className={classes.footerTitle}> //* TODO
                         Категории
-                    </Typography>
+                    </Link>
                     {footerLinks.kategory.map((el, index) => (
-                        <Link href="#" className={classes.footerLink} key={index}>
+                        <Link href="/" className={classes.footerLink} key={index}> //* TODO
                             {el}
                         </Link>
                     ))}
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Typography href="#" className={classes.footerTitle}>
+                    <Typography className={classes.footerTitle}>
                         Связаться с нами
                     </Typography>
-                    {footerLinks.contacts.map((link, index) => (
-                        <Link href="#" className={classes.footerLink} key={index}>
-                            {link}
-                        </Link>
+                    {footerLinks.contacts.map((contactPhone, index) => (
+                        <Typography className={classes.footerLink} key={index}>
+                            {contactPhone}
+                        </Typography>
                     ))}
                     {footerLinks.timeToCall.map((link, index) => (
                         <Typography className={classes.footerLink} key={index}>
@@ -63,7 +64,7 @@ const Footer = () => {
                     <Typography className={classes.footerTitle}>
                         Будьте всегда в курсе наших новостей!
                     </Typography>
-                    <div style={{ position: 'relative' }}>
+                    <Box style={{ position: 'relative' }}>
                         <TextField
                             className={classes.multilineColor}
                             InputProps={{
@@ -73,20 +74,17 @@ const Footer = () => {
                             label="email"
                             variant="outlined"
                         />
-                        <Button color="inherit" className={classes.footerEmailInputButton} onClick={clickOnFooterEmailInputButton}>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M22 2L11 13" stroke="#A6A6A6" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="#A6A6A6" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
+                        <Button color="inherit" className={classes.footerEmailInputButton} onClick={clickOnButtonEmailInput}>
+                            <img src={Vector} alt="vector" />
                         </Button>
-                    </div>
+                    </Box>
                     <Typography
                         className={classes.footerTitle}
                         style={{ margin: "30px 0 22px" }}
                     >
                         Мы в соц. сетях:
                     </Typography>
-                    <Link href="#" className={classes.linkWrapper}>
+                    <Link href="/" className={classes.linkWrapper}> //* TODO
                         <img src="./images/footer/instagram.png" alt="instagram" />
                     </Link>
                 </Grid>
@@ -101,14 +99,14 @@ const Footer = () => {
                     © Интернет-магазин TechMart
                 </Typography>
                 <Grid item className={classes.container}>
-                    <Link href="#" className={classes.linkWrapper}>
+                    <Link href="/" className={classes.linkWrapper}> //* TODO
                         <img
                             src="./images/footer/visa.png"
                             alt="visa"
                             style={{ marginBottom: "7px" }}
                         />
                     </Link>
-                    <Link href="#" className={classes.linkWrapper}>
+                    <Link href="/" className={classes.linkWrapper}> //* TODO
                         <img src="./images/footer/master-card.png" alt="master-card" />
                     </Link>
                 </Grid>

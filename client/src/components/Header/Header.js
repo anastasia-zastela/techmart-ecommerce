@@ -4,7 +4,8 @@ import {
     AppBar,
     Button,
     TextField,
-    Grid
+    Grid,
+    Box
 } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import Logo from "../common/Logo/Logo";
@@ -32,7 +33,7 @@ const Header = () => {
                     <Logo />
                 </Grid>
                 <Grid item xs={12} sm={12} md={9} className={classes.gridInput}>
-                    <div className={classes.containerInput}>
+                    <Box className={classes.containerInput}>
                         <Grid item xs={9} sm={10} md={8}>
                             <TextField
                                 className={classes.search}
@@ -47,7 +48,7 @@ const Header = () => {
                         <Grid item xs={3} sm={2} md={4}>
                             <button className={classes.buttonSearch} onClick={filteredProducts}><span>Поиск</span></button>
                         </Grid>
-                    </div>
+                    </Box>
                 </Grid>
                 <Grid item xs={3} sm={2} md={1} className={classes.gridCart}>
                     <Button color="inherit">
