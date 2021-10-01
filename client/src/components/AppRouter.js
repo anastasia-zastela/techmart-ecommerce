@@ -32,7 +32,7 @@ const AppRouter = () => {
     </Switch>
   ) : (
     <Switch>
-      {publicRoutes.map((route) => (
+      {[...privateRoutes, ...publicRoutes, ...adminRoutes].map((route) => (
         <Route
           component={route.component}
           path={route.path}
@@ -40,7 +40,7 @@ const AppRouter = () => {
           key={route.path}
         />
       ))}
-      <Redirect to='/login' />
+      <Redirect to='/admin' />
     </Switch>
   );
 };

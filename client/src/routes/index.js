@@ -43,7 +43,7 @@ export const publicRoutes = [
     exact: true,
   },
   {
-    path: PRODUCTS_ROUTE + '/:id',
+    path: `${PRODUCTS_ROUTE}/:id`,
     component: Product,
     exact: true,
   },
