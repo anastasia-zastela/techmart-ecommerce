@@ -1,10 +1,10 @@
 import React from 'react';
-import ProductDetails from '../../components/common/ProductDetails/ProductDetails';
+import ProductDetailsTabs from '../../components/common/ProductDetailsTabs/ProductDetailsTabs';
 
 const Product = () => {
     return(
         <div>
-        <ProductDetails/>
+        <ProductDetailsTabs/>
     </div>
     )};
 
