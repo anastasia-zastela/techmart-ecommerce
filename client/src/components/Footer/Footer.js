@@ -29,18 +29,21 @@ const Footer = () => {
                     <Logo />
                     <Box style={{ marginTop: "30px" }}>
                         {footerLinks.info.map((link, index) => (
-                            <Link href="/" className={classes.footerLink} key={index}> //* TODO
+                            <Link href="/" className={classes.footerLink} key={index}>
+                                {/* TODO */}
                                 {link}
                             </Link>
                         ))}
                     </Box>
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Link href="/" className={classes.footerTitle}> //* TODO
+                    <Link href="/" className={classes.footerTitle}>
+                        {/* TODO */}
                         Категории
                     </Link>
                     {footerLinks.kategory.map((el, index) => (
-                        <Link href="/" className={classes.footerLink} key={index}> //* TODO
+                        <Link href="/" className={classes.footerLink} key={index}>
+                            {/* TODO */}
                             {el}
                         </Link>
                     ))}
@@ -84,7 +87,8 @@ const Footer = () => {
                     >
                         Мы в соц. сетях:
                     </Typography>
-                    <Link href="/" className={classes.linkWrapper}> //* TODO
+                    <Link href="/" className={classes.linkWrapper}>
+                        {/* TODO */}
                         <img src="./images/footer/instagram.png" alt="instagram" />
                     </Link>
                 </Grid>
@@ -99,14 +103,16 @@ const Footer = () => {
                     © Интернет-магазин TechMart
                 </Typography>
                 <Grid item className={classes.container}>
-                    <Link href="/" className={classes.linkWrapper}> //* TODO
+                    <Link href="/" className={classes.linkWrapper}>
+                        {/* TODO */}
                         <img
                             src="./images/footer/visa.png"
                             alt="visa"
                             style={{ marginBottom: "7px" }}
                         />
                     </Link>
-                    <Link href="/" className={classes.linkWrapper}> //* TODO
+                    <Link href="/" className={classes.linkWrapper}>
+                        {/* TODO */}
                         <img src="./images/footer/master-card.png" alt="master-card" />
                     </Link>
                 </Grid>
