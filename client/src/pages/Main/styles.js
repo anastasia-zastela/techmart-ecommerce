@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 
-export const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(() => ({
   pageTitle: {
     marginTop: '30px',
     textAlign: 'center',
@@ -12,3 +12,5 @@ export const useStyles = makeStyles(() => ({
     color: 'red',
   },
 }));
+
+export default useStyles;
