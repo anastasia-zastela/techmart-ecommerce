@@ -9,7 +9,7 @@ import {
 import { useField, useFormikContext } from 'formik';
 
 const CheckboxWrapper = ({
-  name, label, legend, ...otherProps
+  name, label, legend,
 }) => {
   const { setFieldValue } = useFormikContext();
   const [field, meta] = useField(name);

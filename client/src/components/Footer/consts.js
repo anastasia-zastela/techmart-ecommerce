@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/prefer-default-export
 export const footerLinks = {
   info: ['О нас', 'Гарантия и возврат', ' Оплата и доставка', 'Контакты'],
   kategory: [

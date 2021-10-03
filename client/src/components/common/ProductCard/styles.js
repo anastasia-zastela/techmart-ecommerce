@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 
+// eslint-disable-next-line import/prefer-default-export
 export const useStyles = makeStyles(() => ({
   cardWrapper: {
     width: '222px',

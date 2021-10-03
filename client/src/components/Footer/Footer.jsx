@@ -26,28 +26,28 @@ const Footer = () => {
           <Logo />
           <div style={{ marginTop: '30px' }}>
             {footerLinks.info.map((link) => (
-              <Link href='#' className={classes.footerLink} key={link.replace(/\s+/g, '')}>
+              <Link href='/' className={classes.footerLink} key={link.replace(/\s+/g, '')}>
                 {link}
               </Link>
             ))}
           </div>
         </Grid>
         <Grid item xs={3}>
-          <Typography href='#' className={classes.footerTitle}>
+          <Typography href='/' className={classes.footerTitle}>
             Категории
           </Typography>
           {footerLinks.kategory.map((el) => (
-            <Link href='#' className={classes.footerLink} key={el.replace(/\s+/g, '')}>
+            <Link href='/' className={classes.footerLink} key={el.replace(/\s+/g, '')}>
               {el}
             </Link>
           ))}
         </Grid>
         <Grid item xs={2}>
-          <Typography href='#' className={classes.footerTitle}>
+          <Typography href='/' className={classes.footerTitle}>
             Связаться с нами
           </Typography>
           {footerLinks.contacts.map((link) => (
-            <Link href='#' className={classes.footerLink} key={link.replace(/\s+/g, '')}>
+            <Link href='/' className={classes.footerLink} key={link.replace(/\s+/g, '')}>
               {link}
             </Link>
           ))}
