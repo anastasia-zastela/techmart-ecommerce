@@ -2,9 +2,7 @@ import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import img from "../iphone12.jpg";
-import img2 from "../1.jpg";
-import img3 from "../images.jpg";
-import { useStyles } from "./styles";
+import useStyles from "./styles";
 
 const Slider = () => {
   const classes = useStyles();

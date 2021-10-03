@@ -1,12 +1,11 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   cardWrapper: {
     margin: " 0  0 30px",
     padding: "25px 25px",
     backgroundColor: "white",
     borderRadius: "10px",
-    // border: "1px solid grey",
     boxShadow: "0px 0px 10px 1px rgba(0, 0, 0, 0.1)",
   },
   coloredBtn: {
@@ -46,20 +45,17 @@ export const useStyles = makeStyles((theme) => ({
   },
   productButton: {
     color: "#3ec0dd",
-
     fontSize: "18px",
     backgroundColor: "white",
     width: "195px",
     borderRadius: "5px",
     border: "1px solid  #3ec0dd",
     padding: "10px 0",
+
     "&:hover": {
-      color: "white",
-      backgroundColor: "#3ec0dd !important",
-    },
-    "& .makeStyles-productButton-25:hover": {
       color: "white",
       backgroundColor: "#3ec0dd",
     },
   },
 }));
+export default useStyles;
