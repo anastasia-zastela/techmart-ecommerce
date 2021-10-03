@@ -1,5 +1,5 @@
 import Cart from '../pages/Cart/Cart.js';
-import Main from '../pages/Main/Main';
+import Main from '../pages/Main';
 import Admin from '../pages/Admin/Admin.js';
 import Products from '../pages/Products/Products';
 import Product from '../pages/Product/Product';
@@ -43,7 +43,7 @@ export const publicRoutes = [
     exact: true,
   },
   {
-    path: PRODUCTS_ROUTE + '/:id',
+    path: `${PRODUCTS_ROUTE}/:id`,
     component: Product,
     exact: true,
   },
