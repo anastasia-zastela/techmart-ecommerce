@@ -40,7 +40,7 @@ const Header = () => {
                                 InputProps={{
                                     className: classes.search,
                                 }}
-                                label="Поиск"
+                                placeholder='Поиск'
                                 variant="outlined"
                                 onChange={(e) => setSearchInput(e.target.value)}
                             />

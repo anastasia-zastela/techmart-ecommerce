@@ -53,9 +53,9 @@ const Footer = () => {
                         Связаться с нами
                     </Typography>
                     {footerLinks.contacts.map((contactPhone, index) => (
-                        <Typography className={classes.footerLink} key={index}>
+                        <Link href="/" className={classes.footerLink} key={index}>
                             {contactPhone}
-                        </Typography>
+                        </Link>
                     ))}
                     {footerLinks.timeToCall.map((link, index) => (
                         <Typography className={classes.footerLink} key={index}>
@@ -71,7 +71,7 @@ const Footer = () => {
                         <TextField
                             className={classes.multilineColor}
                             InputProps={{
-                                className: classes.multilineColor,
+                                className: classes.multilineColor
                             }}
                             fullWidth
                             label="email"
@@ -87,9 +87,21 @@ const Footer = () => {
                     >
                         Мы в соц. сетях:
                     </Typography>
-                    <Link href="/" className={classes.linkWrapper}>
+                    <Link href="https://www.instagram.com/" target="_blank" className={classes.linkWrapper}>
                         {/* TODO */}
                         <img src="./images/footer/instagram.png" alt="instagram" />
+                    </Link>
+                    <Link href="https://www.facebook.com/" target="_blank" className={classes.linkWrapper}>
+                        {/* TODO */}
+                        <img src="./images/footer/logo-facebook.svg" alt="facebook" />
+                    </Link>
+                    <Link href="https://www.google.com/" target="_blank" className={classes.linkWrapper}>
+                        {/* TODO */}
+                        <img src="./images/footer/logo-google.svg" alt="google" />
+                    </Link>
+                    <Link href="https://www.linkedin.com/" target="_blank" className={classes.linkWrapper}>
+                        {/* TODO */}
+                        <img src="./images/footer/linkedin-icon.svg" alt="linkedin" />
                     </Link>
                 </Grid>
             </Grid>
