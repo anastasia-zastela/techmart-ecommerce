@@ -19,8 +19,8 @@ const AppRouter = () => {
       <Redirect to='/' />
     </Switch>
   ) : userInfo ? (
-    <Switch>
-      {[...privateRoutes, ...publicRoutes].map((route) => (
+    <Switch >
+      {[...privateRoutes, ...publicRoutes, ...adminRoutes].map((route) => (
         <Route
           component={route.component}
           path={route.path}
@@ -32,6 +32,7 @@ const AppRouter = () => {
     </Switch>
   ) : (
     <Switch>
+        {/* TODO Remove Index Routes*/}
       {[...privateRoutes, ...publicRoutes, ...adminRoutes].map((route) => (
         <Route
           component={route.component}
@@ -40,7 +41,7 @@ const AppRouter = () => {
           key={route.path}
         />
       ))}
-      <Redirect to='/admin' />
+      <Redirect to='/login' />
     </Switch>
   );
 };
