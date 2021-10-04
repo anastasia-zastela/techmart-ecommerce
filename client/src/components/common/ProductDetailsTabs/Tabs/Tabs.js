@@ -4,7 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import {useState} from "react";
 
-export default function CenteredTabs({setDesc, setSpec, setReviews}) {
+export default function ProductTabs({setDescription, setSpecifications, setReviews}) {
     const [value, setValue] = useState(0);
 
     const handleChange = (event, newValue) => {
@@ -12,29 +12,29 @@ export default function CenteredTabs({setDesc, setSpec, setReviews}) {
     };
 
     const handleDesc = () => {
-        setDesc(true);
-        setSpec(false);
+        setDescription(true);
+        setSpecifications(false);
         setReviews(false);
     };
 
     const handleSpec = () => {
-        setDesc(false);
-        setSpec(true);
+        setDescription(false);
+        setSpecifications(true);
         setReviews(false);
     }
 
     const handleReviews = () => {
-        setDesc(false);
-        setSpec(false);
+        setDescription(false);
+        setSpecifications(false);
         setReviews(true);
     }
 
     return (
-        <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
+        <Box sx={{width: '100%'}}>
             <Tabs value={value} onChange={handleChange} centered>
-                <Tab onClick={handleDesc} label="Описание" />
-                <Tab onClick={handleSpec} label="Характеристики" />
-                <Tab onClick={handleReviews} label="Отзывы" />
+                <Tab onClick={handleDesc} label="Описание"/>
+                <Tab onClick={handleSpec} label="Характеристики"/>
+                <Tab onClick={handleReviews} label="Отзывы"/>
             </Tabs>
         </Box>
     );
