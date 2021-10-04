@@ -2,7 +2,7 @@ import React, { useCallback, useMemo } from 'react';
 import { Form, Formik } from 'formik';
 
 import TextfieldWrapper from '../../../components/common/forms/TextfieldWrapper';
-import SubmitButton from './SubmitButton';
+import SubmitBlock from './SubmitBlock';
 import { useActions } from '../../../hooks/useActions';
 import { useStyles } from './styles';
 import {
@@ -25,18 +25,16 @@ const SignupForm = () => {
     >
       {({ isSubmitting }) => (
         <Form className={classes.formBody}>
-          <h5 className={classes.topNote}>Все поля обязательны</h5>
           {signupFormFieldsData
             .map((fieldParams) => (
               <TextfieldWrapper
                 key={fieldParams.label}
+                className={classes.formInput}
                 helperText=' '
                 {...fieldParams}
               />
             ))}
-          <div>
-            <SubmitButton isSubmitting={isSubmitting} />
-          </div>
+            <SubmitBlock buttonClass={classes.submitButton} isSubmitting={isSubmitting} />
         </Form>
       )}
     </Formik>

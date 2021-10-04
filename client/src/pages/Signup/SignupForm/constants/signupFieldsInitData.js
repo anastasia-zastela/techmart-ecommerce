@@ -18,11 +18,6 @@ export default [
     helperText: 'ivan@gmail.com',
   },
   {
-    name: 'phoneNumber',
-    label: 'Номер телефона',
-    helperText: '+38 (0XX) XXX XX XX',
-  },
-  {
     name: 'password',
     label: 'Пароль',
     type: 'password',
@@ -32,5 +27,10 @@ export default [
     name: 'repeatPassword',
     label: 'Повторите пароль',
     type: 'password',
+  },
+  {
+    name: 'phoneNumber',
+    label: 'Номер телефона',
+    helperText: '+38 (0XX) XXX XX XX',
   },
 ];
