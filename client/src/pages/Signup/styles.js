@@ -1,10 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles(() => ({
-  // page: {
-  //   margin: '-20px auto 0',
-  //   padding: '10px clamp(1em, calc(8vw+1em), 5em) 30px',
-  // },
   wrapper: {
     maxWidth: '1000px',
     margin: '0 auto',

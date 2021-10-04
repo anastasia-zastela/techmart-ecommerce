@@ -2,7 +2,7 @@ import React, { useCallback, useMemo } from 'react';
 import { Form, Formik } from 'formik';
 
 import TextfieldWrapper from '../../../components/common/forms/TextfieldWrapper';
-import SubmitBlock from './SubmitBlock';
+import Component from './SubmitBlock';
 import { useActions } from '../../../hooks/useActions';
 import { useStyles } from './styles';
 import {
@@ -34,7 +34,7 @@ const SignupForm = () => {
                 {...fieldParams}
               />
             ))}
-            <SubmitBlock buttonClass={classes.submitButton} isSubmitting={isSubmitting} />
+            <Component buttonClass={classes.submitButton} isSubmitting={isSubmitting} />
         </Form>
       )}
     </Formik>

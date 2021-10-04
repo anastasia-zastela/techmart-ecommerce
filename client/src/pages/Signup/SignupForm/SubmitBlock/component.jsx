@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Button } from '@material-ui/core';
 import { TailSpin, useLoading } from '@agney/react-loading';
 import { useSelector } from 'react-redux';
@@ -9,7 +9,7 @@ const loaderConfig = {
   indicator: <TailSpin width='20' />,
 };
 
-const SubmitBlock = ({ isSubmitting, buttonClass }) => {
+const Component = ({ isSubmitting, buttonClass }) => {
   const registerStatus = useSelector((state) => state.userRegister);
   const { containerProps, indicatorEl } = useLoading(loaderConfig);
   const classes = useStyles(!registerStatus.error);
@@ -37,4 +37,4 @@ const SubmitBlock = ({ isSubmitting, buttonClass }) => {
   );
 };
 
-export default SubmitBlock;
+export default Component;
