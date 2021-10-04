@@ -1,36 +1,39 @@
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { Form, Formik } from 'formik';
-import { Button } from '@material-ui/core';
 
-// TODO change schema file extension
-import { signupValidationSchema } from './signupValidationSchema.mjs';
-// import { useActions } from 'hooks/useActions';
 import TextfieldWrapper from '../../../components/common/forms/TextfieldWrapper';
-import { signupFormFieldsData } from './constants/signupFieldsInitData';
-import SubmitButton from './submitButton';
+import SubmitButton from './SubmitButton';
+import { useActions } from '../../../hooks/useActions';
+import { useStyles } from './styles';
+import {
+  signupFieldsInitData as signupFormFieldsData,
+  signupValidationSchema,
+} from './constants';
 
-const SignupForm = () =>
-  // const a = useActions();
-  (
+const SignupForm = () => {
+  const initialValues = useMemo(() => signupValidationSchema.default(), []);
+  const { register } = useActions();
+  const submitHandler = useCallback(async (values) => register(values), [register]);
+  const classes = useStyles();
+
+  return (
     <Formik
-      initialValues={signupValidationSchema.default()}
-      onSubmit={async (values, { setSubmitting }) => {
-        setSubmitting(true);
-        const r = () => alert(JSON.stringify(values));
-        return new Promise(() => {
-          setTimeout(() => {
-            r();
-            setSubmitting(false);
-          }, 3000);
-        });
-      }}
+      initialValues={initialValues}
+      onSubmit={submitHandler}
       validationSchema={signupValidationSchema}
       validateOnChange={false}
     >
       {({ isSubmitting }) => (
-        <Form>
+        <Form className={classes.formBody}>
+          <h5 className={classes.topNote}>Все поля обязательны</h5>
           {signupFormFieldsData
-            .map((fieldParams) => (<TextfieldWrapper helperText=' ' {...fieldParams} />))}
+            .map((fieldParams) => (
+              <TextfieldWrapper
+                key={fieldParams.label}
+                helperText=' '
+                {...fieldParams}
+              />
+            ))}
           <div>
             <SubmitButton isSubmitting={isSubmitting} />
           </div>
@@ -38,4 +41,6 @@ const SignupForm = () =>
       )}
     </Formik>
   );
+};
+
 export default SignupForm;

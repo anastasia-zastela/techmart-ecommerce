@@ -1,11 +1,11 @@
-import Yup from 'yup';
+import * as Yup from 'yup';
 
 const requiredMessage = 'Обязательно';
 const tooShortMessage = 'Минимум 2 символа';
 const phoneRegExp = /^\+?(?:38)?\s?\(?0\s?\d{2}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/;
-const passwordRegExp = /^(?=.*[A-Za-zА-Яа-я])(?=.*\d)[A-Za-zА-Яа-я\d]{8,}$/u
+const passwordRegExp = /^(?=.*[A-Za-zА-Яа-я])(?=.*\d)[A-Za-zА-Яа-я\d]{8,}$/u;
 
-export const signupValidationSchema = Yup.object().shape({
+export default Yup.object().shape({
   firstName: Yup.string()
     .required(requiredMessage)
     .min(2, tooShortMessage)
@@ -30,7 +30,10 @@ export const signupValidationSchema = Yup.object().shape({
   password: Yup.string()
     .required(requiredMessage)
     .default('')
-    .matches(passwordRegExp),
+    .matches(passwordRegExp, {
+      message: 'Должен содержать 8 символов, заглавную букву и цифру',
+      excludeEmptyString: true,
+    }),
   repeatPassword: Yup.string().default('').when('password', {
     is: '',
     then: Yup.string().notRequired(),
@@ -41,6 +44,3 @@ export const signupValidationSchema = Yup.object().shape({
   })
   ,
 });
-
-// eslint-disable-next-line no-console
-console.log(signupValidationSchema.default());

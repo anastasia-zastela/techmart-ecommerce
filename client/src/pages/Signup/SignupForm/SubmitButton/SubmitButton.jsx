@@ -8,18 +8,16 @@ const loaderConfig = {
   indicator: <TailSpin width='20' />,
 };
 
-const SubmitButton = () => {
+const SubmitButton = ({ isSubmitting }, ...otherProps) => {
   const registerStatus = useSelector((state) => state.userRegister);
-  const isSubmitting = false;
-  console.log(registerStatus);
-  const {containerProps, indicatorEl} = useLoading(loaderConfig);
+  const { containerProps, indicatorEl } = useLoading(loaderConfig);
 
   return (
     <>
-      <Button {...containerProps} type='submit' disabled={isSubmitting} variant='contained'>
-        {registerStatus.loading ? indicatorEl : 'Зарегистрироваться'}
+      <Button {...containerProps} type='submit' disabled={isSubmitting} variant='contained' {...otherProps}>
+        {isSubmitting ? indicatorEl : 'Зарегистрироваться'}
       </Button>
-      {}
+      <h3>{registerStatus.error ? 'Ошибка' : 'Успех'}</h3>
     </>
   );
 };

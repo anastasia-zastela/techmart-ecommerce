@@ -1,4 +1,4 @@
-export const signupFormFieldsData = [
+export default [
   {
     name: 'firstName',
     label: 'Имя',

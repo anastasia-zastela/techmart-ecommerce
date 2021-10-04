@@ -13,7 +13,7 @@ import {
   SIGNUP_ROUTE,
 } from '../config/consts';
 import Checkout from '../pages/Checkout/Checkout';
-import Signup from '../pages/Signup/Signup';
+import Signup from '../pages/Signup';
 
 export const adminRoutes = [
   {
