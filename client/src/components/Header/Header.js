@@ -16,7 +16,7 @@ const Header = () => {
     const products = [];
     const [seachInput, setSearchInput] = useState('');
     const searchForProducts = () => {
-        const filteredProduct = products.filter(product => {
+        const filteredProducts = products.filter(product => {
             return product.name.toLowerCase().includes(seachInput.toLowerCase())
         })
         console.log(seachInput);
