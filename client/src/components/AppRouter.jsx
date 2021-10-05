@@ -10,7 +10,7 @@ const AppRouter = () => {
   if (userInfo) accessibleRoutes = accessibleRoutes.concat(privateRoutes);
   if (userInfo?.isAdmin) accessibleRoutes = accessibleRoutes.concat(adminRoutes);
 
-  const redirectRoute = userInfo ? '/' : '/login';
+  const redirectRoute = userInfo ? '/' : '/signin';
 
   return (
     <Switch>
