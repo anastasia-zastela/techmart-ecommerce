@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {Paper} from "@material-ui/core";
 
-import ProductTabs from "./Tabs/Tabs";
-import Reviews from "./Tabs/Reviews/Reviews";
+import ProductTabs from "./Tabs";
+import Reviews from "./Tabs/Reviews";
 
 import useStyles from "./styles";
 

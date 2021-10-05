@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductDetailsTabs from '../../components/common/ProductDetailsTabs/ProductDetailsTabs';
+import ProductDetailsTabs from '../../components/common/ProductDetailsTabs';
 
 const Product = () => {
     return(
