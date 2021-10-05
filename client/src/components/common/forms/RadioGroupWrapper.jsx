@@ -6,18 +6,18 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { FormControl, FormLabel } from '@material-ui/core';
 import { useField } from 'formik';
 
-const renderOptions = (options) => {
-  return options.map((option) => (
-    <FormControlLabel
-      key={option}
-      value={option}
-      control={<Radio />}
-      label={option}
-    />
-  ));
-};
+const renderOptions = (options) => options.map((option) => (
+  <FormControlLabel
+    key={option}
+    value={option}
+    control={<Radio />}
+    label={option}
+  />
+));
 
-const RadioGroupWrapper = ({ name, legend, options, children, ...props }) => {
+const RadioGroupWrapper = ({
+  name, legend, options, children, ...props
+}) => {
   const [field, meta] = useField(name);
   const fieldName = name || field.name;
 

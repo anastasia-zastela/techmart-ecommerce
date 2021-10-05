@@ -1,6 +1,7 @@
-import Cart from '../pages/Cart/Cart.js';
+import Cart from '../pages/Cart/Cart';
 import Main from '../pages/Main/Main';
-import Index from '../pages/Admin';
+import Admin from '../pages/Admin/Admin';
+
 import Products from '../pages/Products/Products';
 import Product from '../pages/Product/Product';
 
@@ -18,7 +19,7 @@ import Signup from '../pages/Signup/Signup';
 export const adminRoutes = [
   {
     path: ADMIN_ROUTE,
-    component: Index,
+    component: Admin,
     exact: true,
   },
 ];

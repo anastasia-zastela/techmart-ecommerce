@@ -1,11 +1,3 @@
-import React from 'react';
+import Admin from './Admin';
 
-const Index = () => {
-    return (
-        <div>
-            Admin page
-        </div>
-    );
-};
-
-export default Index;
+export default Admin;

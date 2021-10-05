@@ -8,7 +8,9 @@ import {
 } from '@material-ui/core';
 import { useField, useFormikContext } from 'formik';
 
-const CheckboxWrapper = ({ name, label, legend, ...otherProps }) => {
+const CheckboxWrapper = ({
+  name, label, legend,
+}) => {
   const { setFieldValue } = useFormikContext();
   const [field, meta] = useField(name);
 
