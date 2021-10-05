@@ -108,7 +108,7 @@ const Footer = () => {
             <Grid
                 container
                 alignItems="center"
-                justify="space-between"
+                justifyContent="space-between"
                 className={classes.footer}
             >
                 <Typography className={classes.text}>
