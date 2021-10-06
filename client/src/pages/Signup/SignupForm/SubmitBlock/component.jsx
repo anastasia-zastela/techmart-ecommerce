@@ -9,8 +9,10 @@ const loaderConfig = {
   indicator: <TailSpin width='20' />,
 };
 
-const Component = ({ isSubmitting, buttonClass }) => {
-  const registerStatus = useSelector((state) => state.userRegister);
+const userRegisterSelector = (state) => state.userRegister;
+
+const SubmitBlock = ({ isSubmitting, buttonClass }) => {
+  const registerStatus = useSelector(userRegisterSelector);
   const { containerProps, indicatorEl } = useLoading(loaderConfig);
   const classes = useStyles(!registerStatus.error);
 
@@ -37,4 +39,4 @@ const Component = ({ isSubmitting, buttonClass }) => {
   );
 };
 
-export default Component;
+export default SubmitBlock;

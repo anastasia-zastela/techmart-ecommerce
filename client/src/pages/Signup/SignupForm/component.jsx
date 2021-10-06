@@ -1,8 +1,8 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback } from 'react';
 import { Form, Formik } from 'formik';
 
 import TextfieldWrapper from '../../../components/common/forms/TextfieldWrapper';
-import Component from './SubmitBlock';
+import SubmitBlock from './SubmitBlock';
 import { useActions } from '../../../hooks/useActions';
 import { useStyles } from './styles';
 import {
@@ -10,8 +10,9 @@ import {
   signupValidationSchema,
 } from './constants';
 
+const initialValues = signupValidationSchema.default();
+
 const SignupForm = () => {
-  const initialValues = useMemo(() => signupValidationSchema.default(), []);
   const { register } = useActions();
   const submitHandler = useCallback(async (values) => register(values), [register]);
   const classes = useStyles();
@@ -34,7 +35,7 @@ const SignupForm = () => {
                 {...fieldParams}
               />
             ))}
-            <Component buttonClass={classes.submitButton} isSubmitting={isSubmitting} />
+          <SubmitBlock buttonClass={classes.submitButton} isSubmitting={isSubmitting} />
         </Form>
       )}
     </Formik>
