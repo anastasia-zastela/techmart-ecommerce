@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   mainSlider: {
     width: "500px",
     height: "390px",
@@ -9,7 +9,8 @@ const useStyles = makeStyles(() => ({
     textAlign: "center",
 
     "& .carousel": {
-      width: "200px",
+      width: "170px",
+
     },
 
     "& .thumb": {
@@ -37,5 +38,41 @@ const useStyles = makeStyles(() => ({
       display: "none",
     },
   },
+
+  [theme.breakpoints.down('sm')]:{
+    mainSlider: {
+      width: "350px",
+      height: "500px",
+      flexDirection: "column",
+  
+      "& .carousel": {
+        width: "300px",
+      },
+
+      "& .thumbs": {
+        flexDirection: "row",
+      },
+    },
+  },
+  
+  [theme.breakpoints.down('xs')]:{
+    mainSlider: {
+      margin: '0 auto',
+      width: "320px",
+      height: "450px",
+      flexDirection: "column",
+  
+      "& .carousel": {
+        width: "300px",
+      },
+
+      "& .thumbs": {
+        flexDirection: "row",
+      },
+    },
+  },
+  
+  
+
 }));
 export default useStyles;

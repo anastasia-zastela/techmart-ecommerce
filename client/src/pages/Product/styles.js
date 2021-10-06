@@ -47,7 +47,7 @@ const useStyles = makeStyles(() => ({
     color: "#3ec0dd",
     fontSize: "18px",
     backgroundColor: "white",
-    width: "195px",
+    width: "185px",
     borderRadius: "5px",
     border: "1px solid  #3ec0dd",
     padding: "10px 0",

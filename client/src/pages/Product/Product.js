@@ -23,7 +23,7 @@ const Product = () => {
   //useLocation(id)
 
   return (
-    <Container maxidth="lg">
+    <Container maxidth="xs">
       <Box className={classes.cardWrapper}>
         <Typography variant="h5" className={classes.header}>
           Apple iPhone 12 256 Gb White
@@ -35,11 +35,11 @@ const Product = () => {
           alignItems="stretch"
           spacing={2}
         >
-          <Grid item xs={12} sm={5} md={5} className={classes.mainSlider}>
+          <Grid item xs={12} sm={8} md={6} className={classes.mainSlider, classes.item}>
             <Slider />
           </Grid>
 
-          <Grid item xs={12} sm={3} md={3} className={classes.item}>
+          <Grid item xs={12} sm={4} md={3} className={classes.item}>
             <Typography variant="body1" className={classes.container}>
               Цвет:
             </Typography>
@@ -62,7 +62,7 @@ const Product = () => {
             <Button className={classes.productButton}>Купить</Button>
           </Grid>
 
-          <Grid item xs={12} sm={4} md={4} className={classes.item}>
+          <Grid item xs={12} sm={12} md={3} className={classes.item}>
             <Typography variant="body1" className={classes.container}>
               Память:
             </Typography>
