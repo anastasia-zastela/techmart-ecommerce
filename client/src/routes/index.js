@@ -1,8 +1,10 @@
-import Cart from '../pages/Cart/Cart';
-import Main from '../pages/Main/Main';
-import Admin from '../pages/Admin/Admin';
-import Products from '../pages/Products/Products';
-import Product from '../pages/Product/Product';
+import Cart from '../pages/Cart';
+import Main from '../pages/Main';
+import Admin from '../pages/Admin';
+import Products from '../pages/Products';
+import Product from '../pages/Product';
+import Checkout from '../pages/Checkout';
+import Signup from '../pages/Signup';
 
 import {
   ADMIN_ROUTE,
@@ -12,8 +14,6 @@ import {
   PRODUCTS_ROUTE,
   SIGNUP_ROUTE,
 } from '../config/consts';
-import Checkout from '../pages/Checkout/Checkout';
-import Signup from '../pages/Signup';
 
 export const adminRoutes = [
   {
