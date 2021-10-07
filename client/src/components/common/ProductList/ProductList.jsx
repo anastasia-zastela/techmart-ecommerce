@@ -1,6 +1,5 @@
 import React from 'react';
 import { useActions } from '../../../hooks/useActions';
-import { addToCart, removeFromCart } from '../../../redux/actions/cartActions';
 import ProductCard from '../ProductCard/ProductCard';
 import { useStyles } from './styles';
 

@@ -47,15 +47,15 @@ export const logout = () => (dispatch) => {
 };
 
 // const newCustomer = {
-// 	firstName: "Customer",
-// 	lastName: "Newone",
-// 	login: "Customer",
-// 	email: "customer@gmail.com",
-// 	password: "1111111",
-// 	telephone: "+380630000000",
-// 	gender: "male",
-// 	avatarUrl: "img/customers/023648.png",
-// 	isAdmin: true
+// firstName: "Customer",
+// lastName: "Newone",
+// login: "Customer",
+// email: "customer@gmail.com",
+// password: "1111111",
+// telephone: "+380630000000",
+// gender: "male",
+// avatarUrl: "img/customers/023648.png",
+// isAdmin: true
 // },
 
 export const register = (newCustomer) => async (dispatch) => {

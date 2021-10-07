@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 
-export const useStyles = makeStyles((theme) => ({
+// eslint-disable-next-line import/prefer-default-export
+export const useStyles = makeStyles(() => ({
   listWrapper: {
     display: 'flex',
     flexWrap: 'wrap',
