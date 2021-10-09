@@ -14,7 +14,7 @@ const ProductDetailsTabs = () => {
         const [reviews, setReviews] = useState(false);
 
         return (
-            <>
+            <div className={classes.productDetailsWrapper}>
                 <Paper>
                     <ProductTabs setDescription={setDescription} setSpecifications={setSpecifications} setReviews={setReviews}/>
                 </Paper>
@@ -25,7 +25,7 @@ const ProductDetailsTabs = () => {
                     {specifications && <Paper>Lorem ipsum dolor sit amet, consectetur adipisicing .</Paper>}
                     {reviews && <Paper><Reviews/></Paper>}
                 </Paper>
-            </>
+            </div>
         );
     }
 ;
