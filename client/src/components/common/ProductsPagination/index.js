@@ -1,3 +1,3 @@
-import ProductsPagination from './ProductsPagination'
+import ProductsPagination from "./ProductsPagination";
 
-export default ProductsPagination
+export default ProductsPagination;

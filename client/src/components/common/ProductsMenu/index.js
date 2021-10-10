@@ -1,3 +1,3 @@
-import ProductsMenu from './ProductsMenu'
+import ProductsMenu from "./ProductsMenu";
 
-export default ProductsMenu
+export default ProductsMenu;

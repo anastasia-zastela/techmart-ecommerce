@@ -1,4 +1,4 @@
-import ProductService from '../../services/ProductService';
+import ProductService from "../../services/ProductService";
 import {
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
@@ -6,9 +6,8 @@ import {
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
-  PRODUCTS_SORT_BY
-} from '../constants/productConstants';
-
+  PRODUCTS_SORT_BY,
+} from "../constants/productConstants";
 
 export const listProducts = () => async (dispatch) => {
   try {
@@ -52,21 +51,17 @@ export const listProductDetails = (id) => async (dispatch) => {
   }
 };
 export const sortByAscending = (array) => (dispatch) => {
-  const sort = [...array].sort((a , b) => 
-  b.price -a.price 
-)
+  const sort = [...array].sort((a, b) => b.price - a.price);
   dispatch({
     type: PRODUCTS_SORT_BY,
-    payload: sort
+    payload: sort,
   });
-}
+};
 
 export const sortByDescending = (array) => (dispatch) => {
-  const sort = [...array].sort((a , b) => 
-  a.price - b.price
-)
+  const sort = [...array].sort((a, b) => a.price - b.price);
   dispatch({
     type: PRODUCTS_SORT_BY,
-    payload: sort
+    payload: sort,
   });
-}
+};
