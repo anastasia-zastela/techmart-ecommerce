@@ -1,10 +1,17 @@
 import React from 'react';
+import {Box, Container} from "@material-ui/core";
+import CreateDevice from "../../components/Modal/CreateDevice";
 
 const Index = () => {
+
+
     return (
-        <div>
-            Admin page
-        </div>
+
+        <Container>
+            <Box style={{display: 'flex', justifyContent: 'space-around'} }>
+            <CreateDevice/>
+            </Box>
+        </Container>
     );
 };
 

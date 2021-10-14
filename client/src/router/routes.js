@@ -1,6 +1,6 @@
 import Cart from '../pages/Cart/Cart.js';
 import Main from '../pages/Main/Main';
-import Index from '../pages/Admin';
+import Admin from '../pages/Admin';
 import Products from '../pages/Products/Products';
 import Product from '../pages/Product/Product';
 
@@ -15,46 +15,47 @@ import {
 import Checkout from '../pages/Checkout/Checkout';
 import Signup from '../pages/Signup/Signup';
 
-export const adminRoutes = [
-  {
-    path: ADMIN_ROUTE,
-    component: Index,
-    exact: true,
-  },
-];
 
 export const privateRoutes = [
   {
     path: CART_ROUTE,
-    component: Cart,
+    component: <Cart />,
     exact: true,
+    admin: false
+  },
+  {
+    path: ADMIN_ROUTE,
+    component: <Admin />,
+    exact: true,
+    admin: true
   },
   {
     path: CHECKOUT_ROUTE,
-    component: Checkout,
+    component: <Checkout />,
     exact: true,
+    admin: false,
   },
 ];
 
 export const publicRoutes = [
   {
     path: MAIN_PAGE_ROUTE,
-    component: Main,
+    component: <Main />,
     exact: true,
   },
   {
     path: `${PRODUCTS_ROUTE}/:id`,
-    component: Product,
+    component: <Product />,
     exact: true,
   },
   {
     path: PRODUCTS_ROUTE,
-    component: Products,
+    component: <Products />,
     exact: true,
   },
   {
     path: SIGNUP_ROUTE,
-    component: Signup,
+    component: <Signup />,
     exact: true,
   },
 ];
