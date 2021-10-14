@@ -1,3 +1,3 @@
-import Component from './component';
+import SubmitBlock from './component';
 
-export default Component;
+export default SubmitBlock;
