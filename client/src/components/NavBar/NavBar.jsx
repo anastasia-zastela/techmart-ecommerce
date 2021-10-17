@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import {
     Toolbar,
     Typography,
@@ -14,13 +14,13 @@ const NavBar = () => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = useState(null);
 
-    const handleOpenMenu = e => {
+    const handleOpenMenu = useCallback((e) => {
         setAnchorEl(e.currentTarget);
-    };
+    }, [setAnchorEl]);
 
-    const handleCloseMenu = () => {
+    const handleCloseMenu = useCallback(() => {
         setAnchorEl(null);
-    }
+    }, [setAnchorEl])
 
     return (
         <>
