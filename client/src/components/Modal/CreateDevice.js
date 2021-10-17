@@ -75,7 +75,7 @@ const CreateDevice = () => {
             </FormControl>
             <Box>
             <Box>
-              <Input  placeholder='Введите название девайса' />
+              <TextField fullWidth  placeholder='Введите название девайса' />
             </Box>
             <Box>
               <Input  placeholder='Введите цену девайса' />
@@ -117,38 +117,4 @@ const CreateDevice = () => {
     </Box>
   );
 };
-
-//   const [open, setOpen] = useState(false);
-//   const handleOpen = () => setOpen(true);
-//   const handleClose = () => setOpen(false);
-//   return (
-//     <Box className={classes.modal_window}>
-//       <Box>
-//         <Button variant='contained' onClick={handleOpen}>Добавить устройство</Button>
-//       </Box>
-//       <Modal
-//         open={open}
-//         onClose={handleClose}
-//         aria-labelledby='modal-modal-title'
-//         aria-describedby='modal-modal-description'
-//       >
-//
-//         <Box className={classes.modal}>
-//             <Typography variant='h6' component='h2'>
-//                 Добавить устройство
-//           </Typography>
-//             <Box>
-//             <Input placeholder='Введите название устройства' />
-//           </Box>
-//             <Box>
-//                 <Button variant='outlined' color='error' onClick={handleClose}>Закрыть</Button>
-//                 <Button variant='contained' onClick={() => console.log('Dobavleno')}>Добавить</Button>
-//             </Box>
-//         </Box>
-//
-//       </Modal>
-//     </Box>
-//   );
-// };
-
 export default CreateDevice;
