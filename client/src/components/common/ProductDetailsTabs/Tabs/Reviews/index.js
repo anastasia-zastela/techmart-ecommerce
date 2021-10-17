@@ -10,9 +10,7 @@ import {Button, TextField} from "@material-ui/core";
 import {useState} from "react";
 
 export default function Reviews() {
-
     const classes = useStyles();
-
     const [reviewText, setReviewText] = useState();
 
     const handleSubmit= (e) => {
