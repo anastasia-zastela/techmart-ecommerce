@@ -1,14 +1,15 @@
 import { makeStyles } from "@material-ui/core";
+import { styles } from '../../utils/UserInterfaceConstants';
 
-export const useStyles = makeStyles((theme) => ({
+export const useStyles = makeStyles(() => ({
     linkNavBar: {
         fontSize: "17px",
         textDecoration: "none",
-        color: "rgb(62, 192, 221)",
+        color: styles.colorLightBlue,
         width: '150px'
     },
     NavBar: {
-        backgroundColor: "rgb(50, 50, 50)",
+        backgroundColor: styles.colorDarkGrey,
         padding: "10px",
         marginBottom: "20px",
         display: 'flex',
