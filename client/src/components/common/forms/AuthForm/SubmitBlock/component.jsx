@@ -22,7 +22,7 @@ const SubmitBlock = ({
   const classes = useModifiedStyles(defaultStyles, {
     ...buttonAddedStyles,
     notification: {
-      color: submitStatus ? 'olive' : 'red',
+      color: submitStatus.error ? 'red' : 'olive',
     },
   });
 
