@@ -45,18 +45,15 @@ describe('SubmitBlock', () => {
       loading: false,
       error: true,
     };
-
-    const { unmount } = render(<SubmitBlock {...props} />);
+    const { rerender } = render(<SubmitBlock {...props} />);
 
     expect(screen.getByRole('heading')).toHaveStyle('color: red');
 
-    unmount()
     mockUserRequestState = {
       loading: false,
       error: false,
     };
-
-    render(<SubmitBlock {...props} />);
+    rerender(<SubmitBlock {...props} />);
 
     expect(screen.getByRole('heading')).toHaveStyle('color: olive');
   });
