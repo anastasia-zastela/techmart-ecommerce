@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Formik } from 'formik';
 import TextfieldWrapper from '../TextfieldWrapper';
 import SubmitBlock from './SubmitBlock';
-import { useStyles } from './styles';
+import { defaultStyles } from './styles';
 import { useModifiedStyles } from '../../../../hooks/useModifiedStyles';
 
 const AuthForm = ({
@@ -10,11 +10,11 @@ const AuthForm = ({
   initialValues,
   submitHandler,
   validationSchema,
-  styles = {},
+  addedStyles = {},
   withEmptyHelperTexts,
   submitBlockProps,
 }) => {
-  const classes = useModifiedStyles(useStyles(), styles);
+  const classes = useModifiedStyles(defaultStyles, addedStyles);
 
   return (
     <Formik

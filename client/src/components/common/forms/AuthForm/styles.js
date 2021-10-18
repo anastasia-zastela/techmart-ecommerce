@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 
-export const useStyles = makeStyles(() => ({
+export const defaultStyles = {
   formBody: {
     padding: '2em 1em',
     borderRadius: '.5em',
@@ -40,4 +40,6 @@ export const useStyles = makeStyles(() => ({
     width: 'fit-content',
     margin: '0 auto',
   },
-}));
+};
+
+export const useStyles = makeStyles(defaultStyles)

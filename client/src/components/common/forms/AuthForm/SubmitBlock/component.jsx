@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@material-ui/core';
 import { TailSpin, useLoading } from '@agney/react-loading';
 import { useSelector } from 'react-redux';
-import { useStyles } from './styles';
+import { defaultStyles } from './styles';
 import { useModifiedStyles } from '../../../../../hooks/useModifiedStyles';
 
 const loaderConfig = {
@@ -15,10 +15,12 @@ const SubmitBlock = ({
   formClass,
   submitSelector,
   buttonText,
+  buttonAddedStyles,
 }) => {
   const submitStatus = useSelector(submitSelector);
   const { containerProps, indicatorEl } = useLoading(loaderConfig);
-  const classes = useModifiedStyles(useStyles(), {
+  const classes = useModifiedStyles(defaultStyles, {
+    ...buttonAddedStyles,
     notification: {
       color: submitStatus ? 'olive' : 'red',
     },

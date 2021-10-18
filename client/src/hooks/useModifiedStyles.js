@@ -1,4 +1,14 @@
-export const useModifiedStyles = (defaults, customs) => {
+import { makeStyles } from '@material-ui/core';
+
+/**
+ * An useStyles extension that allows adding custom styling to common components
+ * @param {object} defaults - default component styles
+ * @param {object} customs - custom styles (should resemble "defaults" structure)
+ * @param props - props for useStyles
+ * @return {object} as useStyles
+ */
+export const useModifiedStyles = (defaults, customs, props) => {
+  const defaultsCopy = { ...defaults };
   const customsCopy = { ...customs };
 
   const merge = (defs, mods) => {
@@ -19,5 +29,6 @@ export const useModifiedStyles = (defaults, customs) => {
     return mods;
   };
 
-  return merge(defaults, customsCopy);
+  const styles = merge(customsCopy, defaultsCopy);
+  return makeStyles(styles)(props);
 };
