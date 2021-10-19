@@ -1,14 +1,12 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
+
 import SubmitBlock from '../component';
 
 let mockUserRequestState = {};
-
 jest.mock('react-redux', () => ({
   useSelector: (cb) => cb(mockUserRequestState),
 }));
-
 const props = {
   isSubmitting: false,
   formClass: '',

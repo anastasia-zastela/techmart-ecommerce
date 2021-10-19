@@ -1,8 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom';
 // eslint-disable-next-line jest/no-mocks-import
-import { mockFieldsInitData, mockValidationSchema } from './__mocks__';
+import { mockFieldsInitData, mockValidationSchema } from '../__mocks__';
 
 import AuthForm from '../component';
 
@@ -26,7 +25,7 @@ const props = {
   },
 };
 describe('AuthForm', () => {
-  test('it renders spare helper texts if corresponding prop is given', () => {
+  it('renders spare helper texts by default if given prop withEmptyHelperTexts', () => {
     const { container, rerender } = render(<AuthForm {...props} />);
 
     expect(container.querySelector('p.MuiFormHelperText-root')).toBeNull();
