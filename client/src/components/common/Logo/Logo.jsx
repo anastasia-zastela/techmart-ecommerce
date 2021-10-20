@@ -6,7 +6,7 @@ import { useStyles } from './styles';
 const Logo = () => {
     const classes = useStyles();
     return (
-        <NavLink to='/' className={classes.logo} id={'logoHeader'}>
+        <NavLink to='/' className={classes.logo} id={'logo'}>
             <img
                 alt='logo'
                 src='./images/Triangle-Logo.svg'
