@@ -76,32 +76,32 @@ const Footer = () => {
                             fullWidth
                             placeholder="email"
                             variant="outlined"
-                            id={'seachFooter'}
+                            id='seachFooter'
                         />
-                        <Button color="inherit" className={classes.footerEmailInputButton} onClick={clickOnButtonEmailInput} id={'buttonSeachFooter'}>
+                        <Button color="inherit" className={classes.footerEmailInputButton} onClick={clickOnButtonEmailInput} id='buttonSeachFooter'>
                             <img src={Vector} alt="vector" />
                         </Button>
                     </Box>
                     <Typography
                         className={classes.footerTitle}
                         style={{ margin: "30px 0 22px" }}
-                        id={'socialNetworks'}
+                        id='socialNetworks'
                     >
                         Мы в соц. сетях:
                     </Typography>
-                    <Link href="https://www.instagram.com/" target="_blank" className={classes.linkWrapper} id={'instagramIcon'}>
+                    <Link href="https://www.instagram.com/" target="_blank" className={classes.linkWrapper} id='instagramIcon'>
                         {/* TODO */}
                         <img src="./images/footer/instagram.png" alt="instagram" />
                     </Link>
-                    <Link href="https://www.facebook.com/" target="_blank" className={classes.linkWrapper} id={'facebookIcon'}>
+                    <Link href="https://www.facebook.com/" target="_blank" className={classes.linkWrapper} id='facebookIcon'>
                         {/* TODO */}
                         <img src="./images/footer/logo-facebook.svg" alt="facebook" />
                     </Link>
-                    <Link href="https://www.google.com/" target="_blank" className={classes.linkWrapper} id={'googleIcon'}>
+                    <Link href="https://www.google.com/" target="_blank" className={classes.linkWrapper} id='googleIcon'>
                         {/* TODO */}
                         <img src="./images/footer/logo-google.svg" alt="google" />
                     </Link>
-                    <Link href="https://www.linkedin.com/" target="_blank" className={classes.linkWrapper} id={'linkedinIcon'}>
+                    <Link href="https://www.linkedin.com/" target="_blank" className={classes.linkWrapper} id='linkedinIcon'>
                         {/* TODO */}
                         <img src="./images/footer/linkedin-icon.svg" alt="linkedin" />
                     </Link>
