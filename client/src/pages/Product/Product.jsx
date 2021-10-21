@@ -35,7 +35,13 @@ const Product = () => {
           alignItems="stretch"
           spacing={2}
         >
-          <Grid item xs={12} sm={8} md={6} className={classes.mainSlider, classes.item}>
+          <Grid
+            item
+            xs={12}
+            sm={8}
+            md={6}
+            className={(classes.mainSlider, classes.item)}
+          >
             <Slider />
           </Grid>
 
@@ -59,7 +65,9 @@ const Product = () => {
             <Typography variant="h5" className={classes.price}>
               31 300 грн
             </Typography>
-            <Button className={classes.productButton}>Купить</Button>
+            <Button className={classes.productButton} id="buyBtn">
+              Купить
+            </Button>
           </Grid>
 
           <Grid item xs={12} sm={12} md={3} className={classes.item}>
@@ -89,7 +97,11 @@ const Product = () => {
                 Есть в наличии
               </Typography>
             </Grid>
-            <Button outlined className={classes.productButton}>
+            <Button
+              outlined
+              className={classes.productButton}
+              id="btnBuyInCredit"
+            >
               Купить в кредит
             </Button>
           </Grid>
