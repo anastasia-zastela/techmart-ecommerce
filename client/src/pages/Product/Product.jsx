@@ -8,7 +8,6 @@ import {
   Box,
 } from "@material-ui/core";
 import useStyles from "./styles";
-// import { useLocation } from "react-router";
 import Slider from "../../components/common/Slider/Slider";
 import GarantyIcon from "../../components/icons/GarantyIcon";
 import CheckCircleIcon from "../../components/icons/CheckCircleIcon";
@@ -20,10 +19,9 @@ const phone = {
 
 const Product = () => {
   const classes = useStyles();
-  //useLocation(id)
 
   return (
-    <Container maxidth="xs">
+    <Container maxWidth="lg">
       <Box className={classes.cardWrapper}>
         <Typography variant="h5" className={classes.header}>
           Apple iPhone 12 256 Gb White
