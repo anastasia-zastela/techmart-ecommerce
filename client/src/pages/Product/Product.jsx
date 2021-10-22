@@ -96,7 +96,7 @@ const Product = () => {
               </Typography>
             </Grid>
             <Button
-              outlined
+              valiant='outlined'
               className={classes.productButton}
               id="btnBuyInCredit"
             >
