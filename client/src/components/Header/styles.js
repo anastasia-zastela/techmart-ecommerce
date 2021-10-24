@@ -59,8 +59,6 @@ export const useStyles = makeStyles((theme) => ({
     containerInput: {
         display: 'flex',
         alignItems: 'center',
-        paddingTop: 7,
-        paddingLeft: 20
     },
     [theme.breakpoints.down("sm")]: {
         gridLogo: {
@@ -69,8 +67,11 @@ export const useStyles = makeStyles((theme) => ({
         gridCart: {
             order: 2,
         },
-        gridInput: {
+        gridLogin: {
             order: 3,
+        },
+        gridInput: {
+            order: 4,
         },
         containerInput: {
             paddingLeft: 70,

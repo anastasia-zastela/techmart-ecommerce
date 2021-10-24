@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import {
-    Toolbar,
+    Tooltip,
     AppBar,
     Button,
     TextField,
     Grid,
-    Box
+    Box,
 } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import Logo from "../common/Logo/Logo";
 import { useStyles } from './styles';
+import LogIn from '../icons/login.svg';
+import LogOut from '../icons/logout.svg';
+import Registration from '../icons/registration.svg';
 
-const Header = () => {
+const Header = ({ userLogin = false }) => {
     const classes = useStyles();
     const products = [];
     const [seachInput, setSearchInput] = useState('');
@@ -27,14 +30,14 @@ const Header = () => {
             <Grid
                 container
                 spacing={2}
-                style={{ margin: 0, width: '100%' }}
+                style={{ margin: 0, width: '100%', alignItems: 'center' }}
             >
-                <Grid item xs={9} sm={10} md={2} style={{ paddingLeft: 20 }} className={classes.gridLogo}>
+                <Grid item xs={5} sm={8} md={2} className={classes.gridLogo}>
                     <Logo />
                 </Grid>
-                <Grid item xs={12} sm={12} md={9} className={classes.gridInput}>
+                <Grid item xs={12} sm={12} md={7} className={classes.gridInput}>
                     <Box className={classes.containerInput}>
-                        <Grid item xs={9} sm={10} md={8}>
+                        <Grid item xs={8} sm={10} md={10}>
                             <TextField
                                 className={classes.search}
                                 InputProps={{
@@ -45,12 +48,12 @@ const Header = () => {
                                 onChange={(e) => setSearchInput(e.target.value)}
                             />
                         </Grid>
-                        <Grid item xs={3} sm={2} md={4}>
+                        <Grid item xs={4} sm={2} md={2}>
                             <button className={classes.buttonSearch} onClick={searchForProducts}><span>Поиск</span></button>
                         </Grid>
                     </Box>
                 </Grid>
-                <Grid item xs={3} sm={2} md={1} className={classes.gridCart}>
+                <Grid item xs={2} sm={1} md={1} className={classes.gridCart}>
                     <Button color="inherit">
                         <NavLink to="/cart" >
                             <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke='white' strokeLinecap="round" strokeLinejoin="round" className={classes.shoppingCart}>
@@ -60,6 +63,44 @@ const Header = () => {
                             </svg>
                         </NavLink>
                     </Button>
+                </Grid>
+                <Grid item xs={5} sm={3} md={2} className={classes.gridLogin}>
+                    <Grid
+                        container
+                        spacing={2}
+                        style={{ margin: 0, width: '100%' }}
+                    >
+                        {!userLogin &&
+                            <Grid item xs={6} sm={6} md={6}>
+                                <Tooltip title="Войти" arrow enterDelay={500}>
+                                    <Button color="inherit" >
+                                        <NavLink to="/signin">
+                                            <img src={LogIn} alt="login" tooltip="test" />
+                                        </NavLink>
+                                    </Button>
+                                </Tooltip>
+                            </Grid>
+                            ||
+                            <Grid item xs={6} sm={6} md={6}>
+                                <Tooltip title="Выйти" arrow enterDelay={500}>
+                                    <Button color="inherit" >
+                                        <NavLink to="/signin">
+                                            <img src={LogOut} alt="logout" />
+                                        </NavLink>
+                                    </Button>
+                                </Tooltip>
+                            </Grid>
+                        }
+                        <Grid item xs={6} sm={6} md={6}>
+                            <Tooltip title="Регистрация" arrow enterDelay={500}>
+                                <Button color="inherit" >
+                                    <NavLink to="/signup">
+                                        <img src={Registration} alt="registration" />
+                                    </NavLink>
+                                </Button>
+                            </Tooltip>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Grid>
         </AppBar>
