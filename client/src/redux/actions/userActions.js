@@ -43,7 +43,6 @@ export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo');
   localStorage.removeItem('cartItems');
   dispatch({ type: USER_LOGOUT });
-  document.location.href = '/login';
 };
 
 // const newCustomer = {
