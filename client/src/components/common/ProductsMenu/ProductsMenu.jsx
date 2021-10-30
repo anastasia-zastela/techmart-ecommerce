@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useActions } from "../../../hooks/useActions";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-const NestedList = ({ productsList }) => {
+const ProductsMenu = ({ productsList }) => {
   const is768 = useMediaQuery("(max-width: 768px)");
   const [event, setEvent] = useState(false);
 
@@ -77,4 +77,4 @@ const NestedList = ({ productsList }) => {
     </div>
   );
 };
-export default NestedList;
+export default ProductsMenu;
