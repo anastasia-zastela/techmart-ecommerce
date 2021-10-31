@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Grid,
     Typography,
@@ -14,8 +14,9 @@ import Vector from '../icons/vector.svg';
 
 const Footer = () => {
     const classes = useStyles();
+    const [inputValue, setInputValue] = useState('');
     const clickOnButtonEmailInput = () => {
-
+        return inputValue;
     }
     return (
         <>
@@ -77,6 +78,7 @@ const Footer = () => {
                             placeholder="email"
                             variant="outlined"
                             id='seachFooter'
+                            onChange={(e) => setInputValue(e.target.value)}
                         />
                         <Button color="inherit" className={classes.footerEmailInputButton} onClick={clickOnButtonEmailInput} id='buttonSeachFooter'>
                             <img src={Vector} alt="vector" />
