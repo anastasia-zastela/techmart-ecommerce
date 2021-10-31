@@ -4,7 +4,6 @@ import {
     Typography,
     Button,
     Menu,
-    MenuList,
     MenuItem,
 } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
@@ -38,21 +37,6 @@ const NavBar = () => {
                     <Typography className={classes.linkNavBar}>
                         Меню
                     </Typography>
-                </Button>
-                <Button color="inherit">
-                    <NavLink to="/signin" className={classes.linkNavBar}>
-                        Войти
-                    </NavLink>
-                </Button>
-                <Button color="inherit">
-                    <NavLink to="/signup" className={classes.linkNavBar}>
-                        Регистрация
-                    </NavLink>
-                </Button>
-                <Button color="inherit">
-                    <NavLink to="/signin" className={classes.linkNavBar}>
-                        Выйти
-                    </NavLink>
                 </Button>
             </Toolbar>
             <Menu

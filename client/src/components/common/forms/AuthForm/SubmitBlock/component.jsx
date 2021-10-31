@@ -2,18 +2,29 @@ import React from 'react';
 import { Button } from '@material-ui/core';
 import { TailSpin, useLoading } from '@agney/react-loading';
 import { useSelector } from 'react-redux';
-import { useStyles } from './styles';
+import { defaultStyles } from './styles';
+import { useModifiedStyles } from '../../../../../hooks/useModifiedStyles';
 
 const loaderConfig = {
   loading: true,
   indicator: <TailSpin width='20' />,
 };
-const userLoginSelector = (state) => state.userLogin;
 
-const SubmitBlock = ({ isSubmitting, buttonClass }) => {
-  const loginStatus = useSelector(userLoginSelector);
+const SubmitBlock = ({
+  isSubmitting,
+  formClass,
+  submitSelector,
+  buttonText,
+  buttonAddedStyles,
+}) => {
+  const submitStatus = useSelector(submitSelector);
   const { containerProps, indicatorEl } = useLoading(loaderConfig);
-  const classes = useStyles(!loginStatus.error);
+  const classes = useModifiedStyles(defaultStyles, {
+    ...buttonAddedStyles,
+    notification: {
+      color: submitStatus.error ? 'red' : 'olive',
+    },
+  });
 
   return (
     <div className={classes.wrapper}>
@@ -22,16 +33,16 @@ const SubmitBlock = ({ isSubmitting, buttonClass }) => {
         type='submit'
         disabled={isSubmitting}
         variant='contained'
-        className={`${buttonClass} ${classes.button}`}
+        className={`${formClass} ${classes.button}`}
       >
-        {isSubmitting ? indicatorEl : 'Войти'}
+        {isSubmitting ? indicatorEl : buttonText}
       </Button>
-      {loginStatus.loading === false
+      {submitStatus.loading === false
         && (
         <h3 className={classes.notification}>
-          {loginStatus.error
+          {submitStatus.error
             ? 'Ошибка авторизации, попробуйте позже'
-            : 'Вы успешно вошли в систему'}
+            : 'Вы успешно авторизовались'}
         </h3>
         )}
     </div>
