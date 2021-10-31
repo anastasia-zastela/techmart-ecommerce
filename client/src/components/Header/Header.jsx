@@ -49,13 +49,8 @@ const Header = ({ userLogin = false }) => {
                                 id='seachHeader'
                             />
                         </Grid>
-<<<<<<< HEAD
-                        <Grid item xs={3} sm={2} md={4}>
-                            <button className={classes.buttonSearch} onClick={searchForProducts} id='buttonSeachHeader'><span>Поиск</span></button>
-=======
                         <Grid item xs={4} sm={2} md={2}>
-                            <button className={classes.buttonSearch} onClick={searchForProducts}><span>Поиск</span></button>
->>>>>>> master
+                            <button className={classes.buttonSearch} onClick={searchForProducts} id='buttonSeachHeader'><span>Поиск</span></button>
                         </Grid>
                     </Box>
                 </Grid>
