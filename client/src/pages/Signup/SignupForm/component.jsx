@@ -1,44 +1,32 @@
 import React, { useCallback } from 'react';
-import { Form, Formik } from 'formik';
 
-import TextfieldWrapper from '../../../components/common/forms/TextfieldWrapper';
-import SubmitBlock from './SubmitBlock';
 import { useActions } from '../../../hooks/useActions';
-import { useStyles } from './styles';
+import AuthForm from '../../../components/common/forms/AuthForm';
+
 import {
   signupFieldsInitData as signupFormFieldsData,
   signupValidationSchema,
 } from './constants';
 
 const initialValues = signupValidationSchema.default();
+const submitBlockProps = {
+  submitSelector: (state) => state.userRegister,
+  buttonText: 'Регистрация',
+};
 
 const SignupForm = () => {
   const { register } = useActions();
   const submitHandler = useCallback(async (values) => register(values), [register]);
-  const classes = useStyles();
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={submitHandler}
+    <AuthForm
+      formFieldsData={signupFormFieldsData}
       validationSchema={signupValidationSchema}
-      validateOnChange={false}
-    >
-      {({ isSubmitting }) => (
-        <Form className={classes.formBody}>
-          {signupFormFieldsData
-            .map((fieldParams) => (
-              <TextfieldWrapper
-                key={fieldParams.label}
-                className={classes.formInput}
-                helperText=' '
-                {...fieldParams}
-              />
-            ))}
-          <SubmitBlock buttonClass={classes.submitButton} isSubmitting={isSubmitting} />
-        </Form>
-      )}
-    </Formik>
+      initialValues={initialValues}
+      submitHandler={submitHandler}
+      withEmptyHelperTexts
+      submitBlockProps={submitBlockProps}
+    />
   );
 };
 

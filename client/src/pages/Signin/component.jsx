@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { Link } from '@material-ui/core';
 import SigninForm from './SigninForm';
 import { useStyles } from './styles';

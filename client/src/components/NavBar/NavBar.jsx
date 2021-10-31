@@ -4,8 +4,8 @@ import {
     Typography,
     Button,
     Menu,
-    MenuList,
     MenuItem,
+    Grid,
 } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import { useStyles } from './styles';
@@ -25,35 +25,44 @@ const NavBar = () => {
     return (
         <>
             <Toolbar className={classes.NavBar} position="static">
-                <Button color="inherit" >
-                    <NavLink to="/" className={classes.linkNavBar}>
-                        Главная
-                    </NavLink>
-                </Button>
-                <Button
-                    aria-controls='menu'
-                    onClick={handleOpenMenu}
-                    color="inherit"
+                <Grid
+                    container
+                    spacing={2}
+                    style={{ margin: 0, width: '100%', alignItems: 'center' }}
                 >
-                    <Typography className={classes.linkNavBar}>
-                        Меню
-                    </Typography>
-                </Button>
-                <Button color="inherit">
-                    <NavLink to="/signin" className={classes.linkNavBar}>
-                        Войти
-                    </NavLink>
-                </Button>
-                <Button color="inherit">
-                    <NavLink to="/signup" className={classes.linkNavBar}>
-                        Регистрация
-                    </NavLink>
-                </Button>
-                <Button color="inherit">
-                    <NavLink to="/signin" className={classes.linkNavBar}>
-                        Выйти
-                    </NavLink>
-                </Button>
+                    <Grid item xs={6} sm={3} md={3} style={{ display: 'flex', justifyContent: 'center' }}>
+                        <Button color="inherit" >
+                            <NavLink to="/" className={classes.linkNavBar}>
+                                Главная
+                            </NavLink>
+                        </Button>
+                    </Grid>
+                    <Grid item xs={6} sm={3} md={3} style={{ display: 'flex', justifyContent: 'center' }}>
+                        <Button
+                            aria-controls='menu'
+                            onClick={handleOpenMenu}
+                            color="inherit"
+                        >
+                            <Typography className={classes.linkNavBar}>
+                                Меню
+                            </Typography>
+                        </Button>
+                    </Grid>
+                    <Grid item xs={6} sm={3} md={3} style={{ display: 'flex', justifyContent: 'center' }}>
+                        <Button color="inherit" >
+                            <NavLink to="/aboutus" className={classes.linkNavBar}>
+                                О нас
+                            </NavLink>
+                        </Button>
+                    </Grid>
+                    <Grid item xs={6} sm={3} md={3} style={{ display: 'flex', justifyContent: 'center' }}>
+                        <Button color="inherit" >
+                            <NavLink to="/contacts" className={classes.linkNavBar}>
+                                Контакты
+                            </NavLink>
+                        </Button>
+                    </Grid>
+                </Grid>
             </Toolbar>
             <Menu
                 className={classes.menu}

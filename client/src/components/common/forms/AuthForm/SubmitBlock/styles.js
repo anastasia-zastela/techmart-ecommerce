@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 
-export const useStyles = (registerSucceeded) => makeStyles(() => ({
+export const defaultStyles = {
   wrapper: {
     width: '100%',
     marginTop: '1em',
@@ -31,6 +31,8 @@ export const useStyles = (registerSucceeded) => makeStyles(() => ({
     margin: '0 auto',
     width: 'fit-content',
     padding: '1em',
-    color: registerSucceeded ? 'olive' : 'red',
+    textAlign: 'center',
   },
-}))();
+};
+
+export const useStyles = makeStyles(defaultStyles);
