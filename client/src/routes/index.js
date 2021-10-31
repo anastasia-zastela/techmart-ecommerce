@@ -27,11 +27,6 @@ export const adminRoutes = [
 
 export const privateRoutes = [
   {
-    path: CART_ROUTE,
-    component: Cart,
-    exact: true,
-  },
-  {
     path: CHECKOUT_ROUTE,
     component: Checkout,
     exact: true,
@@ -62,6 +57,11 @@ export const publicRoutes = [
   {
     path: SIGNIN_ROUTE,
     component: Signin,
+    exact: true,
+  },
+  {
+    path: CART_ROUTE,
+    component: Cart,
     exact: true,
   },
 ];
