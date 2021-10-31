@@ -27,7 +27,7 @@ const ProductDetailsTabs = () => {
                     </Paper>
                     )}
         {specifications && <Paper>Lorem ipsum dolor sit amet, consectetur adipisicing .</Paper>}
-        {reviews && <Paper><Reviews /></Paper>}
+        {reviews && <Paper><Reviews/></Paper>}
       </Paper>
     </div>
   );

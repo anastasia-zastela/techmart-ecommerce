@@ -8,6 +8,7 @@ import Divider from '@mui/material/Divider';
 import { Button, TextField } from '@material-ui/core';
 import { useState } from 'react';
 import useStyles from './styles';
+import {Container} from "@mui/material";
 
 export default function Reviews() {
   const classes = useStyles();
@@ -23,7 +24,7 @@ export default function Reviews() {
     setReviewText(e.target.value);
   };
   return (
-    <>
+    <Container>
       <form className={classes.reviewInput}>
         <TextField
           id='outlined-multiline-static'
@@ -76,6 +77,6 @@ export default function Reviews() {
           </ListItemText>
         </ListItem>
       </List>
-    </>
+    </Container>
   );
 }
