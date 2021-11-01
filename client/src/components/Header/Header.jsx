@@ -13,16 +13,17 @@ import { useStyles } from './styles';
 import LogIn from '../icons/login.svg';
 import LogOut from '../icons/logout.svg';
 import Registration from '../icons/registration.svg';
+import { useSelector } from 'react-redux';
 
 const Header = ({ userLogin = false }) => {
     const classes = useStyles();
-    const products = [];
-    const [seachInput, setSearchInput] = useState('');
+    const productsList = useSelector(state => state.productList.products)
+    const [seachValue, setSearchValue] = useState('');
     const searchForProducts = () => {
-        const filteredProducts = products.filter(product => {
-            return product.name.toLowerCase().includes(seachInput.toLowerCase())
+        const filteredProducts = productsList.filter(product => {
+            return product.name.toLowerCase().includes(seachValue.toLowerCase())
         })
-        console.log(seachInput);
+        return filteredProducts;
     }
 
     return (
@@ -45,7 +46,7 @@ const Header = ({ userLogin = false }) => {
                                 }}
                                 placeholder='Поиск'
                                 variant="outlined"
-                                onChange={(e) => setSearchInput(e.target.value)}
+                                onChange={(e) => setSearchValue(e.target.value)}
                             />
                         </Grid>
                         <Grid item xs={4} sm={2} md={2}>
