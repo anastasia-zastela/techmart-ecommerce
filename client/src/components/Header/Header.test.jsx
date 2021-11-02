@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import Header from './Header';
-import { render } from "@testing-library/react";
+import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from '../../redux/store';
 
 describe('Header compnent', () => {
     it('Render Header and Logo', () => {
         render(
             <BrowserRouter>
-                <Header />
+                <Provider store={store}>
+                    <Header />
+                </Provider>
             </BrowserRouter>
         )
         const logo = document.getElementById('logo');
@@ -16,7 +20,9 @@ describe('Header compnent', () => {
     it('input value', () => {
         render(
             <BrowserRouter>
-                <Header />
+                <Provider store={store}>
+                    <Header />
+                </Provider>
             </BrowserRouter>
         )
 
