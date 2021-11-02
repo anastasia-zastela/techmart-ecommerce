@@ -11,7 +11,6 @@ import useStyles from './styles';
 import Slider from '../../components/common/Slider/Slider';
 import GarantyIcon from '../../components/icons/GarantyIcon';
 import CheckCircleIcon from '../../components/icons/CheckCircleIcon';
-import Contacts from '../Contacts/Contacts';
 
 const phone = {
   colors: ['white', 'black', '#215787', '#C7F3BD', '#E70012'],
@@ -106,8 +105,6 @@ const Product = () => {
           </Grid>
         </Grid>
       </Box>
-
-      <Contacts />
     </Container>
   );
 };

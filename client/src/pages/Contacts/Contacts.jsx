@@ -125,7 +125,7 @@ const Contacts = () => {
             <Button
               valiant='outlined'
               className={classes.contactButton}
-              id='btnBuyInCredit'
+              id='feedbackBtn'
             >
               Отправить
             </Button>

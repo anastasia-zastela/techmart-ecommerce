@@ -3,7 +3,7 @@ import { styles } from '../../utils/UserInterfaceConstants';
 
 const useStyles = makeStyles(() => ({
   container: {
-    padding: '30px 0 70px',
+    padding: '15px 0 70px',
   },
   map: {
     padding: 0,
@@ -28,12 +28,12 @@ const useStyles = makeStyles(() => ({
     marginRight: '20px',
   },
   item: {
-    marginTop: '80px',
+    marginTop: '50px',
   },
   header: {
     letterSpacing: ' 11px',
     textTransform: 'uppercase',
-    fontSize: '2.5rem',
+    fontSize: '2.3rem',
     fontWeight: 'bold',
   },
   title: {

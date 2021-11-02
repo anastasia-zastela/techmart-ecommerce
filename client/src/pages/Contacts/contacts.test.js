@@ -1,17 +1,19 @@
 import { render } from "@testing-library/react";
+import Contacts from './Contacts'
 
-describe("Test Product", () => {
-  it("Smoke test for Product", () => {
-    render(<Product />);
+describe("Test Contacts", () => {
+  it("Smoke test for Contact", () => {
+    render(<Contacts />);
   });
 
-  it("Slider to be defined", () => {
-    render(
-      <Product>
-        <Slider />
-      </Product>
-    );
-    const slider = document.querySelector(".carousel-root");
-    expect(slider).toBeDefined();
+  it("OnClick button in Contacts", () => {
+    const onClick = jest.fn();
+      render(<Contacts />);
+
+    const button = document.getElementById("feedbackBtn");
+    expect(button).toBeDefined();
+    button.addEventListener("click", onClick);
+    button.click();
+    expect(onClick).toHaveBeenCalled();
   });
 });
