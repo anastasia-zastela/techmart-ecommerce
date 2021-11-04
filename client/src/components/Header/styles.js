@@ -84,4 +84,11 @@ export const useStyles = makeStyles((theme) => ({
             paddingRight: 0
         }
     },
+    linkCoponent: {
+        fontSize: "20px",
+        textDecoration: "none",
+        color: styles.colorLightBlue,
+        textTransform: 'none',
+        fontWeight: '400'
+    },
 }));
