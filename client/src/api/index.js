@@ -1,5 +1,18 @@
-import axios from 'axios'
+import axios from 'axios';
 
-const url = process.env.REACT_APP_API_URL
+const $host = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+  headers: {
+    'Content-type': 'application/json',
+  },
+});
 
-export const postData = (newData) = axios.post(`${url}/products`)
+const authInterceptor = (config) => {
+  // eslint-disable-next-line no-param-reassign
+  config.headers.authorization = localStorage.getItem('token');
+  return config;
+};
+
+$host.interceptors.request.use(authInterceptor);
+
+export { $host };

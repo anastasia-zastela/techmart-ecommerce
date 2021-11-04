@@ -1,10 +1,12 @@
 import React from 'react';
-import {useSelector} from 'react-redux';
 import {Redirect, Route, Switch} from 'react-router-dom';
-import {adminRoutes, privateRoutes, publicRoutes} from './routes';
+
 import ClientWrapper from './ClientWrapper';
+import {privateRoutes, publicRoutes} from './routes';
+import AdminWrapper from "./AdminWrapper";
 
 const Index = () => {
+
 
     return (
 
@@ -16,7 +18,7 @@ const Index = () => {
                         exact={route.exact}
                         key={route.path}
                     >
-                        {route.component}
+                        <AdminWrapper>{route.component}</AdminWrapper>
                     </Route>
                 }
 
@@ -29,7 +31,7 @@ const Index = () => {
                 </Route>
 
             })}
-            <Redirect to='/login'/>
+            <Redirect to='/'/>
         </Switch>
     )
 }

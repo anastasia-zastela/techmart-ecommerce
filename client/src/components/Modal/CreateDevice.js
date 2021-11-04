@@ -1,120 +1,80 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
-  Box,
-  Button,
-  Dialog, DialogActions,
-  DialogContent,
-  DialogTitle,
-  FormControl, Input,
-  InputLabel,
-  MenuItem, OutlinedInput,
-  Select, TextField, Typography,
+    Button, Container,
+    Grid,
+    MenuItem, Paper,
+    Select, Typography,
 } from '@material-ui/core';
-import { useStyles } from './style';
+import Input from '../Input/Input';
+import useStyles from './styles';
+import ProductService from "../../services/ProductService";
+
+const initialState = {
+    name: '', brand: '', imageUrls: [], currentPrice: '', quantity: '', categories: '', enabled: true,
+};
 
 const CreateDevice = () => {
-  const classes = useStyles();
+    const classes = useStyles();
+    const [form, setForm] = useState(initialState);
 
-  const [open, setOpen] = useState(false);
-  const [age, setAge] = useState('');
-  const [name, setName]= useState('');
-  const [price, setPrice]= useState(0);
-  const [img, setImg] = useState('')
-  const [info, setInfo] = useState([]);
+    const handleChange = (e) => setForm({...form, [e.target.name]: e.target.value});
 
-  const handleChange = (event) => {
-    setAge(Number(event.target.value) || '');
-  };
+    const handleSubmit = (e) => {
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+        ProductService.createProduct(form)
 
-  const handleClose = (event, reason) => {
-    if (reason !== 'backdropClick') {
-      setOpen(false);
-    }
-  };
-  const addInfo = () => {
-    setInfo([...info, { title: '', description: '', number: Date.now() }]);
-  };
-  const removeInfo = (number) => {
-    setInfo(info.filter((i) => i.number !== number));
-  };
-  return (
-    <Box>
-      <Button onClick={handleClickOpen}>Добавить новое устройство</Button>
-      <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
-        <DialogTitle>Заполните форму</DialogTitle>
-        <DialogContent>
-          <Box className={classes.modal__admin}>
-            <FormControl className={classes.modal__admin___category}>
-              <Typography variant={"h7"}>Категория</Typography>
-              <Select
-                  className={classes.modal__category__selector}
-                value={age}
-                onChange={handleChange}
-              >
-                <MenuItem>Apple Store</MenuItem>
-                <MenuItem>Планшеты</MenuItem>
-                <MenuItem>Ноутбуки</MenuItem>
-              </Select>
-            </FormControl>
-            <FormControl>
-              <Typography variant={"h7"}>Бренд</Typography>
-              <Select
-                  className={classes.modal__category__selector}
-                value={age}
-                onChange={handleChange}
-              >
+    };
 
-                <MenuItem>Xiaomi</MenuItem>
-                <MenuItem>Oppo</MenuItem>
-                <MenuItem>Samsung</MenuItem>
-              </Select>
-            </FormControl>
-            <Box>
-            <Box>
-              <TextField fullWidth  placeholder='Введите название девайса' />
-            </Box>
-            <Box>
-              <Input  placeholder='Введите цену девайса' />
-            </Box>
-            <Box>
-              <Input placeholder='Введите URL изображения' />
-            </Box>
-            </Box>
-            <Button
-              onClick={addInfo}
-              variant='outlined'
-            >
-              Добавить свойство
-            </Button>
-            {info.map((i) => (
-              <Box
-                className={classes.propertyForm}
-                key={i.number}
-              >
-                <Box>
-                  <Input placeholder='Введите название свойства' />
-                </Box>
-                <Box>
-                  <Input
-                    className={classes.propertyForm}
-                    placeholder='Введите описание свойства'
-                  />
-                </Box>
-                <Button onClick={() => removeInfo(i.number)}>Удалить </Button>
-              </Box>
-            ))}
-          </Box>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Отмена</Button>
-          <Button onClick={handleClose}>Добавить</Button>
-        </DialogActions>
-      </Dialog>
-    </Box>
-  );
+    return (
+        <Container component="main" maxWidth="xs">
+            <Paper className={classes.paper} elevation={4}>
+                <Typography component="h1" variant="h5">Заполните форму</Typography>
+                    <form fullWidth>
+                    <Typography variant='h7'>Категория</Typography>
+                    <Select
+                        fullWidth
+                        name='categories'
+                        required
+                        onChange={handleChange}
+                    >
+                        <MenuItem value={'Apple Store'}>Apple Store</MenuItem>
+                        <MenuItem value={'Планшеты'}>Планшеты</MenuItem>
+                        <MenuItem value={'Ноутбуки'}>Ноутбуки</MenuItem>
+                        <MenuItem value={'Смартфоны'}>Смартфоны</MenuItem>
+                    </Select>
+                    </form>
+                    <form >
+                    <Typography variant='h7'>Бренд</Typography>
+                        <Select
+                            fullWidth
+                            name='brand'
+                            required
+                            onChange={handleChange}
+                        >
+                            <MenuItem value={'Xiaomi'}>Xiaomi</MenuItem>
+                            <MenuItem value={'Oppo'}>Oppo</MenuItem>
+                            <MenuItem value={'Samsung'}>Samsung</MenuItem>
+                        </Select>
+                </form>
+                    <Grid container spacing={2}>
+                        <Input name="name" label="Введите название девайса" required handleChange={handleChange} type="text"/>
+                        <Input name="currentPrice" label="Введите цену девайса" required handleChange={handleChange}/>
+                        <Input name="imageUrls" label="Введите URL изображения" required handleChange={handleChange}/>
+                        <Input name="quantity" label="Введите количество" required handleChange={handleChange}/>
+                        <Input name="color" label="Введите цвет" required handleChange={handleChange}/>
+
+                    </Grid>
+                    <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+                        Добавить
+                    </Button>
+
+            </Paper>
+        </Container>
+
+
+
+
+       );
+
 };
 export default CreateDevice;

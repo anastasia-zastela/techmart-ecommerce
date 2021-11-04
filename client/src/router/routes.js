@@ -3,13 +3,13 @@ import Main from '../pages/Main/Main';
 import Admin from '../pages/Admin';
 import Products from '../pages/Products/Products';
 import Product from '../pages/Product/Product';
-
+import Auth from '../pages/Admin/Auth';
 import {
   ADMIN_ROUTE,
   CART_ROUTE,
   CHECKOUT_ROUTE,
   MAIN_PAGE_ROUTE,
-  PRODUCTS_ROUTE,
+  PRODUCTS_ROUTE, SIGNIN_ADMIN_ROUTE,
   SIGNUP_ROUTE,
 } from '../config/consts';
 import Checkout from '../pages/Checkout/Checkout';
@@ -28,6 +28,12 @@ export const privateRoutes = [
     component: <Admin />,
     exact: true,
     admin: true
+  },
+  {
+    path: SIGNIN_ADMIN_ROUTE,
+    component: <Auth/>,
+    exact: true,
+    admin: false
   },
   {
     path: CHECKOUT_ROUTE,
