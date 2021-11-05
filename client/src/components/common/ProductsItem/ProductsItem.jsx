@@ -8,19 +8,29 @@ import {
   Typography,
   useMediaQuery,
 } from "@material-ui/core";
-import React, {memo} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useStyles } from "./styles";
 import { useActions } from "../../../hooks/useActions";
 
-const ProductsItem = ({ id, image, name, category, color, brand, price, quantity }) => {
+const ProductsItem = ({
+  id,
+  image,
+  name,
+  category,
+  color,
+  brand,
+  price,
+  quantity,
+}) => {
   const classes = useStyles();
-  const is906 = useMediaQuery("(max-width: 906px)");
+  const is771 = useMediaQuery("(max-width: 857px)");
   const { addToCart } = useActions();
+
   return (
     <Card
       key={id}
-      className={is906 ? classes.cardAdaptiveWrapper : classes.cardWrapper}
+      className={is771 ? classes.cardAdaptiveWrapper : classes.cardWrapper}
     >
       <Link to={`/products/${id}`} className={classes.cardLink}>
         <CardActionArea>
@@ -68,7 +78,7 @@ const ProductsItem = ({ id, image, name, category, color, brand, price, quantity
               component="p"
               className={classes.cardExtraOptions}
             >
-              Наличие: {quantity}
+              Наличие: {quantity === 0 ? "Нет в наличии" : quantity}
             </Typography>
             <Typography
               variant="h6"
@@ -86,6 +96,7 @@ const ProductsItem = ({ id, image, name, category, color, brand, price, quantity
           className={classes.cardButton}
           variant="contained"
           color="primary"
+          style={quantity === 0 ? { pointerEvents: "none" } : null}
           onClick={() => addToCart(id)}
         >
           Добавить в корзину
@@ -94,4 +105,4 @@ const ProductsItem = ({ id, image, name, category, color, brand, price, quantity
     </Card>
   );
 };
-export default memo(ProductsItem);
+export default ProductsItem;
