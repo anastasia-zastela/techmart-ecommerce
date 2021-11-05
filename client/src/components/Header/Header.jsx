@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-    Tooltip,
     AppBar,
     Button,
     TextField,
@@ -10,9 +9,6 @@ import {
 import { NavLink } from "react-router-dom";
 import Logo from "../common/Logo/Logo";
 import { useStyles } from './styles';
-import LogIn from '../icons/login.svg';
-import LogOut from '../icons/logout.svg';
-import Registration from '../icons/registration.svg';
 import { useSelector } from 'react-redux';
 
 const Header = ({ userLogin = false }) => {
@@ -33,10 +29,10 @@ const Header = ({ userLogin = false }) => {
                 spacing={2}
                 style={{ margin: 0, width: '100%', alignItems: 'center' }}
             >
-                <Grid item xs={5} sm={8} md={2} className={classes.gridLogo}>
+                <Grid item xs={9} sm={6} md={2} className={classes.gridLogo}>
                     <Logo />
                 </Grid>
-                <Grid item xs={12} sm={12} md={7} className={classes.gridInput}>
+                <Grid item xs={12} sm={12} md={6} className={classes.gridInput}>
                     <Box className={classes.containerInput}>
                         <Grid item xs={8} sm={10} md={10}>
                             <TextField
@@ -54,7 +50,7 @@ const Header = ({ userLogin = false }) => {
                         </Grid>
                     </Box>
                 </Grid>
-                <Grid item xs={2} sm={1} md={1} className={classes.gridCart}>
+                <Grid item xs={3} sm={1} md={1} className={classes.gridCart}>
                     <Button color="inherit">
                         <NavLink to="/cart" >
                             <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke='white' strokeLinecap="round" strokeLinejoin="round" className={classes.shoppingCart}>
@@ -65,41 +61,35 @@ const Header = ({ userLogin = false }) => {
                         </NavLink>
                     </Button>
                 </Grid>
-                <Grid item xs={5} sm={3} md={2} className={classes.gridLogin}>
+                <Grid item xs={12} sm={5} md={3} className={classes.gridLogin}>
                     <Grid
                         container
                         spacing={2}
                         style={{ margin: 0, width: '100%' }}
                     >
                         {!userLogin &&
-                            <Grid item xs={6} sm={6} md={6}>
-                                <Tooltip title="Войти" arrow enterDelay={500}>
-                                    <Button color="inherit" >
-                                        <NavLink to="/signin">
-                                            <img src={LogIn} alt="login" tooltip="test" />
-                                        </NavLink>
-                                    </Button>
-                                </Tooltip>
-                            </Grid>
-                            ||
-                            <Grid item xs={6} sm={6} md={6}>
-                                <Tooltip title="Выйти" arrow enterDelay={500}>
-                                    <Button color="inherit" >
-                                        <NavLink to="/signin">
-                                            <img src={LogOut} alt="logout" />
-                                        </NavLink>
-                                    </Button>
-                                </Tooltip>
-                            </Grid>
-                        }
-                        <Grid item xs={6} sm={6} md={6}>
-                            <Tooltip title="Регистрация" arrow enterDelay={500}>
+                            <Grid item xs={6} sm={4} md={4} style={{ display: 'flex', justifyContent: 'center' }}>
                                 <Button color="inherit" >
-                                    <NavLink to="/signup">
-                                        <img src={Registration} alt="registration" />
+                                    <NavLink to="/signin" className={classes.linkCoponent}>
+                                        Войти
                                     </NavLink>
                                 </Button>
-                            </Tooltip>
+                            </Grid>
+                            ||
+                            <Grid item xs={6} sm={4} md={4} style={{ display: 'flex', justifyContent: 'center' }}>
+                                <Button color="inherit" >
+                                    <NavLink to="/signin" className={classes.linkCoponent}>
+                                        Выйти
+                                    </NavLink>
+                                </Button>
+                            </Grid>
+                        }
+                        <Grid item xs={6} sm={8} md={8} style={{ display: 'flex', justifyContent: 'center' }}>
+                            <Button color="inherit" >
+                                <NavLink to="/signup" className={classes.linkCoponent}>
+                                    Регистрация
+                                </NavLink>
+                            </Button>
                         </Grid>
                     </Grid>
                 </Grid>
