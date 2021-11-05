@@ -1,39 +1,32 @@
+import React from 'react';
 import Cart from '../pages/Cart/Cart.js';
 import Main from '../pages/Main/Main';
 import Admin from '../pages/Admin';
 import Products from '../pages/Products/Products';
 import Product from '../pages/Product/Product';
-import Auth from '../pages/Admin/Auth';
 import {
   ADMIN_ROUTE,
   CART_ROUTE,
   CHECKOUT_ROUTE,
   MAIN_PAGE_ROUTE,
-  PRODUCTS_ROUTE, SIGNIN_ADMIN_ROUTE,
+  PRODUCTS_ROUTE,
   SIGNUP_ROUTE,
 } from '../config/consts';
 import Checkout from '../pages/Checkout/Checkout';
 import Signup from '../pages/Signup/Signup';
-
 
 export const privateRoutes = [
   {
     path: CART_ROUTE,
     component: <Cart />,
     exact: true,
-    admin: false
+    admin: false,
   },
   {
     path: ADMIN_ROUTE,
     component: <Admin />,
     exact: true,
-    admin: true
-  },
-  {
-    path: SIGNIN_ADMIN_ROUTE,
-    component: <Auth/>,
-    exact: true,
-    admin: false
+    admin: true,
   },
   {
     path: CHECKOUT_ROUTE,
