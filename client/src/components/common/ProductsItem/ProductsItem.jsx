@@ -24,13 +24,13 @@ const ProductsItem = ({
   quantity,
 }) => {
   const classes = useStyles();
-  const is771 = useMediaQuery("(max-width: 857px)");
+  const is857 = useMediaQuery("(max-width: 857px)");
   const { addToCart } = useActions();
 
   return (
     <Card
       key={id}
-      className={is771 ? classes.cardAdaptiveWrapper : classes.cardWrapper}
+      className={is857 ? classes.cardAdaptiveWrapper : classes.cardWrapper}
     >
       <Link to={`/products/${id}`} className={classes.cardLink}>
         <CardActionArea>
