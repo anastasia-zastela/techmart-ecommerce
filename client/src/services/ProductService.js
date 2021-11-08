@@ -13,7 +13,7 @@ export default class ProductService {
   }
 
   static getById = async (id) => {
-    const { data } = await $host.get('/products/' + id);
+    const { data } = await $host.get(`/products/${id}`);
 
     return data;
   };
