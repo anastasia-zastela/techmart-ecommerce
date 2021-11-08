@@ -1,11 +1,9 @@
-<<<<<<< HEAD:client/src/router/routes.jsx
 import React from 'react';
 import Cart from '../pages/Cart/Cart.js';
 import Main from '../pages/Main/Main';
 import Admin from '../pages/Admin';
 import Products from '../pages/Products/Products';
 import Product from '../pages/Product/Product';
-=======
 import Cart from '../pages/Cart';
 import Main from '../pages/Main';
 import Admin from '../pages/Admin';
@@ -16,7 +14,6 @@ import Checkout from '../pages/Checkout';
 import Signup from '../pages/Signup';
 import Signin from '../pages/Signin';
 
->>>>>>> master:client/src/routes/index.js
 import {
   ADMIN_ROUTE,
   CART_ROUTE,
@@ -57,11 +54,7 @@ export const publicRoutes = [
   },
   {
     path: `${PRODUCTS_ROUTE}/:id`,
-<<<<<<< HEAD:client/src/router/routes.jsx
     component: <Product />,
-=======
-    component: Product,
->>>>>>> master:client/src/routes/index.js
     exact: true,
   },
   {

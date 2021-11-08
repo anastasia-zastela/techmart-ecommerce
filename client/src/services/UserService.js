@@ -1,25 +1,4 @@
-<<<<<<< HEAD
 import { $host } from '../api';
-=======
-import { $host } from '../httpCommon';
-
-// const newCustomer = {
-// firstName: "Customer",
-// lastName: "Newone",
-// login: "Customer",
-// email: "customer@gmail.com",
-// password: "1111111",
-// telephone: "+380630000000",
-// gender: "male",
-// avatarUrl: "img/customers/023648.png",
-// isAdmin: true
-// },
-
-// const userData = {
-//   loginOrEmail: 'customer@gmail.com',
-//   password: '1111111',
-// };
->>>>>>> master
 
 export default class UserService {
   static signup = async (newCustomer) => {
