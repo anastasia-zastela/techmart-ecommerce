@@ -34,6 +34,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:cov": "react-scripts test --coverage",
+    "ci": "jest --coverage",
     "eject": "react-scripts eject"
   },
   "browserslist": {
