@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
     AppBar,
     Button,
     TextField,
     Grid,
-    Box,
-} from "@material-ui/core";
-import { NavLink } from "react-router-dom";
-import Logo from "../common/Logo/Logo";
+    Box
+} from '@material-ui/core';
+import { NavLink } from 'react-router-dom';
+import Logo from '../common/Logo/Logo';
 import { useStyles } from './styles';
 import { useSelector } from 'react-redux';
 
@@ -23,7 +23,7 @@ const Header = ({ userLogin = false }) => {
     }
 
     return (
-        <AppBar position="static" className={classes.header}>
+        <AppBar position='static' className={classes.header}>
             <Grid
                 container
                 spacing={2}
@@ -41,12 +41,13 @@ const Header = ({ userLogin = false }) => {
                                     className: classes.search,
                                 }}
                                 placeholder='Поиск'
-                                variant="outlined"
+                                variant='outlined'
+                                id='seachHeader'
                                 onChange={(e) => setSearchValue(e.target.value)}
                             />
                         </Grid>
                         <Grid item xs={4} sm={2} md={2}>
-                            <button className={classes.buttonSearch} onClick={searchForProducts}><span>Поиск</span></button>
+                            <button className={classes.buttonSearch} onClick={searchForProducts} id='buttonSeachHeader'><span>Поиск</span></button>
                         </Grid>
                     </Box>
                 </Grid>

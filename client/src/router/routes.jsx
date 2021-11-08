@@ -77,4 +77,9 @@ export const publicRoutes = [
     component: Signin,
     exact: true,
   },
+  {
+    path: CART_ROUTE,
+    component: Cart,
+    exact: true,
+  },
 ];
