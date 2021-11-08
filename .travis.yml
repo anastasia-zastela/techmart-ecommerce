@@ -2,4 +2,4 @@ language: node_js
 node_js:
   - '14.17.0'
 script:
-  - 'npm run test:client'
+  - 'cd client && npm run test:cov'
