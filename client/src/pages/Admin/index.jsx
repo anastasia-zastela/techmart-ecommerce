@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Container } from '@material-ui/core';
 import CreateDevice from '../../components/Modal/CreateDevice';
 
-const index = () => (
+const Index = () => (
 
   <Container>
     <Box style={{ display: 'flex', justifyContent: 'space-around' }}>
@@ -11,4 +11,4 @@ const index = () => (
   </Container>
 );
 
-export default index;
+export default Index;

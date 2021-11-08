@@ -1,12 +1,7 @@
 import React from 'react';
-import Cart from '../pages/Cart/Cart.js';
-import Main from '../pages/Main/Main';
-import Admin from '../pages/Admin';
-import Products from '../pages/Products/Products';
-import Product from '../pages/Product/Product';
+import Admin from '../pages/Admin/';
 import Cart from '../pages/Cart';
 import Main from '../pages/Main';
-import Admin from '../pages/Admin';
 import Products from '../pages/Products';
 import Product from '../pages/Product';
 import Contacts from '../pages/Contacts';
@@ -15,7 +10,7 @@ import Signup from '../pages/Signup';
 import Signin from '../pages/Signin';
 
 import {
-  ADMIN_ROUTE,
+  ADMIN,
   CART_ROUTE,
   CHECKOUT_ROUTE,
   MAIN_PAGE_ROUTE,
@@ -33,8 +28,8 @@ export const privateRoutes = [
     admin: false,
   },
   {
-    path: ADMIN_ROUTE,
-    component: <Admin />,
+    path: ADMIN,
+    component: <Admin/>,
     exact: true,
     admin: true,
   },
@@ -64,7 +59,7 @@ export const publicRoutes = [
   },
   {
     path: CONTACTS_ROUTE,
-    component: Contacts,
+    component: <Contacts/>,
     exact: true,
   },
   {
@@ -74,12 +69,12 @@ export const publicRoutes = [
   },
   {
     path: SIGNIN_ROUTE,
-    component: Signin,
+    component: <Signin/>,
     exact: true,
   },
   {
     path: CART_ROUTE,
-    component: Cart,
+    component: <Cart/>,
     exact: true,
   },
 ];

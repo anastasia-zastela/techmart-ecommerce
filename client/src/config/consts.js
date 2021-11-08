@@ -1,4 +1,4 @@
-export const ADMIN_ROUTE = '/admin';
+export const ADMIN = '/admin';
 export const CHECKOUT_ROUTE = '/checkout';
 export const MAIN_PAGE_ROUTE = '/';
 export const CART_ROUTE = '/cart';

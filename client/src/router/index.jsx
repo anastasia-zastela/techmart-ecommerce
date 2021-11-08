@@ -1,6 +1,5 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-
 import ClientWrapper from './ClientWrapper';
 import { privateRoutes, publicRoutes } from './routes';
 import AdminWrapper from './AdminWrapper';

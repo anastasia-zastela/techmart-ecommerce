@@ -11,17 +11,6 @@ const AdminWrapper = ({ children }) => {
     const response = await UserService.ping();
     setIsUserAdmin(!!((response.status === 200 && response.data.isAdmin)));
   }, []);
-  // const isUserAdmin = async () => {
-  //   const response = await UserService.ping();
-  //     console.log(response)
-  //
-  //   if (response.status === 200) {
-  //     return true;
-  //   }
-  //
-  //   return false;
-  // };
-  //   console.log(isUserAdmin())
   if (isUserAdmin) {
     return (
       <div>
@@ -30,7 +19,7 @@ const AdminWrapper = ({ children }) => {
     );
   }
 
-  return <Redirect to='/signin' />;
+  return <Redirect to='/admin' />;
 };
 
 export default AdminWrapper;
