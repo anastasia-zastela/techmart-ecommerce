@@ -2,54 +2,42 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useStyles } from "./styles";
 import CartItem from "./CartItem";
-import img from "../iphone12.jpg";
 import { Button, Typography, Grid } from "@material-ui/core";
 
 const Cart = () => {
-  const tottalPrice = 68000;
   const classes = useStyles();
-  const products = [
-    {
-      id: 1,
-      image: img,
-      name: "Iphone 12",
-      category: "телефоны",
-      color: "белый",
-      brand: "Apple",
-      price: 34000,
-    },
-    {
-      id: 2,
-      image: img,
-      name: "Iphone 12",
-      category: "телефоны",
-      color: "белый",
-      brand: "Apple",
-      price: 34000,
-    },
-    {
-      id: 3,
-      image: img,
-      name: "Iphone 12",
-      category: "телефоны",
-      color: "белый",
-      brand: "Apple",
-      price: 34000,
-    },
-  ];
-
-  const cartList = products.map((product) => (
+  const cartItem = useSelector((state) => state.cart.cartItems);
+  if (cartItem.length === 0) {
+    return (
+      <>
+        <Typography
+          variant="h4"
+          color="textPrimary"
+          component="p"
+          className={classes.cartTitle}
+        >
+          Корзина пуста
+        </Typography>
+      </>
+    );
+  }
+  const tottalPrice = cartItem.reduce((previous, current) => {
+    return previous + current.price * current.qty;
+  }, 0);
+  const cartList = cartItem.map((item) => (
     <CartItem
-      key={product.id}
-      id={product.id}
-      image={product.image}
-      name={product.name}
-      category={product.category}
-      color={product.color}
-      brand={product.brand}
-      price={product.price}
+      key={item.product}
+      id={item.product}
+      image={item.image}
+      name={item.name}
+      color={item.color}
+      brand={item.brand}
+      price={item.price}
+      countInStock={item.countInStock}
+      qty={item.qty}
     />
   ));
+
   return (
     <>
       <Typography
@@ -73,10 +61,7 @@ const Cart = () => {
           >
             Итого : {tottalPrice} ₴
           </Typography>
-          <Button
-            className={classes.btnChekout}
-            variant="contained"
-          >
+          <Button className={classes.btnChekout} variant="contained">
             Оформить заказ
           </Button>
         </Grid>

@@ -10,21 +10,24 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import { useStyles } from "./styles";
+import { useActions } from "../../../hooks/useActions";
 
 const CartItem = ({
   id,
   image,
   name,
+  price,
   color,
   brand,
-  price,
-  addToCartHandler,
+  countInStock,
+  qty,
 }) => {
   const classes = useStyles();
-  const quantity = 1;
-  const sumPrice = 34000;
+  const sumPrice = price * qty;
   const isSm = useMediaQuery("(min-width: 600px)");
   const isMd = useMediaQuery("(min-width: 960px)");
+  const { addToCartItemQty, removeFromCartItemQty, removeFromCart } =
+    useActions();
 
   return (
     <Card key={id} className={classes.cartItem}>
@@ -45,7 +48,7 @@ const CartItem = ({
               component="h2"
               style={isSm ? { fontSize: "18px" } : null}
             >
-              {brand + " " + name + " " + color}
+              {brand} {name} {color}
             </Typography>
             <Typography
               variant="h6"
@@ -73,19 +76,22 @@ const CartItem = ({
               className={classes.cartButton}
               variant="outlined"
               color="primary"
-              onClick={addToCartHandler}
+              onClick={() => removeFromCartItemQty(id)}
             >
               -
             </Button>
-            <span>{quantity}</span>
+            <span>{qty}</span>
             <Button
               className={classes.cartButton}
               variant="outlined"
               color="primary"
-              onClick={addToCartHandler}
+              onClick={() => addToCartItemQty(id)}
             >
               +
             </Button>
+            {qty === countInStock ? (
+              <span className={classes.maxQty}>Макс {countInStock} шт.</span>
+            ) : null}
           </CardActions>
         </Grid>
         <Grid
@@ -109,7 +115,7 @@ const CartItem = ({
             className={classes.cartButtonDel}
             variant="text"
             color="primary"
-            onClick={addToCartHandler}
+            onClick={() => removeFromCart(id)}
           >
             <svg
               width="24"

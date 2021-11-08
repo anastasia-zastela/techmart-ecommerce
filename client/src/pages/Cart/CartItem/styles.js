@@ -9,6 +9,8 @@ export const useStyles = makeStyles(() => ({
   cartMediaWrapper: {
     height: "130px",
     width: "120px",
+    backgroundSize: 'contain',
+    marginLeft: '10px',
   },
   cartTitle: {
     fontSize: "15px",
@@ -50,4 +52,8 @@ export const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "space-around",
   },
+  maxQty: {
+    color: 'red',
+    fontSize: '8px'
+}
 }));
