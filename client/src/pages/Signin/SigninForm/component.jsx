@@ -19,7 +19,7 @@ const SigninForm = () => {
   const submitHandler = useCallback(async (values) => login(values), [login]);
 
   return (
-    <AuthForm
+    <AuthForm 
       formFieldsData={signinFormFieldsData}
       validationSchema={signinValidationSchema}
       initialValues={initialValues}

@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './styles.css';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.css';
-import Router from "./router/index";
+import Router from "./router/";
 
 function App() {
     return (

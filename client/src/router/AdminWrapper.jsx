@@ -19,7 +19,7 @@ const AdminWrapper = ({ children }) => {
     );
   }
 
-  return <Redirect to='/admin' />;
+  return <Redirect to='/' />;
 };
 
 export default AdminWrapper;

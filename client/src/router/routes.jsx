@@ -9,6 +9,7 @@ import Checkout from '../pages/Checkout';
 import Signup from '../pages/Signup';
 import Signin from '../pages/Signin';
 
+
 import {
   ADMIN,
   CART_ROUTE,
@@ -69,7 +70,7 @@ export const publicRoutes = [
   },
   {
     path: SIGNIN_ROUTE,
-    component: <Signin/>,
+    component: <Signin />,
     exact: true,
   },
   {
