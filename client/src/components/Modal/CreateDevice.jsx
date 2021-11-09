@@ -18,6 +18,7 @@ const initialState = {
 const CreateDevice = () => {
   const classes = useStyles();
   const [form, setForm] = useState(initialState);
+  console.log('rendsser')
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 

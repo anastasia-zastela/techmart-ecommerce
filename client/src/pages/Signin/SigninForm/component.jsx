@@ -20,6 +20,7 @@ const SigninForm = () => {
 
   return (
     <AuthForm
+      withEmptyHelperTexts
       formFieldsData={signinFormFieldsData}
       validationSchema={signinValidationSchema}
       initialValues={initialValues}

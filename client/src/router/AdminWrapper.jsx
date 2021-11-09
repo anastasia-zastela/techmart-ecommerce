@@ -9,6 +9,7 @@ const AdminWrapper = ({ children }) => {
 
   useEffect(async () => {
     const response = await UserService.ping();
+    console.log(response)
     setIsUserAdmin(!!((response.status === 200 && response.data.isAdmin)));
   }, []);
 
