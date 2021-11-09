@@ -7,5 +7,4 @@ export default {
   ...productActions,
   ...userActions,
   ...cartActions,
-
 };

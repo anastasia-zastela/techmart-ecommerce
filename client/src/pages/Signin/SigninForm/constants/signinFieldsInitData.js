@@ -1,10 +1,10 @@
 export default [
   {
-    loginOrEmail: 'loginOrEmail',
+    name: 'loginOrEmail',
     label: 'Логин или e-mail',
   },
   {
-    password: 'password',
+    name: 'password',
     label: 'Пароль',
     type: 'password',
   },

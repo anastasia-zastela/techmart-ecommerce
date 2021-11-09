@@ -1,14 +1,3 @@
-import React from 'react';
-import { Box, Container } from '@material-ui/core';
-import CreateDevice from '../../components/Modal/CreateDevice';
+import Admin from './Admin';
 
-const Index = () => (
-
-  <Container>
-    <Box style={{ display: 'flex', justifyContent: 'space-around' }}>
-      <CreateDevice />
-    </Box>
-  </Container>
-);
-
-export default Index;
+export default Admin

@@ -11,11 +11,10 @@ const Signin = () => {
   const { userInfo } = useSelector(userLoginSelector);
   const { logout } = useActions();
   const classes = useStyles();
-  console.log('rrrr');
+
   return (
     <section className='signin-page'>
       <div className={classes.wrapper}>
-        blabla
         {userInfo
           ? (
             <>
