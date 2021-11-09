@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(() => ({
   productsFilter: {
     display: "flex",
     flexDirection: "column",
@@ -18,12 +18,6 @@ export const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "space-between",
     margin: "10px 0",
-  },
-  "MuiOutlinedInput-input": {
-    padding: "5px 2px",
-  },
-  textFieldItem: {
-    marginRight: "20px",
   },
   checkboxWrapper: {
     display: "flex",
@@ -43,3 +37,5 @@ export const useStyles = makeStyles(() => ({
     fontSize: "10px",
   },
 }));
+
+export default useStyles;

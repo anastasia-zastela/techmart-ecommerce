@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Button,
   Card,
@@ -8,10 +9,9 @@ import {
   Typography,
   useMediaQuery,
 } from "@material-ui/core";
-import React from "react";
 import { Link } from "react-router-dom";
-import { useStyles } from "./styles";
 import { useActions } from "../../../hooks/useActions";
+import { useStyles } from "./styles";
 
 const ProductsItem = ({
   id,
@@ -24,13 +24,13 @@ const ProductsItem = ({
   quantity,
 }) => {
   const classes = useStyles();
-  const is857 = useMediaQuery("(max-width: 857px)");
+  const is771 = useMediaQuery("(max-width: 857px)");
   const { addToCart } = useActions();
 
   return (
     <Card
       key={id}
-      className={is857 ? classes.cardAdaptiveWrapper : classes.cardWrapper}
+      className={is771 ? classes.cardAdaptiveWrapper : classes.cardWrapper}
     >
       <Link to={`/products/${id}`} className={classes.cardLink}>
         <CardActionArea>

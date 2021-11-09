@@ -8,21 +8,13 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const Popupfilter = ({ children }) => {
   const [open, setOpen] = useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   const is620 = useMediaQuery("(max-width: 620px)");
 
   return (
     <div>
       <Button
         variant="outlined"
-        onClick={handleClickOpen}
+        onClick={() => setOpen(true)}
         style={is620 ? { fontSize: "10px" } : null}
         size={is620 ? "small" : "medium"}
       >
@@ -32,9 +24,7 @@ const Popupfilter = ({ children }) => {
         open={open}
         TransitionComponent={Transition}
         keepMounted
-        onClose={handleClose}
-        aria-describedby="alert-dialog-slide-description"
-        maxWidth="sx"
+        onClose={() => setOpen(false)}
         scroll="body"
       >
         {children}

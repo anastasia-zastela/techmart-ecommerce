@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useStyles } from "./styles";
 import ProductsItem from "../../components/common/ProductsItem/index";
 import { Container, Grid, useMediaQuery } from "@material-ui/core";
 import { useActions } from "../../hooks/useActions";
 import NestedList from "../../components/common/ProductsMenu/index";
 import ProductsPagination from "../../components/common/ProductsPagination/index";
 import ProductsFilter from "../../components/common/ProductsFilter/index";
-import PopUpFilter from "../../components/common/ProductsFilter/PopUpFilter/index";
+import PopUpFilter from "../../components/common/PopUpFilter";
 import { productsFilter } from "../../redux/actions/productActions";
 import { connect } from "react-redux";
 import Loader from "../../components/common/Loader";
+import { useStyles } from "./styles";
 
 const Products = ({ productsList, loading }) => {
   const { listProducts } = useActions();
@@ -20,24 +20,24 @@ const Products = ({ productsList, loading }) => {
   const is856 = useMediaQuery("(max-width:856px)");
 
   const [colorValue, setColorValue] = useState([]);
-  const getColorsItems = (event) => {
-    event.target.checked
-      ? setColorValue([...colorValue, event.target.id])
-      : setColorValue(colorValue.filter((item) => item !== event.target.id));
+  const getColorsItems = (e) => {
+    e.target.checked
+      ? setColorValue([...colorValue, e.target.id])
+      : setColorValue(colorValue.filter((item) => item !== e.target.id));
   };
   const [brandValue, setBrandValue] = useState([]);
-  const getBrandItems = (event) => {
-    event.target.checked
-      ? setBrandValue([...brandValue, event.target.id])
-      : setBrandValue(brandValue.filter((item) => item !== event.target.id));
+  const getBrandItems = (e) => {
+    e.target.checked
+      ? setBrandValue([...brandValue, e.target.id])
+      : setBrandValue(brandValue.filter((item) => item !== e.target.id));
   };
 
   const [categoriesVale, setCategories] = useState([]);
-  const getCategoriesItems = (event) => {
-    event.target.checked
-      ? setCategories([...categoriesVale, event.target.id])
+  const getCategoriesItems = (e) => {
+    e.target.checked
+      ? setCategories([...categoriesVale, e.target.id])
       : setCategories(
-          categoriesVale.filter((item) => item !== event.target.id)
+          categoriesVale.filter((item) => item !== e.target.id)
         );
   };
   const [quantity, setQuantity] = useState({
