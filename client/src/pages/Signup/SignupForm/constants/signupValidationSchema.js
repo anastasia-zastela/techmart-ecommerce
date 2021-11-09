@@ -14,7 +14,7 @@ export default Yup.object().shape({
     .required(requiredMessage)
     .min(2, tooShortMessage)
     .default(''),
-  username: Yup.string()
+  login: Yup.string()
     .required(requiredMessage)
     .min(2, tooShortMessage)
     .max(20, 'Слишком много символов')
@@ -23,7 +23,7 @@ export default Yup.object().shape({
     .required(requiredMessage)
     .email('Неверный формат почты')
     .default(''),
-  phoneNumber: Yup.string()
+  telephone: Yup.string()
     .required(requiredMessage)
     .default('')
     .matches(phoneRegExp, 'Неверный формат номера'),

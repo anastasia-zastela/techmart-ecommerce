@@ -1,6 +1,6 @@
 export default [
   {
-    name: 'usernameOrEmail',
+    name: 'loginOrEmail',
     label: 'Логин или e-mail',
   },
   {

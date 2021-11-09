@@ -8,7 +8,11 @@ import {
   signupValidationSchema,
 } from './constants';
 
-const initialValues = signupValidationSchema.default();
+const initialValues = {
+  ...signupValidationSchema.default(),
+  isAdmin: false,
+  enabled: true,
+};
 const submitBlockProps = {
   submitSelector: (state) => state.userRegister,
   buttonText: 'Регистрация',

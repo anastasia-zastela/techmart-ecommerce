@@ -1,24 +1,18 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import AppRouter from './components/AppRouter';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import NavBar from './components/NavBar';
+import Router from './router';
 import './styles.css';
 import SimpleBar from 'simplebar-react';
 import 'simplebar/dist/simplebar.css';
 
 function App() {
-    return (
-        <SimpleBar style={{ height: '100vh' }}>
-            <BrowserRouter>
-                <Header />
-                <NavBar />
-                <AppRouter />
-                <Footer />
-            </BrowserRouter>
-        </SimpleBar>
-    );
+  return (
+    <SimpleBar style={{ height: '100vh' }}>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </SimpleBar>
+  );
 }
 
 export default App;
