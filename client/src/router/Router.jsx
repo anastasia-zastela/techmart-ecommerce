@@ -30,7 +30,7 @@ const Router = () => (
         </Route>
       );
     })}
-    <Redirect to='/admin' />
+    <Redirect to='/' />
   </Switch>
 );
 
