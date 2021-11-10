@@ -11,16 +11,20 @@ const phone = {
   colors: ["white", "black", "#215787", "#C7F3BD", "#E70012"],
   memory: [64, 128, 256],
 };
+const renderComponent = () => {
+  <BrowserRouter>
+    <Provider store={store}>
+      <Product />
+    </Provider>
+  </BrowserRouter>
+}
+
 
 describe('Test Product', () => {
  
   it("Smoke test for Product", () => {
       render(
-        <BrowserRouter>
-          <Provider store={store}>
-            <Product />
-          </Provider>
-        </BrowserRouter>
+        renderComponent()
       );
   });
   
@@ -64,22 +68,14 @@ describe('Test Product', () => {
   
   it("Data to be defined", () => {
       render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <Product />
-        </Provider>
-      </BrowserRouter>
+        renderComponent()
       );
     expect(phone).not.toBeUndefined();
   });
   
   it("Check length in received array", () => {
       render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <Product />
-        </Provider>
-      </BrowserRouter>
+        renderComponent()
       );
     const arr = phone.colors.map((color) => color);
     expect(arr).toHaveLength(arr.length);
@@ -87,11 +83,7 @@ describe('Test Product', () => {
   
   it("Check array in received params colors", () => {
       render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <Product />
-        </Provider>
-      </BrowserRouter>
+        renderComponent()
       );
     expect(["white", "black", "#215787", "#C7F3BD", "#E70012"]).toEqual(
       expect.arrayContaining(phone.colors)
@@ -101,11 +93,7 @@ describe('Test Product', () => {
   
   it("Check array in received params memory", () => {
       render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <Product />
-        </Provider>
-      </BrowserRouter>
+        renderComponent()
       );
     expect([64, 128, 256]).toEqual(expect.arrayContaining(phone.memory));
     expect([64, 128]).not.toEqual(expect.arrayContaining(phone.memory));
@@ -114,11 +102,11 @@ describe('Test Product', () => {
   it("OnClick button Buy in Product", () => {
     const onClick = jest.fn(); 
       render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <Product />
-        </Provider>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Provider store={store}>
+            <Product />
+          </Provider>
+        </BrowserRouter>
       );
   
     const button = document.getElementById("buyBtn");
@@ -131,11 +119,11 @@ describe('Test Product', () => {
   it("OnClick button Buy in Credit in Product", () => {
     const onClick = jest.fn();
       render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <Product />
-        </Provider>
-      </BrowserRouter>
+        <BrowserRouter>
+          <Provider store={store}>
+            <Product />
+          </Provider>
+        </BrowserRouter>
       );
 
     const button = document.getElementById("btnBuyInCredit");
