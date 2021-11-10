@@ -5,10 +5,11 @@ import {
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
-  PRODUCTS_SORT_BY
+  PRODUCT_DETAILS_COLORS,
+  PRODUCTS_SORT_BY,
 } from '../constants/productConstants';
 
-import image from '../../pages/iphone12.jpg'
+import image from '../../pages/iphone12.jpg';
 /// Testiong array 
 const products = [
   {id: 1 ,image: image,name: 'Iphone 12',category: 'телефоны',color: 'белый',brand: 'Apple',price:34000},
@@ -44,33 +45,35 @@ const products = [
   {id: 31,image: image,name: 'Iphone 12',category: 'телефоны',color: 'белый',brand: 'Apple',price:4000},
 ]
 
-////
 export const productListReducer = (state = { products: products }, action) => {
   switch (action.type) {
     case PRODUCT_LIST_REQUEST:
-      return { loading: true, products: [] };
+      return { ...state, loading: true, products: [] };
     case PRODUCT_LIST_SUCCESS:
       return {
+        ...state,
         loading: false,
         products: action.payload,
       };
     case PRODUCT_LIST_FAIL:
-      return { loading: false, error: action.payload };
+      return { ...state, loading: false, error: action.payload };
     case PRODUCTS_SORT_BY:
-      return { products: action.payload}
+      return { ...state, products: action.payload };
     default:
       return state;
   }
 };
 
-export const productDetailsReducer = (state = { product: {} }, action) => {
+export const productDetailsReducer = (state = { product: {}, productColors: [] }, action) => {
   switch (action.type) {
     case PRODUCT_DETAILS_REQUEST:
       return { ...state, loading: true };
     case PRODUCT_DETAILS_SUCCESS:
-      return { loading: false, product: action.payload };
+      return { ...state, loading: false, product: action.payload };
     case PRODUCT_DETAILS_FAIL:
-      return { loading: false, error: action.payload };
+      return { ...state, loading: false, error: action.payload };
+    case PRODUCT_DETAILS_COLORS:
+      return { ...state, productColors: action.payload };
     default:
       return state;
   }

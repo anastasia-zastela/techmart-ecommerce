@@ -3,7 +3,7 @@ import { styles } from '../../utils/UserInterfaceConstants';
 
 const useStyles = makeStyles(() => ({
   container: {
-    padding: '15px 0 70px',
+    padding: '15px 20px 70px',
   },
   map: {
     padding: 0,
@@ -14,7 +14,6 @@ const useStyles = makeStyles(() => ({
     color: 'black',
     fontStyle: 'italic',
     fontSize: '1.3rem',
-    width: '30rem',
     marginBottom: '15px',
 
     '&:hover': {
