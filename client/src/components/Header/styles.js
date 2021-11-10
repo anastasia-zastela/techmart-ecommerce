@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core";
+import { styles } from '../../utils/UserInterfaceConstants';
 
 export const useStyles = makeStyles((theme) => ({
     title: {
@@ -7,44 +8,87 @@ export const useStyles = makeStyles((theme) => ({
         margin: 0,
         marginLeft: "5px",
         fontFamily: "Rajdhani",
-        color: "rgb(62, 192, 221)",
+        color: styles.colorLightBlue,
     },
     shoppingCart: {
         '&:hover': {
-            stroke: 'grey'
+            stroke: styles.colorLightBlue
         }
     },
     header: {
-        backgroundColor: "rgb(29, 28, 28)",
+        backgroundColor: styles.colorDark,
         padding: "10px",
     },
     search: {
-        color: "black",
-        height: '30px',
-        width: '300px',
-        backgroundColor: "white",
-        borderRadius: '0px',
+        color: styles.colorBlack,
+        height: '40px',
+        width: '100%',
+        backgroundColor: styles.colorWhite,
+        borderRadius: '10px',
         "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: "white",
-        },
-        "& .MuiInputLabel-formControl": {
-            color: "grey",
-            top: '-11px',
+            borderColor: styles.colorWhite,
         },
         '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-            borderColor: 'white'
+            borderColor: styles.colorWhite
         }
     },
     buttonSearch: {
-        color: 'black',
-        border: '1px solid white',
-        height: '30px',
-        textTransform: 'none',
+        width: '70px',
+        height: '40px',
+        background: styles.colorWhite,
+        position: 'relative',
+        fontSize: '14px',
         marginLeft: '10px',
+        borderRadius: '10px',
+        border: 'none',
         textAlign: 'center',
-        backgroundColor: 'white',
-        '&:hover': {
-            backgroundColor: 'rgb(160, 160, 160)'
+        cursor: 'pointer',
+        transition: 'all 0.1s ease-in-out',
+        '& span': {
+            fontWeight: 'semibold',
         },
-    }
+        color: styles.colorBlack,
+        '&:hover': {
+            opacity: 0.5,
+        },
+        '&:active': {
+            opacity: 1,
+            color: styles.colorLightBlue,
+        },
+    },
+    containerInput: {
+        display: 'flex',
+        alignItems: 'center',
+    },
+    [theme.breakpoints.down("sm")]: {
+        gridLogo: {
+            order: 1,
+        },
+        gridCart: {
+            order: 2,
+        },
+        gridLogin: {
+            order: 3,
+        },
+        gridInput: {
+            order: 4,
+        },
+        containerInput: {
+            paddingLeft: 70,
+            paddingRight: 70
+        }
+    },
+    [theme.breakpoints.down("xs")]: {
+        containerInput: {
+            paddingLeft: 20,
+            paddingRight: 0
+        }
+    },
+    linkCoponent: {
+        fontSize: "20px",
+        textDecoration: "none",
+        color: styles.colorLightBlue,
+        textTransform: 'none',
+        fontWeight: '400'
+    },
 }));
