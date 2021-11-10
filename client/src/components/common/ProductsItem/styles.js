@@ -8,7 +8,6 @@ export const useStyles = makeStyles(() => ({
   },
   cardAdaptiveWrapper: {
     width: "200px",
-    marginLeft: "25px",
     marginBottom: "25px",
   },
   cardMediaWrapper: {
@@ -17,6 +16,7 @@ export const useStyles = makeStyles(() => ({
     marginLeft: "auto",
     marginRight: "auto",
     marginTop: "25px",
+    backgroundSize: "contain",
   },
   cardTitle: {
     color: "#222222",

@@ -4,27 +4,31 @@ import Button from "@mui/material/Button";
 import StyledMenu from "./styles";
 import MenuItem from "@mui/material/MenuItem";
 import { useState } from "react";
-import { useActions } from "../../../hooks/useActions";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import {
+  sortByAscending,
+  sortByDescending,
+} from "../../../redux/actions/productActions";
 
-const NestedList = ({ productsList }) => {
-  const is768 = useMediaQuery("(max-width: 768px)");
+const NestedList = ({ productsList, setSortedList }) => {
+  const is620 = useMediaQuery("(max-width: 620px)");
   const [event, setEvent] = useState(false);
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-  const { sortByAscending, sortByDescending } = useActions();
 
   const handleSortByAscending = () => {
     setAnchorEl(null);
-    sortByAscending(productsList);
+    const sort = sortByAscending(productsList);
+    setSortedList(sort);
   };
   const handleSortByDescending = () => {
     setAnchorEl(null);
-    sortByDescending(productsList);
+    const sort = sortByDescending(productsList);
+    setSortedList(sort);
   };
 
-  const handleClick = (event) => {
+  const handleOpen = (event) => {
     setAnchorEl(event.currentTarget);
     setEvent(true);
   };
@@ -36,15 +40,15 @@ const NestedList = ({ productsList }) => {
   return (
     <div>
       <Button
-        style={is768 ? { fontSize: "10px" } : null}
+        style={is620 ? { fontSize: "10px" } : null}
         id="demo-customized-button"
         aria-controls="demo-customized-menu"
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         variant="outlined"
         disableElevation
-        onClick={handleClick}
-        size={is768 ? "small" : "medium"}
+        onClick={handleOpen}
+        size={is620 ? "small" : "medium"}
       >
         Сортировать по :
       </Button>
@@ -57,20 +61,10 @@ const NestedList = ({ productsList }) => {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem
-          onClick={handleSortByDescending}
-          onChange={(e) => console.log(e.target.value)}
-          style={is768 ? { fontSize: "10px", padding: "5px 0 5px 3px" } : null}
-          disableRipple
-        >
+        <MenuItem onClick={handleSortByDescending} disableRipple>
           по возрастанию
         </MenuItem>
-        <MenuItem
-          onClick={handleSortByAscending}
-          onChange={(e) => console.log(e.target.value)}
-          style={is768 ? { fontSize: "10px", padding: "5px 0 5px 3px" } : null}
-          disableRipple
-        >
+        <MenuItem onClick={handleSortByAscending} disableRipple>
           по убыванию
         </MenuItem>
       </StyledMenu>

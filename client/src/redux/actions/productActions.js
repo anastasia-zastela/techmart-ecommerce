@@ -7,7 +7,6 @@ import {
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
   PRODUCT_DETAILS_COLORS,
-  PRODUCTS_SORT_BY,
 } from '../constants/productConstants';
 
 export const listProducts = () => async (dispatch) => {
@@ -56,8 +55,7 @@ export const listProductColors = (name) => async (dispatch) => {
   try {
     const products = await ProductService.getAll();
     const productColors = products.filter((prod) => prod.name === name)
-    
-    console.log(productColors);
+  
     dispatch({
       type: PRODUCT_DETAILS_COLORS,
       payload: productColors,
@@ -73,18 +71,36 @@ export const listProductColors = (name) => async (dispatch) => {
   }
 };
 
-export const sortByAscending = (array) => (dispatch) => {
-  const sort = [...array].sort((a, b) => b.price - a.price);
-  dispatch({
-    type: PRODUCTS_SORT_BY,
-    payload: sort,
-  });
+export const sortByAscending = (array) => {
+  const sort = [...array].sort((a, b) => b.currentPrice - a.currentPrice);
+  return sort;
 };
 
-export const sortByDescending = (array) => (dispatch) => {
-  const sort = [...array].sort((a, b) => a.price - b.price);
-  dispatch({
-    type: PRODUCTS_SORT_BY,
-    payload: sort,
-  });
+export const sortByDescending = (array) => {
+  const sort = [...array].sort((a, b) => a.currentPrice - b.currentPrice);
+  return sort;
+};
+export const productsFilter = (
+  array,
+  color,
+  brand,
+  categories,
+  min,
+  max,
+  quantity
+) => {
+  const filteredArr = [...array].filter(
+    (item) =>
+      (!color.length || color.includes(item.color)) &&
+      (!brand.length || brand.includes(item.brand)) &&
+      (!categories.length || categories.includes(item.categories)) &&
+      item &&
+      item.currentPrice >= min &&
+      item.currentPrice <= max &&
+      (quantity.noInStock && quantity.inStock
+        ? item
+        : (!quantity.noInStock || item.quantity === 0) &&
+          (!quantity.inStock || item.quantity !== 0))
+  );
+  return filteredArr;
 };

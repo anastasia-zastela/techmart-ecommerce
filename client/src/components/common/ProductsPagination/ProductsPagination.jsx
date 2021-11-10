@@ -3,9 +3,14 @@ import Pagination from "@mui/material/Pagination";
 import { useStyles } from "./styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-export default function PaginationControlled({ page, count, handleChange }) {
+const PaginationControlled = ({ perPage, page, setPage, filteredArr }) => {
   const classes = useStyles();
   const is768 = useMediaQuery("(max-width: 768px)");
+
+  const count = Math.ceil(filteredArr.length / perPage);
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
 
   return (
     <div className={classes.paginationStyle}>
@@ -16,10 +21,9 @@ export default function PaginationControlled({ page, count, handleChange }) {
         color="primary"
         shape="rounded"
         size={is768 ? "small" : "large"}
-        showFirstButton={true}
-        showLastButton={true}
         onChange={handleChange}
       />
     </div>
   );
-}
+};
+export default PaginationControlled;
