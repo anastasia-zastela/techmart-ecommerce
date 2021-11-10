@@ -2,12 +2,11 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   mainSlider: {
-    width: '500px',
-    height: '390px',
+    width: '380px',
+    height: '520px',
     display: 'flex',
     flexDirection: 'row-reverse',
     textAlign: 'center',
-
     '& .carousel': {
       width: '170px',
     },
@@ -35,15 +34,24 @@ const useStyles = makeStyles((theme) => ({
     '& .control-dots, .control-arrow, .carousel-status, .control-next': {
       display: 'none',
     },
+
+    '& .carousel .slide': {
+      marginBottom: '134px',
+    },
   },
 
   [theme.breakpoints.down('sm')]: {
     mainSlider: {
-      width: '350px',
-      height: '500px',
+      width: '230px',
+      height: '530px',
       flexDirection: 'column',
+
       '& .carousel': {
-        width: '300px',
+        width: '100%',
+      },
+
+      '& .carousel .slide': {
+        marginBottom: '118px',
       },
 
       '& .thumbs': {
@@ -51,18 +59,23 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+
   [theme.breakpoints.down('xs')]: {
     mainSlider: {
       margin: '0 auto',
-      width: '320px',
-      height: '450px',
+      width: '190px',
+      height: '440px',
       flexDirection: 'column',
       '& .carousel': {
-        width: '300px',
+        width: '100%',
       },
 
       '& .thumbs': {
         flexDirection: 'row',
+      },
+
+      '& .carousel .slide': {
+        marginBottom: '97px',
       },
     },
   },

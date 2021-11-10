@@ -1,10 +1,9 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import img from '../iphone12.jpg';
 import useStyles from './styles';
 
-const Slider = () => {
+const Slider = ({ images }) => {
   const classes = useStyles();
 
   return (
@@ -14,15 +13,14 @@ const Slider = () => {
       verticalSwipe='standard'
       thumbWidth='20'
     >
-      <div>
-        <img src={img} alt='iphone' width='100%' height='100%' />
-      </div>
-      <div>
-        <img src={img} alt='iphone' width='100%' height='100%' />
-      </div>
-      <div>
-        <img src={img} alt='iphone' width='100%' height='100%' />
-      </div>
+      {images ? images.map((image, index) => (
+        <div key={index}>
+          <img src={image} alt='iphone' width='100%' height='100%' />
+        </div>
+      ))
+        :
+        null
+      }
     </Carousel>
   );
 };
