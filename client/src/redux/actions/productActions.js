@@ -1,4 +1,4 @@
-import ProductService from "../../services/ProductService";
+import ProductService from '../../services/ProductService';
 import {
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
@@ -6,8 +6,8 @@ import {
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
-  PRODUCTS_SORT_BY,
-} from "../constants/productConstants";
+  PRODUCT_DETAILS_COLORS,
+} from '../constants/productConstants';
 
 export const listProducts = () => async (dispatch) => {
   try {
@@ -50,18 +50,57 @@ export const listProductDetails = (id) => async (dispatch) => {
     });
   }
 };
-export const sortByAscending = (array) => (dispatch) => {
-  const sort = [...array].sort((a, b) => b.price - a.price);
-  dispatch({
-    type: PRODUCTS_SORT_BY,
-    payload: sort,
-  });
+
+export const listProductColors = (name) => async (dispatch) => {
+  try {
+    const products = await ProductService.getAll();
+    const productColors = products.filter((prod) => prod.name === name)
+  
+    dispatch({
+      type: PRODUCT_DETAILS_COLORS,
+      payload: productColors,
+    });
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_DETAILS_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
 };
 
-export const sortByDescending = (array) => (dispatch) => {
-  const sort = [...array].sort((a, b) => a.price - b.price);
-  dispatch({
-    type: PRODUCTS_SORT_BY,
-    payload: sort,
-  });
+export const sortByAscending = (array) => {
+  const sort = [...array].sort((a, b) => b.currentPrice - a.currentPrice);
+  return sort;
+};
+
+export const sortByDescending = (array) => {
+  const sort = [...array].sort((a, b) => a.currentPrice - b.currentPrice);
+  return sort;
+};
+export const productsFilter = (
+  array,
+  color,
+  brand,
+  categories,
+  min,
+  max,
+  quantity
+) => {
+  const filteredArr = [...array].filter(
+    (item) =>
+      (!color.length || color.includes(item.color)) &&
+      (!brand.length || brand.includes(item.brand)) &&
+      (!categories.length || categories.includes(item.categories)) &&
+      item &&
+      item.currentPrice >= min &&
+      item.currentPrice <= max &&
+      (quantity.noInStock && quantity.inStock
+        ? item
+        : (!quantity.noInStock || item.quantity === 0) &&
+          (!quantity.inStock || item.quantity !== 0))
+  );
+  return filteredArr;
 };

@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   cardWrapper: {
     margin: ' 0  0 30px',
     padding: '25px 25px',
@@ -20,24 +20,33 @@ const useStyles = makeStyles(() => ({
   },
   header: {
     fontWeight: 600,
-    margin: '0 0 30px',
+    margin: '0 0 10px',
     textAlign: 'left',
+    textTransform: 'uppercase',
   },
   price: {
     fontWeight: 600,
-    marginBottom: '50px',
+    marginBottom: '3.5rem',
   },
   container: {
-    marginBottom: '30px',
+    marginBottom: '3.5rem',
+    fontSize: '1.3rem',
   },
   text: {
-    margin: '50px 0 ',
+    margin: '3.5rem 0 ',
+    fontSize: '1.2rem',
   },
   exist: {
+    fontSize: '1.2rem',
     color: 'rgb(87,174,0)',
     marginLeft: '10px',
   },
+  noExist: {
+    fontSize: '1.2rem',
+    color: 'red',
+  },
   garanty: {
+    fontSize: '1.2rem',
     marginLeft: '10px',
   },
   memoryButton: {
@@ -55,6 +64,30 @@ const useStyles = makeStyles(() => ({
     '&:hover': {
       color: 'white',
       backgroundColor: '#3ec0dd',
+    },
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    price: {
+      marginBottom: '3rem',
+    },
+    container: {
+      marginBottom: '3rem',
+    },
+    text: {
+      margin: '3rem 0 ',
+    },
+  },
+
+  [theme.breakpoints.down('xs')]: {
+    price: {
+      marginBottom: '2rem',
+    },
+    container: {
+      marginBottom: '2rem',
+    },
+    text: {
+      margin: '2rem 0 ',
     },
   },
 }));

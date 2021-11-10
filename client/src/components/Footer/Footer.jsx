@@ -10,7 +10,7 @@ import {
 import Logo from "../common/Logo/Logo";
 import { useStyles } from './styles';
 import { footerLinks } from './consts';
-import Vector from '../icons/vector.svg';
+import icons from './assets';
 
 const Footer = () => {
     const classes = useStyles();
@@ -81,7 +81,7 @@ const Footer = () => {
                             onChange={(e) => setInputValue(e.target.value)}
                         />
                         <Button color="inherit" className={classes.footerEmailInputButton} onClick={clickOnButtonEmailInput} id='buttonSeachFooter'>
-                            <img src={Vector} alt="vector" />
+                            <img src={icons.vector} alt="vector" />
                         </Button>
                     </Box>
                     <Typography
@@ -93,19 +93,19 @@ const Footer = () => {
                     </Typography>
                     <Link href="https://www.instagram.com/" target="_blank" className={classes.linkWrapper} id='instagramIcon'>
                         {/* TODO */}
-                        <img src="./images/footer/instagram.png" alt="instagram" />
+                        <img src={icons.instagram} alt="instagram" />
                     </Link>
                     <Link href="https://www.facebook.com/" target="_blank" className={classes.linkWrapper} id='facebookIcon'>
                         {/* TODO */}
-                        <img src="./images/footer/logo-facebook.svg" alt="facebook" />
+                        <img src={icons.facebook} alt="facebook" />
                     </Link>
                     <Link href="https://www.google.com/" target="_blank" className={classes.linkWrapper} id='googleIcon'>
                         {/* TODO */}
-                        <img src="./images/footer/logo-google.svg" alt="google" />
+                        <img src={icons.google} alt="google" />
                     </Link>
                     <Link href="https://www.linkedin.com/" target="_blank" className={classes.linkWrapper} id='linkedinIcon'>
                         {/* TODO */}
-                        <img src="./images/footer/linkedin-icon.svg" alt="linkedin" />
+                        <img src={icons.linkedin} alt="linkedin" />
                     </Link>
                 </Grid>
             </Grid>
@@ -122,14 +122,14 @@ const Footer = () => {
                     <Link href="/" className={classes.linkWrapper}>
                         {/* TODO */}
                         <img
-                            src="./images/footer/visa.png"
+                            src={icons.visa}
                             alt="visa"
                             style={{ marginBottom: "7px" }}
                         />
                     </Link>
                     <Link href="/" className={classes.linkWrapper}>
                         {/* TODO */}
-                        <img src="./images/footer/master-card.png" alt="master-card" />
+                        <img src={icons.masterCard} alt="master-card" />
                     </Link>
                 </Grid>
             </Grid>
