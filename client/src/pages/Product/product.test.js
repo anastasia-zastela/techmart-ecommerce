@@ -3,6 +3,9 @@ import Product from "./Product";
 import Slider from "../../components/common/Slider/Slider";
 import GarantyIcon from "../../components/icons/GarantyIcon";
 import CheckCircleIcon from "../../components/icons/CheckCircleIcon";
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from '../../redux/store';
 
 const phone = {
   colors: ["white", "black", "#215787", "#C7F3BD", "#E70012"],
@@ -12,14 +15,24 @@ const phone = {
 describe('Test Product', () => {
  
   it("Smoke test for Product", () => {
-      render(<Product />);
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <Product />
+          </Provider>
+        </BrowserRouter>
+      );
   });
   
   it("Slider to be defined", () => {
       render(
-        <Product>
-          <Slider />
-        </Product>
+        <BrowserRouter>
+          <Provider store={store}>
+            <Product>
+              <Slider />
+            </Product>
+          </Provider>
+        </BrowserRouter>
       );
       const slider = document.querySelector(".carousel-root");
       expect(slider).toBeDefined();
@@ -27,33 +40,59 @@ describe('Test Product', () => {
   
   it("Smoke test for GarantyIcon", () => {
       render(
-        <Product>
-          <GarantyIcon />
-        </Product>
+        <BrowserRouter>
+          <Provider store={store}>
+            <Product>
+              <GarantyIcon />
+            </Product>
+          </Provider>
+        </BrowserRouter>
       );
   });
 
   it("Smoke test for CheckCircleIcon", () => {
       render(
-        <Product>
-          <CheckCircleIcon />
-        </Product>
+        <BrowserRouter>
+          <Provider store={store}>
+            <Product>
+              <CheckCircleIcon />
+            </Product>
+          </Provider>
+        </BrowserRouter>
       );
   });
   
   it("Data to be defined", () => {
-      render(<Product />);
+      render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Product />
+        </Provider>
+      </BrowserRouter>
+      );
     expect(phone).not.toBeUndefined();
   });
   
   it("Check length in received array", () => {
-      render(<Product />);
+      render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Product />
+        </Provider>
+      </BrowserRouter>
+      );
     const arr = phone.colors.map((color) => color);
     expect(arr).toHaveLength(arr.length);
   });
   
   it("Check array in received params colors", () => {
-      render(<Product />);
+      render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Product />
+        </Provider>
+      </BrowserRouter>
+      );
     expect(["white", "black", "#215787", "#C7F3BD", "#E70012"]).toEqual(
       expect.arrayContaining(phone.colors)
     );
@@ -61,14 +100,26 @@ describe('Test Product', () => {
   });
   
   it("Check array in received params memory", () => {
-      render(<Product />);
+      render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Product />
+        </Provider>
+      </BrowserRouter>
+      );
     expect([64, 128, 256]).toEqual(expect.arrayContaining(phone.memory));
     expect([64, 128]).not.toEqual(expect.arrayContaining(phone.memory));
   });
   
   it("OnClick button Buy in Product", () => {
     const onClick = jest.fn(); 
-      render(<Product />);
+      render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Product />
+        </Provider>
+      </BrowserRouter>
+      );
   
     const button = document.getElementById("buyBtn");
     expect(button).toBeDefined();
@@ -79,7 +130,13 @@ describe('Test Product', () => {
   
   it("OnClick button Buy in Credit in Product", () => {
     const onClick = jest.fn();
-      render(<Product />);
+      render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Product />
+        </Provider>
+      </BrowserRouter>
+      );
 
     const button = document.getElementById("btnBuyInCredit");
     expect(button).toBeDefined();
