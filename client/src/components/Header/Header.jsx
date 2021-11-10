@@ -11,8 +11,11 @@ import Logo from '../common/Logo/Logo';
 import { useStyles } from './styles';
 import { useSelector } from 'react-redux';
 
-const Header = ({ userLogin = false }) => {
+const userLoginSelector = (state) => state.userLogin;
+
+const Header = () => {
     const classes = useStyles();
+    const { userInfo } = useSelector(userLoginSelector);
     const productsList = useSelector(state => state.productList.products)
     const [seachValue, setSearchValue] = useState('');
     const searchForProducts = () => {
@@ -68,7 +71,7 @@ const Header = ({ userLogin = false }) => {
                         spacing={2}
                         style={{ margin: 0, width: '100%' }}
                     >
-                        {!userLogin &&
+                        {!userInfo &&
                             <Grid item xs={6} sm={4} md={4} style={{ display: 'flex', justifyContent: 'center' }}>
                                 <Button color="inherit" >
                                     <NavLink to="/signin" className={classes.linkCoponent}>
