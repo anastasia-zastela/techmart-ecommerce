@@ -16,10 +16,8 @@ export default class UserService {
 
     return data;
   };
-  static ping = () => {
-    return  $host.get('/customers/customer')
-        .then((res) => res)
-        .catch(error => error.response)
 
+  static ping = async () => {
+    return await $host.get('/customers/customer')
   }
 }
