@@ -1,3 +1,4 @@
+import React from 'react';
 import Cart from '../pages/Cart';
 import Main from '../pages/Main';
 import Admin from '../pages/Admin';
@@ -19,56 +20,61 @@ import {
   SIGNUP_ROUTE,
 } from '../config/consts';
 
-export const adminRoutes = [
-  {
-    path: ADMIN_ROUTE,
-    component: Admin,
-    exact: true,
-  },
-];
-
 export const privateRoutes = [
   {
     path: CART_ROUTE,
-    component: Cart,
+    component: <Cart />,
     exact: true,
+    admin: false,
+  },
+  {
+    path: ADMIN_ROUTE,
+    component: <Admin />,
+    exact: true,
+    admin: true,
   },
   {
     path: CHECKOUT_ROUTE,
-    component: Checkout,
+    component: <Checkout />,
     exact: true,
+    admin: false,
   },
 ];
 
 export const publicRoutes = [
   {
     path: MAIN_PAGE_ROUTE,
-    component: Main,
+    component: <Main />,
     exact: true,
   },
   {
     path: `${PRODUCTS_ROUTE}/:id`,
-    component: Product,
+    component: <Product />,
     exact: true,
   },
   {
     path: PRODUCTS_ROUTE,
-    component: Products,
+    component: <Products />,
     exact: true,
   },
   {
     path: CONTACTS_ROUTE,
-    component: Contacts,
+    component: <Contacts />,
     exact: true,
   },
   {
     path: SIGNUP_ROUTE,
-    component: Signup,
+    component: <Signup />,
     exact: true,
   },
   {
     path: SIGNIN_ROUTE,
-    component: Signin,
+    component: <Signin />,
+    exact: true,
+  },
+  {
+    path: CART_ROUTE,
+    component: <Cart />,
     exact: true,
   },
 ];

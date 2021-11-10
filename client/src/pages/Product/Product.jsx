@@ -13,6 +13,7 @@ import Slider from '../../components/common/Slider/Slider';
 import GarantyIcon from '../../components/icons/GarantyIcon';
 import CheckCircleIcon from '../../components/icons/CheckCircleIcon';
 import { useActions } from '../../hooks/useActions';
+import ProductDetailsTabs from "../../components/common/ProductDetailsTabs";
 
 const mockId = '684124';
 const phone = {
@@ -137,6 +138,7 @@ const Product = () => {
           </Grid>
         </Grid>
       </Box>
+      <ProductDetailsTabs/>
     </Container>
   );
 };

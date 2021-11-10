@@ -8,7 +8,7 @@ export default [
     label: 'Фамилия',
   },
   {
-    name: 'username',
+    name: 'login',
     label: 'Логин',
   },
   {
@@ -29,8 +29,8 @@ export default [
     type: 'password',
   },
   {
-    name: 'phoneNumber',
+    name: 'telephone',
     label: 'Номер телефона',
-    helperText: '+38 (0XX) XXX XX XX',
+    helperText: '+XX XXX XXX XX XX',
   },
 ];
