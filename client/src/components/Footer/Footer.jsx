@@ -29,32 +29,61 @@ const Footer = () => {
                 <Grid item xs={12} sm={6} md={3}>
                     <Logo />
                     <Box style={{ marginTop: "30px" }}>
-                        {footerLinks.info.map((link, index) => (
-                            <Link href="/" className={classes.footerLink} key={index}>
-                                {/* TODO */}
-                                {link}
-                            </Link>
-                        ))}
+                        <Link href="/aboutus" className={classes.footerLink} >
+                            {/* TODO */}
+                            О нас
+                        </Link>
+                        <Link href="/contacts" className={classes.footerLink} >
+                            {/* TODO */}
+                            Контакты
+                        </Link>
+                        <Typography className={classes.footerLink} >
+                            Гарантия и возврат
+                        </Typography>
+                        <Typography className={classes.footerLink} >
+                            Оплата и доставка
+                        </Typography>
                     </Box>
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Link href="/" className={classes.footerTitle}>
-                        {/* TODO */}
+                    <Typography className={classes.footerTitle}>
                         Категории
+                    </Typography>
+                    <Link href="/products" className={classes.footerLink}>
+                        {/* TODO */}
+                        Apple Store
                     </Link>
-                    {footerLinks.kategory.map((el, index) => (
-                        <Link href="/" className={classes.footerLink} key={index}>
-                            {/* TODO */}
-                            {el}
-                        </Link>
-                    ))}
+                    <Link href="/laptops" className={classes.footerLink}>
+                        {/* TODO */}
+                        Ноутбуки
+                    </Link>
+                    <Link href="/tablets" className={classes.footerLink}>
+                        {/* TODO */}
+                        Планшеты
+                    </Link>
+                    <Link href="/smartphones" className={classes.footerLink}>
+                        {/* TODO */}
+                        Смартфоны
+                    </Link>
+                    <Typography className={classes.footerLink}>
+                        Распродажа
+                    </Typography>
+                    <Typography className={classes.footerLink}>
+                        Новинки
+                    </Typography>
+                    <Typography className={classes.footerLink}>
+                        Аудио техника
+                    </Typography>
+                    <Typography className={classes.footerLink}>
+                        Аксессуары
+                    </Typography>
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
                     <Typography className={classes.footerTitle}>
                         Связаться с нами
                     </Typography>
                     {footerLinks.contacts.map((contactPhone, index) => (
-                        <Link href="/" className={classes.footerLink} key={index}>
+                        <Link href={`tel:${contactPhone}`} className={classes.footerLink} key={index}>
                             {contactPhone}
                         </Link>
                     ))}
@@ -119,18 +148,18 @@ const Footer = () => {
                     © Интернет-магазин TechMart
                 </Typography>
                 <Grid item className={classes.container}>
-                    <Link href="/" className={classes.linkWrapper}>
+                    <Typography className={classes.linkWrapper}>
                         {/* TODO */}
                         <img
                             src={icons.visa}
                             alt="visa"
-                            style={{ marginBottom: "7px" }}
+
                         />
-                    </Link>
-                    <Link href="/" className={classes.linkWrapper}>
+                    </Typography>
+                    <Typography className={classes.linkWrapper}>
                         {/* TODO */}
                         <img src={icons.masterCard} alt="master-card" />
-                    </Link>
+                    </Typography>
                 </Grid>
             </Grid>
         </>
