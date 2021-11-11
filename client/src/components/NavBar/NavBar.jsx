@@ -77,43 +77,23 @@ const NavBar = () => {
                     </NavLink>
                 </MenuItem>
                 <MenuItem onClick={handleCloseMenu}>
-                    <NavLink to="/" className={classes.menuItem}>
-                        Распродажа
-                    </NavLink>
-                </MenuItem>
-                <MenuItem onClick={handleCloseMenu}>
-                    <NavLink to="/" className={classes.menuItem}>
-                        Новинки
-                    </NavLink>
-                </MenuItem>
-                <MenuItem onClick={handleCloseMenu}>
-                    <NavLink to="/" className={classes.menuItem}>
-                        Ближайшие поступления
-                    </NavLink>
-                </MenuItem>
-                <MenuItem onClick={handleCloseMenu}>
-                    <NavLink to="/" className={classes.menuItem}>
+                    <NavLink to="/applestore" className={classes.menuItem}>
                         Apple Store
                     </NavLink>
                 </MenuItem>
                 <MenuItem onClick={handleCloseMenu}>
-                    <NavLink to="/" className={classes.menuItem}>
-                        Apple Б/У
+                    <NavLink to="/laptops" className={classes.menuItem}>
+                        Ноутбуки
                     </NavLink>
                 </MenuItem>
                 <MenuItem onClick={handleCloseMenu}>
-                    <NavLink to="/" className={classes.menuItem}>
-                        Аудио техника
+                    <NavLink to="/tablets" className={classes.menuItem}>
+                        Планшеты
                     </NavLink>
                 </MenuItem>
                 <MenuItem onClick={handleCloseMenu}>
-                    <NavLink to="/" className={classes.menuItem}>
-                        Аксессуары
-                    </NavLink>
-                </MenuItem>
-                <MenuItem onClick={handleCloseMenu}>
-                    <NavLink to="/" className={classes.menuItem}>
-                        Гаджеты
+                    <NavLink to="/smartphones" className={classes.menuItem}>
+                        Смартфоны
                     </NavLink>
                 </MenuItem>
             </Menu>
