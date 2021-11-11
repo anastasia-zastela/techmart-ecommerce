@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import SubmitBlock from '../component';
+import SubmitBlock from '../component.jsx';
 
 let mockUserRequestState = {};
 jest.mock('react-redux', () => ({
