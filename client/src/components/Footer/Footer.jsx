@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import {
     Grid,
     Typography,
@@ -18,6 +18,8 @@ const Footer = () => {
     const clickOnButtonEmailInput = () => {
         return inputValue;
     }
+    const inputChangeHandler = useCallback((e) => setInputValue(e.target.value));
+
     return (
         <>
             <Grid
@@ -100,10 +102,10 @@ const Footer = () => {
                             fullWidth
                             placeholder="email"
                             variant="outlined"
-                            id='seachFooter'
-                            onChange={(e) => setInputValue(e.target.value)}
+                            role='seachFooter'
+                            onChange={inputChangeHandler}
                         />
-                        <Button color="inherit" className={classes.footerEmailInputButton} onClick={clickOnButtonEmailInput} id='buttonSeachFooter'>
+                        <Button color="inherit" className={classes.footerEmailInputButton} onClick={clickOnButtonEmailInput} role='buttonSeachFooter'>
                             <img src={icons.vector} alt="vector" />
                         </Button>
                     </Box>

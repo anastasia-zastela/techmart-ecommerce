@@ -1,26 +1,27 @@
 import React from 'react';
 import Footer from '../Footer';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
 describe('Footer component', () => {
-    it('function on button seach work', () => {
+    it('Render component Logo', () => {
         render(
             <BrowserRouter>
                 <Footer />
             </BrowserRouter>
         )
-        const logo = document.getElementById('logo');
-        expect(logo).toBeDefined()
+        const logo = screen.getByRole('logo');
+        expect(logo).toBeInTheDocument()
     })
-    it('input value', () => {
+
+    it('Input value', () => {
         render(
             <BrowserRouter>
                 <Footer />
             </BrowserRouter>
         )
-        const buttonSeachFooter = document.getElementById('buttonSeachFooter');
-        const seachFooter = document.getElementById('seachFooter');
+        const buttonSeachFooter = screen.getByRole('buttonSeachFooter');
+        const seachFooter = screen.getByRole('seachFooter');
         const clickOnButtonEmailInput = () => {
             seachFooter.value = 'test'
             return seachFooter.value;
