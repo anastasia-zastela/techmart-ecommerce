@@ -73,11 +73,6 @@ const NavBar = () => {
             >
                 <MenuItem onClick={handleCloseMenu}>
                     <NavLink to="/products" className={classes.menuItem}>
-                        Продукты
-                    </NavLink>
-                </MenuItem>
-                <MenuItem onClick={handleCloseMenu}>
-                    <NavLink to="/applestore" className={classes.menuItem}>
                         Apple Store
                     </NavLink>
                 </MenuItem>
