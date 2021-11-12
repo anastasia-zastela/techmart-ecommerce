@@ -2,14 +2,19 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   mainSlider: {
-    width: '380px',
-    height: '520px',
+    height: '100%',
     display: 'flex',
     flexDirection: 'row-reverse',
     textAlign: 'center',
+    '& img': {
+      objectFit: 'contain',
+    },
     '& .carousel': {
-      width: '170px',
-     // height: '500px',
+      flexBasis: '20%',
+    },
+    '& .carousel-slider': {
+      flexBasis: '80%',
+      display: 'flex',
     },
 
     '& .thumb': {
@@ -37,9 +42,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
 
-    '& .carousel .slide': {
-      marginBottom: '134px',
-    },
+
   },
 
   [theme.breakpoints.down('sm')]: {

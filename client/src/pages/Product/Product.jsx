@@ -28,7 +28,7 @@ const Product = () => {
   const { listProductDetails } = useActions();
   const { listProductColors } = useActions();
   let location = useLocation();
-let history = useHistory();
+  let history = useHistory();
 
   const id = parseInt(location.pathname.match(/[0-9]+/));
   const product = useSelector(state => state.productDetails.product);
