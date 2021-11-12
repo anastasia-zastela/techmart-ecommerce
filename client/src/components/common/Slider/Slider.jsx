@@ -12,6 +12,8 @@ const Slider = ({ images }) => {
       axis='vertical'
       verticalSwipe='standard'
       thumbWidth='20'
+      ariaLabel='slider'
+      showIndicators={false}
     >
       {images ? images.map((image, index) => (
         <div key={index}>

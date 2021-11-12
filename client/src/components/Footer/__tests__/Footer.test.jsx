@@ -1,9 +1,9 @@
-import React from "react";
-import Footer from './Footer';
-import { render } from "@testing-library/react";
+import React from 'react';
+import Footer from '../Footer';
+import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
-describe('Footer compnent', () => {
+describe('Footer component', () => {
     it('function on button seach work', () => {
         render(
             <BrowserRouter>
