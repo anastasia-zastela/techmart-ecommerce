@@ -9,10 +9,12 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     '& .carousel': {
       width: '170px',
+     // height: '500px',
     },
 
     '& .thumb': {
       opacity: 0.5,
+      height: '120px',
     },
 
     '& .thumbs': {
