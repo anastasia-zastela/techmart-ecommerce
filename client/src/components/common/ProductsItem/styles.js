@@ -40,9 +40,17 @@ export const useStyles = makeStyles(() => ({
   cardButton: {
     width: "100%",
     color: "white",
-    textTransform: "none",
+    textTransform: "uppercase",
     fontSize: "12px",
     lineHeight: "16px",
-    fontWeight: "300",
+    fontWeight: "600",
+    color: "#3ec0dd",
+    backgroundColor: "white",
+    borderRadius: "5px",
+    border: "1px solid  #3ec0dd",
+    "&:hover": {
+      color: "white",
+      backgroundColor: "#3ec0dd",
+    },
   },
 }));
