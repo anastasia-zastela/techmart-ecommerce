@@ -13,9 +13,11 @@ import Slider from '../../components/common/Slider/Slider';
 import GarantyIcon from '../../components/icons/GarantyIcon';
 import CheckCircleIcon from '../../components/icons/CheckCircleIcon';
 import { useActions } from '../../hooks/useActions';
+import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import ProductDetailsTabs from "../../components/common/ProductDetailsTabs";
 
-const mockId = '684124';
+// const mockId = '684124';
 const phone = {
   memory: [64, 128, 256],
 };
@@ -25,7 +27,10 @@ const Product = () => {
   const { addToCart } = useActions();
   const { listProductDetails } = useActions();
   const { listProductColors } = useActions();
+  let location = useLocation();
+let history = useHistory();
 
+  const id = parseInt(location.pathname.match(/[0-9]+/));
   const product = useSelector(state => state.productDetails.product);
   const productColors = useSelector(state => state.productDetails.productColors);
   const phoneColorArr = productColors.map((prod) => prod.color);
@@ -33,21 +38,20 @@ const Product = () => {
   const changeProduct = (color) => {
     const choseProduct = productColors.find((prod) => prod.color === color);
     listProductDetails(choseProduct.itemNo);
+    history.push(choseProduct.itemNo)
   };
-  const addToCartHandler = (mockId) => {
-    addToCart(mockId);
+  const addToCartHandler = (id) => {
+    addToCart(id);
   };
   useEffect(() => {
-    listProductDetails(mockId);
-    listProductColors(product.name);
-  }, [mockId]);
+    listProductDetails(id);
+    listProductColors(id);
+  }, [id]);
   return (
     <Container maxWidth='lg'>
       <Box className={classes.cardWrapper}>
         <Typography variant='h5' className={classes.header}>
-          {product.brand}
-          {product.name}
-          {product.color}
+          {product.brand} {product.name} {product.color}
         </Typography>
 
         <Grid
@@ -88,7 +92,7 @@ const Product = () => {
             <Typography variant='h4' className={classes.price}>
               {product.currentPrice} грн
             </Typography>
-            <Button className={classes.productButton} id='buyBtn' onClick={() => addToCartHandler(mockId)}>
+            <Button className={classes.productButton} id='buyBtn' onClick={() => addToCartHandler(id)}>
               Купить
             </Button>
           </Grid>
@@ -131,7 +135,7 @@ const Product = () => {
               valiant='outlined'
               className={classes.productButton}
               id='btnBuyInCredit'
-              onClick={() => addToCartHandler(mockId)}
+              onClick={() => addToCartHandler(id)}
             >
               Купить в кредит
             </Button>
