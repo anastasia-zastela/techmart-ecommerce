@@ -7,23 +7,31 @@ import { useActions } from "../../hooks/useActions";
 import Loader from '../../components/common/Loader'
 
 const Main = () => {
-    const { listProducts } = useActions();
-    const productsList = useSelector((state) => state.productList.products);
+    const { listProductsFiltered } = useActions();
+    const productsList = useSelector((state) => state.productList.filteredProducts);
     const loading = useSelector((state) => state.productList.loading);
     const classes = useStyles();
 
     useEffect(() => {
-        listProducts();
+        listProductsFiltered();
     }, []);
 
     if (loading) return <Loader />;
 
     return (
         <>
-            <Typography variant='h4' className={classes.pageTitle}>
-                Популярные товары
+            {productsList.length < 1 ? <Typography variant='h4' className={classes.pageTitle}>
+                Нет товаров
             </Typography>
-            <ProductList products={productsList} />
+                : <>
+                    <Typography variant='h4' className={classes.pageTitle}>
+                        Популярные товары
+                    </Typography>
+
+                    <ProductList products={productsList.slice(0, 10)} />
+                </>
+            }
+
         </>
     );
 };
