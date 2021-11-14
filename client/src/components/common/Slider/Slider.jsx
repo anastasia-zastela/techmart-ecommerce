@@ -17,12 +17,9 @@ const Slider = ({ images }) => {
       swipeable
       emulateTouch
     >
-      {images ? images.map((image, index) => (
+      {images?.map((image, index) => (
           <img key={index+image} src={image} alt='iphone' width='100%' height='100%' />
-      ))
-        :
-        null
-      }
+      ))}
     </Carousel>
   );
 };
