@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Typography } from '@material-ui/core';
+import React, { useEffect } from "react";
+import { Typography, Box } from '@material-ui/core';
 import ProductList from '../../components/common/ProductList/ProductList';
 import useStyles from './styles';
 import { useSelector } from 'react-redux';
@@ -23,15 +23,13 @@ const Main = () => {
             {productsList.length < 1 ? <Typography variant='h4' className={classes.pageTitle}>
                 Нет товаров
             </Typography>
-                : <>
+                : <Box>
                     <Typography variant='h4' className={classes.pageTitle}>
                         Популярные товары
                     </Typography>
-
                     <ProductList products={productsList.slice(0, 10)} />
-                </>
+                </Box>
             }
-
         </>
     );
 };
