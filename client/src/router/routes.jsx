@@ -8,6 +8,7 @@ import Contacts from '../pages/Contacts';
 import Checkout from '../pages/Checkout';
 import Signup from '../pages/Signup';
 import Signin from '../pages/Signin';
+import AboutUs from '../pages/AboutUs/index'
 
 import {
   ADMIN_ROUTE,
@@ -18,6 +19,7 @@ import {
   CONTACTS_ROUTE,
   SIGNIN_ROUTE,
   SIGNUP_ROUTE,
+  ABOUT_US_ROUTE
 } from '../config/consts';
 
 export const privateRoutes = [
@@ -77,4 +79,9 @@ export const publicRoutes = [
     component: <Cart />,
     exact: true,
   },
+  {
+    path: ABOUT_US_ROUTE,
+    component: <AboutUs/>,
+    exact: true
+  }
 ];

@@ -55,7 +55,7 @@ const Cart = () => {
         <Grid item xs={12} sm={12} md={4} className={classes.cartButton}>
           <Typography
             variant="h6"
-            color="--main-text"
+            color="textPrimary"
             component="p"
             className={classes.cardPrice}
           >
