@@ -8,7 +8,7 @@ import store from '../../../redux/store';
 const { Provider } = Redux;
 
 describe('Header compnent', () => {
-    it('Render component Logo', () => {
+    it('Render component and produts are filtered', () => {
         render(
             <BrowserRouter>
                 <Provider store={store}>
@@ -16,35 +16,17 @@ describe('Header compnent', () => {
                 </Provider>
             </BrowserRouter>
         )
-        const logo = screen.getByRole('logo');
-        expect(logo).toBeInTheDocument()
-    })
-
-    it('Input value', () => {
-        render(
-            <BrowserRouter>
-                <Provider store={store}>
-                    <Header />
-                </Provider>
-            </BrowserRouter>
-        )
-
-        const products = [{ name: 'test' }, { name: 'phone' }, { name: 'cloud' }, { name: 'test' }];
-        const seachHeader = screen.getByRole('seachHeader');
-
-        const searchForProducts = () => {
-            seachHeader.value = 'test';
-            const filteredProducts = products.filter(product => {
-                return product.name.toLowerCase().includes(seachHeader.value.toLowerCase())
-            })
-            expect(filteredProducts).toHaveLength(2)
-            return filteredProducts;
-        }
-
+        const mockProducts = [{ name: 'test' }, { name: 'phone' }, { name: 'cloud' }, { name: 'test' }];
         const buttonSeachHeader = screen.getByRole('buttonSeachHeader');
-        buttonSeachHeader.addEventListener('click', searchForProducts);
-        buttonSeachHeader.click();
-        expect(seachHeader.value).toBe('test')
+        const seachHeader = screen.getByRole('seachHeader');
+        seachHeader.value = 'test';
+        const filteredProducts = mockProducts.filter(product =>
+            product.name.toLowerCase().includes(seachHeader.value.toLowerCase())
+        )
+        const mockFn = jest.fn();
+        buttonSeachHeader.click(mockFn());
+        expect(mockFn).toHaveBeenCalled();
+        expect(filteredProducts.length).toBe(2);
     })
 
     it('Change button signin', () => {
@@ -59,8 +41,8 @@ describe('Header compnent', () => {
         expect(signinButton).toBeInTheDocument()
     })
 
-    it('Change button logout', () => {
-        jest.spyOn(Redux, 'useSelector').mockReturnValueOnce({ userInfo: { isMock: true } });
+    it('Renders logout button if user is authenticated', () => {
+        jest.spyOn(Redux, 'useSelector').mockReturnValueOnce({ userInfo: {} });
         render(
             <BrowserRouter>
                 <Provider store={store}>

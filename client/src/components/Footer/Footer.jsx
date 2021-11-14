@@ -21,7 +21,7 @@ const Footer = () => {
     const inputChangeHandler = useCallback((e) => setInputValue(e.target.value));
 
     return (
-        <>
+        <Box role={'footer'}>
             <Grid
                 container
                 spacing={2}
@@ -154,7 +154,7 @@ const Footer = () => {
                     </Typography>
                 </Grid>
             </Grid>
-        </>
+        </Box>
     );
 };
 

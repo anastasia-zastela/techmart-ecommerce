@@ -18,22 +18,14 @@ const Header = () => {
     const classes = useStyles();
     const { logout } = useActions()
     const { userInfo } = useSelector(userLoginSelector);
-    const productsList = useSelector((state) => state.productList.products);
     const [seachValue, setSearchValue] = useState('');
-<<<<<<< HEAD
 
-    const searchForProducts = useCallback(() => {
-        const filteredProducts = productsList.filter((product) => product.name.toLowerCase().includes(seachValue.toLowerCase()));
-        //dispatch
-    }, [productsList]);
-=======
     const { listProductsFiltered } = useActions();
 
     const searchForProducts = useCallback(() => {
         listProductsFiltered(seachValue);
     }, [seachValue]);
 
->>>>>>> master
     const inputChangeHandler = useCallback((e) => setSearchValue(e.target.value));
 
     return (
