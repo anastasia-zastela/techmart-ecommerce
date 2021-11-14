@@ -12,7 +12,7 @@ const ProductList = ({ products }) => {
         addToCart(productId);
     };
 
-    const productsMapped = products.slice(0, 10).map((product) => (
+    const productsMapped = products.map((product) => (
         <ProductCard
             key={product._id}
             id={product.itemNo}

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Typography } from '@material-ui/core';
+import React, { useEffect } from "react";
+import { Typography, Box } from '@material-ui/core';
 import ProductList from '../../components/common/ProductList/ProductList';
 import useStyles from './styles';
 import { useSelector } from 'react-redux';
@@ -7,23 +7,29 @@ import { useActions } from "../../hooks/useActions";
 import Loader from '../../components/common/Loader'
 
 const Main = () => {
-    const { listProducts } = useActions();
-    const productsList = useSelector((state) => state.productList.products);
+    const { listProductsFiltered } = useActions();
+    const productsList = useSelector((state) => state.productList.filteredProducts);
     const loading = useSelector((state) => state.productList.loading);
     const classes = useStyles();
 
     useEffect(() => {
-        listProducts();
+        listProductsFiltered();
     }, []);
 
     if (loading) return <Loader />;
 
     return (
         <>
-            <Typography variant='h4' className={classes.pageTitle}>
-                Популярные товары
+            {productsList.length < 1 ? <Typography variant='h4' className={classes.pageTitle}>
+                Нет товаров
             </Typography>
-            <ProductList products={productsList} />
+                : <Box>
+                    <Typography variant='h4' className={classes.pageTitle}>
+                        Популярные товары
+                    </Typography>
+                    <ProductList products={productsList.slice(0, 10)} />
+                </Box>
+            }
         </>
     );
 };
