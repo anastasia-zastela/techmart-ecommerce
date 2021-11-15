@@ -11,7 +11,7 @@ const PageNotFound = () => {
         <Grid columnSpacing={5} >
           <Typography variant='h1'>404</Typography>
             <Typography variant='h2'>Oops! This Page Could Not Be Found</Typography>
-            <Typography>SORRY BUT THE PAGE YOU ARE LOOKING FOR DOES NOT EXIST, HAVE BEEN REMOVED. NAME CHANGED OR IS TEMPORARILY UNAVAILABLE</Typography>
+            <Typography>SORRYf BUT THE PAGE YOU ARE LOOKING FOR DOES NOT EXIST, HAVE BEEN REMOVED. NAME CHANGED OR IS TEMPORARILY UNAVAILABLE</Typography>
         </Grid>
         <NavLink to='/'>
 
