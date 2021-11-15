@@ -34,8 +34,18 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:cov": "react-scripts test --coverage",
+    "test:cov": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "statements": 40,
+        "branches": 19,
+        "functions": 30,
+        "lines": 40
+      }
+    }
   },
   "browserslist": {
     "production": [

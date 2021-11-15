@@ -7,7 +7,7 @@ import logoSVG from './Triangle-Logo.svg';
 const Logo = () => {
     const classes = useStyles();
     return (
-        <NavLink to='/' className={classes.logo} id='logo'>
+        <NavLink to='/' className={classes.logo} role='logo'>
             <img
                 alt='logo'
                 src={logoSVG}
