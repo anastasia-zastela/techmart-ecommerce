@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import UserService from '../services/UserService';
 
 const AdminWrapper = ({ children }) => {
-  const [isUserAdmin, setIsUserAdmin] = useState(undefined);
+  const [isUserAdmin, setIsUserAdmin] = useState(null);
 
   useEffect(async () => {
     const response = await UserService.ping();
@@ -20,6 +20,7 @@ const AdminWrapper = ({ children }) => {
       </div>
     );
   }
+  /*TODO Handle request error*/
   if (isUserAdmin === false) {
     return <Redirect to='/signin' />;
   }

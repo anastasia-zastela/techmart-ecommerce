@@ -6,3 +6,4 @@ export const PRODUCTS_ROUTE = '/products';
 export const CONTACTS_ROUTE = '/contacts';
 export const SIGNUP_ROUTE = '/signup';
 export const SIGNIN_ROUTE = '/signin';
+export const PAGE_NOT_FOUND = '/404'
