@@ -63,5 +63,9 @@ export const useStyles = makeStyles(() => ({
         "&:hover": {
             borderColor: styles.colorGrey,
         },
+    },
+    container: {
+        display: 'flex',
+        alignItems: 'center'
     }
 }));

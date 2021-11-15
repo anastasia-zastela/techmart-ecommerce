@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import Header from './Header';
+import React from 'react';
+import Header from '../Header';
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from '../../redux/store';
+import store from '../../../redux/store';
 
 describe('Header compnent', () => {
     it('Render Header and Logo', () => {

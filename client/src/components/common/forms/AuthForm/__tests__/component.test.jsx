@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 // eslint-disable-next-line jest/no-mocks-import
-import { mockFieldsInitData, mockValidationSchema } from '../__mocks__';
+import { mockFieldsInitData, mockValidationSchema } from '../stubs';
 
-import AuthForm from '../component';
+import AuthForm from '../component.jsx';
 
 jest.mock('react-redux', () => (
   {

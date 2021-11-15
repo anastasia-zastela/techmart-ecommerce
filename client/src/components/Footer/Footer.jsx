@@ -29,32 +29,55 @@ const Footer = () => {
                 <Grid item xs={12} sm={6} md={3}>
                     <Logo />
                     <Box style={{ marginTop: "30px" }}>
-                        {footerLinks.info.map((link, index) => (
-                            <Link href="/" className={classes.footerLink} key={index}>
-                                {/* TODO */}
-                                {link}
-                            </Link>
-                        ))}
+                        <Link href="/aboutus" className={classes.footerLink} >
+                            О нас
+                        </Link>
+                        <Link href="/contacts" className={classes.footerLink} >
+                            Контакты
+                        </Link>
+                        <Typography className={classes.footerLink} >
+                            Гарантия и возврат
+                        </Typography>
+                        <Typography className={classes.footerLink} >
+                            Оплата и доставка
+                        </Typography>
                     </Box>
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
-                    <Link href="/" className={classes.footerTitle}>
-                        {/* TODO */}
+                    <Typography className={classes.footerTitle}>
                         Категории
+                    </Typography>
+                    <Link href="/products" className={classes.footerLink}>
+                        Apple Store
                     </Link>
-                    {footerLinks.kategory.map((el, index) => (
-                        <Link href="/" className={classes.footerLink} key={index}>
-                            {/* TODO */}
-                            {el}
-                        </Link>
-                    ))}
+                    <Link href="/laptops" className={classes.footerLink}>
+                        Ноутбуки
+                    </Link>
+                    <Link href="/tablets" className={classes.footerLink}>
+                        Планшеты
+                    </Link>
+                    <Link href="/smartphones" className={classes.footerLink}>
+                        Смартфоны
+                    </Link>
+                    <Typography className={classes.footerLink}>
+                        Распродажа
+                    </Typography>
+                    <Typography className={classes.footerLink}>
+                        Новинки
+                    </Typography>
+                    <Typography className={classes.footerLink}>
+                        Аудио техника
+                    </Typography>
+                    <Typography className={classes.footerLink}>
+                        Аксессуары
+                    </Typography>
                 </Grid>
                 <Grid item xs={12} sm={6} md={3}>
                     <Typography className={classes.footerTitle}>
                         Связаться с нами
                     </Typography>
                     {footerLinks.contacts.map((contactPhone, index) => (
-                        <Link href="/" className={classes.footerLink} key={index}>
+                        <Link href={`tel:${contactPhone}`} className={classes.footerLink} key={index}>
                             {contactPhone}
                         </Link>
                     ))}
@@ -92,19 +115,15 @@ const Footer = () => {
                         Мы в соц. сетях:
                     </Typography>
                     <Link href="https://www.instagram.com/" target="_blank" className={classes.linkWrapper} id='instagramIcon'>
-                        {/* TODO */}
                         <img src={icons.instagram} alt="instagram" />
                     </Link>
                     <Link href="https://www.facebook.com/" target="_blank" className={classes.linkWrapper} id='facebookIcon'>
-                        {/* TODO */}
                         <img src={icons.facebook} alt="facebook" />
                     </Link>
                     <Link href="https://www.google.com/" target="_blank" className={classes.linkWrapper} id='googleIcon'>
-                        {/* TODO */}
                         <img src={icons.google} alt="google" />
                     </Link>
                     <Link href="https://www.linkedin.com/" target="_blank" className={classes.linkWrapper} id='linkedinIcon'>
-                        {/* TODO */}
                         <img src={icons.linkedin} alt="linkedin" />
                     </Link>
                 </Grid>
@@ -119,18 +138,18 @@ const Footer = () => {
                     © Интернет-магазин TechMart
                 </Typography>
                 <Grid item className={classes.container}>
-                    <Link href="/" className={classes.linkWrapper}>
-                        {/* TODO */}
+                    <Typography className={classes.linkWrapper}>
                         <img
                             src={icons.visa}
                             alt="visa"
-                            style={{ marginBottom: "7px" }}
                         />
-                    </Link>
-                    <Link href="/" className={classes.linkWrapper}>
-                        {/* TODO */}
-                        <img src={icons.masterCard} alt="master-card" />
-                    </Link>
+                    </Typography>
+                    <Typography className={classes.linkWrapper}>
+                        <img
+                            src={icons.masterCard}
+                            alt="master-card"
+                        />
+                    </Typography>
                 </Grid>
             </Grid>
         </>
