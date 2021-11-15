@@ -39,6 +39,7 @@ let history = useHistory();
     const choseProduct = productColors.find((prod) => prod.color === color);
     listProductDetails(choseProduct.itemNo);
     history.push(choseProduct.itemNo)
+    console.log('render')
   };
   const addToCartHandler = (id) => {
     addToCart(id);

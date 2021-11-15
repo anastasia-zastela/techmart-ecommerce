@@ -1,11 +1,11 @@
 import { render } from "@testing-library/react";
-import Product from "./Product";
-import Slider from "../../components/common/Slider/Slider";
-import GarantyIcon from "../../components/icons/GarantyIcon";
-import CheckCircleIcon from "../../components/icons/CheckCircleIcon";
+import Product from "../Product";
+import Slider from "../../../components/common/Slider/Slider";
+import GarantyIcon from "../../../components/icons/GarantyIcon";
+import CheckCircleIcon from "../../../components/icons/CheckCircleIcon";
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from '../../redux/store';
+import store from '../../../redux/store';
 
 const phone = {
   colors: ["white", "black", "#215787", "#C7F3BD", "#E70012"],
