@@ -8,13 +8,12 @@ const CartCounter = () => {
     const cartCounter = cartItem.reduce((previous, current) => {
         return previous + current.qty;
       }, 0);
-      if (cartItem.length > 0) {return (
+      return (
+      cartItem.length > 0 ?  
         <span className={classes.cartCounter}>
         {cartCounter}
         </span>
-      )}
-      return (
-        null
+        :null
       )
 };
 
