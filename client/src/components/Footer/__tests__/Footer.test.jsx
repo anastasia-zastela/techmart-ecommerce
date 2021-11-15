@@ -1,32 +1,21 @@
 import React from 'react';
 import Footer from '../Footer';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
+const mockFn = jest.fn();
+
 describe('Footer component', () => {
-    it('function on button seach work', () => {
+    it('Render component', () => {
         render(
             <BrowserRouter>
                 <Footer />
             </BrowserRouter>
         )
-        const logo = document.getElementById('logo');
-        expect(logo).toBeDefined()
-    })
-    it('input value', () => {
-        render(
-            <BrowserRouter>
-                <Footer />
-            </BrowserRouter>
-        )
-        const buttonSeachFooter = document.getElementById('buttonSeachFooter');
-        const seachFooter = document.getElementById('seachFooter');
-        const clickOnButtonEmailInput = () => {
-            seachFooter.value = 'test'
-            return seachFooter.value;
-        }
-        buttonSeachFooter.addEventListener('click', clickOnButtonEmailInput);
-        buttonSeachFooter.click();
-        expect(seachFooter.value).toBe('test')
+        const footer = screen.getByRole('footer');
+        const buttonSeachFooter = screen.getByRole('buttonSeachFooter');
+        buttonSeachFooter.click(mockFn());
+        expect(footer).toBeDefined();
+        expect(mockFn).toHaveBeenCalled();
     })
 })

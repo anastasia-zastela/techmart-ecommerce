@@ -18,8 +18,8 @@ const Header = () => {
     const classes = useStyles();
     const { logout } = useActions()
     const { userInfo } = useSelector(userLoginSelector);
-    const productsList = useSelector((state) => state.productList.products);
     const [seachValue, setSearchValue] = useState('');
+
     const { listProductsFiltered } = useActions();
 
     const searchForProducts = useCallback(() => {
