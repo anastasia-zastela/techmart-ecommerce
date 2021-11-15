@@ -1,11 +1,12 @@
-import {makeStyles} from "@material-ui/core";
+import {makeStyles} from '@material-ui/core';
 
 export default makeStyles(() => ({
-    descriptions:{
-        textAlign:"center"
+    descriptions: {
+        textAlign: 'center',
     },
-    productDetailsWrapper:{
-        width: "100%",
-        margin: "0 auto",
+    productDetailsWrapper: {
+        width: '100%',
+        marginBottom: '30px',
+        borderRadius: '10px',
     }
 }))

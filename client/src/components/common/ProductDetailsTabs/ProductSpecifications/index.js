@@ -1,9 +1,9 @@
 import React from 'react';
-import {Table, TableBody, TableCell, TableRow} from "@material-ui/core";
+import {Table, TableBody, TableCell, TableRow} from '@material-ui/core';
 
 const ProductSpecifications = () => {
     return (
-        <Table sx={{minWidth: 650}} aria-label="simple table">
+        <Table sx={{minWidth: 650}} aria-label='simple table'>
             <TableBody>
                 <TableRow>
                     <TableCell>Размеры</TableCell>

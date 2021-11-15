@@ -5,7 +5,7 @@ import Divider from '@mui/material/Divider';
 import {Button, TextField, Typography} from '@material-ui/core';
 import {useState} from 'react';
 import useStyles from './styles';
-import {Container} from "@mui/material";
+import {Container} from '@mui/material';
 
 export default function Reviews() {
     const classes = useStyles();
