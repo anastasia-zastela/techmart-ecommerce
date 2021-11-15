@@ -16,7 +16,6 @@ import CheckCircleIcon from '../../components/icons/CheckCircleIcon';
 import { useActions } from '../../hooks/useActions';
 import ProductDetailsTabs from '../../components/common/ProductDetailsTabs';
 
-// const mockId = '684124';
 const phone = {
   memory: [64, 128, 256],
 };
@@ -27,21 +26,22 @@ const Product = () => {
   const location = useLocation();
   const history = useHistory();
 
-  const id = parseInt(location.pathname.match(/[0-9]+/), 10);
+  const productId = +location.pathname.match(/[0-9]+/);
   const { product, productColors } = useSelector((state) => state.productDetails);
   const phoneColorArr = productColors.map((prod) => prod.color);
 
-  const changeProduct = (color) => {
-    const choseProduct = productColors.find((prod) => prod.color === color);
-    listProductDetails(choseProduct.itemNo);
-    history.push(choseProduct.itemNo);
+  const changeColor = (color) => {
+    const chosenProduct = productColors.find((prod) => prod.color === color);
+    history.push(chosenProduct.itemNo);
   };
+
   const addToCartHandler = (id) => {
     addToCart(id);
   };
+
   useEffect(() => {
-    listProductDetails(id);
-    listProductColors(id);
+    listProductDetails(productId);
+    listProductColors(productId);
   }, []);
   return (
     <Container maxWidth='lg'>
@@ -77,7 +77,7 @@ const Product = () => {
             <Grid container spacing={2} className={classes.container}>
               {phoneColorArr.map((color, index) => (
                 <IconButton
-                  onClick={() => changeProduct(color)}
+                  onClick={() => changeColor(color)}
                   key={index}
                   variant='outlined'
                   className={classes.coloredBtn}

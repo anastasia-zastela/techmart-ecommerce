@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 // const multer = require("multer"); // multer for parsing multipart form data (files)
-const fse = require('fs-extra');
 
 const cloudinary = require('../utils/cloudinary.js');
 const upload = require('../utils/multer.js');
