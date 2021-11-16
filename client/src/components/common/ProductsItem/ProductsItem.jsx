@@ -25,6 +25,7 @@ const ProductsItem = ({
 }) => {
   const classes = useStyles();
   const is771 = useMediaQuery("(max-width: 857px)");
+  const is669 = useMediaQuery("(max-width: 669px)")
   const { addToCart } = useActions();
 
   return (
@@ -78,7 +79,7 @@ const ProductsItem = ({
               component="p"
               className={classes.cardExtraOptions}
             >
-              Наличие: {quantity === 0 ? "Нет в наличии" : quantity}
+              Наличие: {quantity}
             </Typography>
             <Typography
               variant="h6"
@@ -99,7 +100,7 @@ const ProductsItem = ({
           style={quantity === 0 ? { pointerEvents: "none" } : null}
           onClick={() => addToCart(id)}
         >
-          Добавить в корзину
+          {quantity === 0 ? 'Нет в наличии' : "Добавить в корзину"}
         </Button>
       </CardActions>
     </Card>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   FormControlLabel,
@@ -21,11 +21,14 @@ const ProductsFilter = ({
   quantity,
   setQuantity,
   getBrandItems,
-  getCategoriesItems,
 }) => {
   const classes = useStyles();
 
   const is520 = useMediaQuery("(max-width:520px)");
+
+  useEffect(() => {
+    setValue([minValue[0].currentPrice, maxValue[0].currentPrice]);
+  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -60,25 +63,6 @@ const ProductsFilter = ({
       control={
         <Checkbox
           onClick={getBrandItems}
-          id={item}
-          size={is520 ? "small" : "medium"}
-        />
-      }
-      color="success"
-      label={item}
-      onClick={(e) => e.stopPropagation()}
-      className={is520 ? classes.checkBoxAdaptive : null}
-    />
-  ));
-  const categoriesCheckbox = [
-    ...new Set(productsList.map((item) => item.categories)),
-  ].map((item) => (
-    <FormControlLabel
-      id={item}
-      key={item}
-      control={
-        <Checkbox
-          onClick={getCategoriesItems}
           id={item}
           size={is520 ? "small" : "medium"}
         />
@@ -135,10 +119,7 @@ const ProductsFilter = ({
         <FormLabel component="legend">Цвет</FormLabel>
         {colorCheckbox}
       </Box>
-      <Box className={classes.checkboxWrapper}>
-        <FormLabel component="legend">Категория</FormLabel>
-        {categoriesCheckbox}
-      </Box>
+      <Box className={classes.checkboxWrapper}></Box>
       <Box className={classes.checkboxWrapper}>
         <FormLabel component="legend">Бренд</FormLabel>
         {brandCheckbox}
