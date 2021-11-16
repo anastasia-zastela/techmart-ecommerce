@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useStyles } from "./styles";
 import CartItem from "./CartItem";
 import { Button, Typography, Grid } from "@material-ui/core";
+import { NavLink } from 'react-router-dom';
 
 const Cart = () => {
   const classes = useStyles();
@@ -14,7 +15,7 @@ const Cart = () => {
           variant="h4"
           color="textPrimary"
           component="p"
-          className={classes.cartTitle}
+          className={classes.cartEmptyTitle}
         >
           Корзина пуста
         </Typography>
@@ -61,7 +62,7 @@ const Cart = () => {
           >
             Итого : {tottalPrice} ₴
           </Typography>
-          <Button className={classes.btnChekout} variant="contained">
+          <Button className={classes.btnChekout} variant="contained" component={NavLink} to="/checkout">
             Оформить заказ
           </Button>
         </Grid>

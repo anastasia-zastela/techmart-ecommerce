@@ -19,8 +19,18 @@ export const useStyles = makeStyles(() => ({
         background: "white",
         border: "1px solid rgb(62, 192, 221)",
         marginTop: "20px",
+        "&:hover": {
+            color: "white",
+            backgroundColor: "#3ec0dd",
+          },
     },
     cartItems: {
         marginBottom: "50px",
     },
+    cartEmptyTitle: {
+        padding: "10px 34px",
+        color: "rgb(0, 0, 0)",
+        textAlign: 'center',
+        marginBottom: '250px'
+    }
 }));
