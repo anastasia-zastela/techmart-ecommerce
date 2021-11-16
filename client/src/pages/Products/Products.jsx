@@ -9,10 +9,11 @@ import PopUpFilter from "../../components/common/PopUpFilter";
 import { productsFilter } from "../../redux/actions/productActions";
 import { connect } from "react-redux";
 import Loader from "../../components/common/Loader";
+
 import { useStyles } from "./styles";
 
-const Products = ({ productsList, loading }) => {
-  const { listProducts } = useActions();
+const Products = ({ productsList, loading, category }) => {
+  const { categoryProducts } = useActions();
 
   const styles = useStyles();
 
@@ -32,14 +33,6 @@ const Products = ({ productsList, loading }) => {
       : setBrandValue(brandValue.filter((item) => item !== e.target.id));
   };
 
-  const [categoriesVale, setCategories] = useState([]);
-  const getCategoriesItems = (e) => {
-    e.target.checked
-      ? setCategories([...categoriesVale, e.target.id])
-      : setCategories(
-          categoriesVale.filter((item) => item !== e.target.id)
-        );
-  };
   const [quantity, setQuantity] = useState({
     inStock: false,
     noInStock: false,
@@ -55,15 +48,13 @@ const Products = ({ productsList, loading }) => {
   const minValue = [...productsList].sort(
     (a, b) => a.currentPrice - b.currentPrice
   );
-  const [value, setValue] = useState([
-    !loading ? minValue[0].currentPrice : 14000,
-    !loading ? maxValue[0].currentPrice : 41000,
-  ]);
+
+  const [value, setValue] = useState([0, 100]);
 
   const [sortedList, setSortedList] = useState(productsList);
 
   useEffect(() => {
-    listProducts();
+    categoryProducts(category);
   }, []);
 
   useEffect(() => {
@@ -76,7 +67,6 @@ const Products = ({ productsList, loading }) => {
     sortedList,
     colorValue,
     brandValue,
-    categoriesVale,
     value[0],
     value[1],
     quantity
@@ -109,8 +99,6 @@ const Products = ({ productsList, loading }) => {
           <PopUpFilter>
             <ProductsFilter
               productsList={productsList}
-              value={value}
-              setValue={setValue}
               maxValue={maxValue}
               minValue={minValue}
               colorValue={colorValue}
@@ -119,7 +107,8 @@ const Products = ({ productsList, loading }) => {
               quantity={quantity}
               setQuantity={setQuantity}
               getBrandItems={getBrandItems}
-              getCategoriesItems={getCategoriesItems}
+              value={value}
+              setValue={setValue}
             />
           </PopUpFilter>
         ) : null}
@@ -130,8 +119,6 @@ const Products = ({ productsList, loading }) => {
           {!is771 ? (
             <ProductsFilter
               productsList={productsList}
-              value={value}
-              setValue={setValue}
               maxValue={maxValue}
               minValue={minValue}
               colorValue={colorValue}
@@ -140,7 +127,8 @@ const Products = ({ productsList, loading }) => {
               quantity={quantity}
               setQuantity={setQuantity}
               getBrandItems={getBrandItems}
-              getCategoriesItems={getCategoriesItems}
+              value={value}
+              setValue={setValue}
             />
           ) : null}
         </Grid>
@@ -149,7 +137,8 @@ const Products = ({ productsList, loading }) => {
             container
             spacing={2}
             sx="2"
-            className={is856 ? styles.producstAdaptive : null}
+            className={styles.productsItemMainWrapper}
+            style={is771 ? { justifyContent: "center" } : null}
           >
             {itemsToRender}
           </Grid>
@@ -167,7 +156,7 @@ const Products = ({ productsList, loading }) => {
   );
 };
 const mapStateToProps = (state) => ({
-  productsList: state.productList.products,
-  loading: state.productList.loading,
+  productsList: state.productCategory.products,
+  loading: state.productCategory.loading,
 });
 export default connect(mapStateToProps)(Products);

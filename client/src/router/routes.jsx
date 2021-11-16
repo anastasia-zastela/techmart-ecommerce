@@ -1,14 +1,14 @@
-import React from 'react';
-import Cart from '../pages/Cart';
-import Main from '../pages/Main';
-import Admin from '../pages/Admin';
-import Products from '../pages/Products';
-import Product from '../pages/Product';
-import Contacts from '../pages/Contacts';
-import Checkout from '../pages/Checkout';
-import Signup from '../pages/Signup';
-import Signin from '../pages/Signin';
-import AboutUs from '../pages/AboutUs/index'
+import React from "react";
+import Cart from "../pages/Cart";
+import Main from "../pages/Main";
+import Admin from "../pages/Admin";
+import Products from "../pages/Products";
+import Product from "../pages/Product";
+import Contacts from "../pages/Contacts";
+import Checkout from "../pages/Checkout";
+import Signup from "../pages/Signup";
+import Signin from "../pages/Signin";
+import AboutUs from "../pages/AboutUs/index";
 
 import {
   ADMIN_ROUTE,
@@ -19,8 +19,12 @@ import {
   CONTACTS_ROUTE,
   SIGNIN_ROUTE,
   SIGNUP_ROUTE,
-  ABOUT_US_ROUTE
-} from '../config/consts';
+  ABOUT_US_ROUTE,
+  PRODUCTS_APPLE_STORE,
+  PRODUCTS_LAPTOPS,
+  PRODUCTS_TABLETS,
+  PRODUCTS_SMARTPHONES,
+} from "../config/consts";
 
 export const privateRoutes = [
   {
@@ -55,11 +59,6 @@ export const publicRoutes = [
     exact: true,
   },
   {
-    path: PRODUCTS_ROUTE,
-    component: <Products />,
-    exact: true,
-  },
-  {
     path: CONTACTS_ROUTE,
     component: <Contacts />,
     exact: true,
@@ -81,7 +80,27 @@ export const publicRoutes = [
   },
   {
     path: ABOUT_US_ROUTE,
-    component: <AboutUs/>,
-    exact: true
-  }
+    component: <AboutUs />,
+    exact: true,
+  },
+  {
+    path: PRODUCTS_APPLE_STORE,
+    component: <Products category="Apple store" />,
+    exact: true,
+  },
+  {
+    path: PRODUCTS_LAPTOPS,
+    component: <Products category="Ноутбуки" />,
+    exact: true,
+  },
+  {
+    path: PRODUCTS_TABLETS,
+    component: <Products category="Планшеты" />,
+    exact: true,
+  },
+  {
+    path: PRODUCTS_SMARTPHONES,
+    component: <Products category="Смартфоны" />,
+    exact: true,
+  },
 ];

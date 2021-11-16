@@ -7,3 +7,7 @@ export const CONTACTS_ROUTE = "/contacts";
 export const SIGNUP_ROUTE = "/signup";
 export const SIGNIN_ROUTE = "/signin";
 export const ABOUT_US_ROUTE = "/aboutus";
+export const PRODUCTS_APPLE_STORE = "/applestore";
+export const PRODUCTS_LAPTOPS = "/laptops";
+export const PRODUCTS_TABLETS = "/tablets";
+export const PRODUCTS_SMARTPHONES = "/smartphones";

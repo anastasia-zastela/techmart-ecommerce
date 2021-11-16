@@ -8,7 +8,7 @@ export const useStyles = makeStyles(() => ({
   },
   cardAdaptiveWrapper: {
     width: "200px",
-    marginBottom: "25px",
+    margin: " 0 10px 25px 20px ",
   },
   cardMediaWrapper: {
     height: "180px",

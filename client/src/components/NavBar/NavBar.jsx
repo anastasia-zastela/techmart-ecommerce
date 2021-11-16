@@ -72,7 +72,7 @@ const NavBar = () => {
                 open={Boolean(anchorEl)}
             >
                 <MenuItem onClick={handleCloseMenu}>
-                    <NavLink to="/products" className={classes.menuItem}>
+                    <NavLink to="/applestore" className={classes.menuItem}>
                         Apple Store
                     </NavLink>
                 </MenuItem>
