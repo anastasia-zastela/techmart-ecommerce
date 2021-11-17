@@ -1,59 +1,49 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import {
-  Grid,
-  Typography,
-  Container,
-  IconButton,
-  Button,
-  Box,
+  Box, Button, Container, Grid, Typography,
 } from '@material-ui/core';
-import { useLocation, useHistory } from 'react-router-dom';
+import BlockIcon from '@mui/icons-material/Block';
+import { useLocation } from 'react-router-dom';
 import useStyles from './styles';
-import Slider from '../../components/common/Slider/Slider';
 import GarantyIcon from '../../components/icons/GarantyIcon';
 import CheckCircleIcon from '../../components/icons/CheckCircleIcon';
 import { useActions } from '../../hooks/useActions';
 import ProductDetailsTabs from '../../components/common/ProductDetailsTabs';
+import ProductPhotos from './ProductPhotos';
+import Loader from '../../components/common/Loader';
+import Slider from '../../components/common/Slider/Slider.jsx';
 
-const phone = {
-  memory: [64, 128, 256],
-};
+// const productId = 53908;
 
 const Product = () => {
   const classes = useStyles();
-  const { addToCart, listProductDetails, listProductColors } = useActions();
-  const location = useLocation();
-  const history = useHistory();
+  const { addToCart, listProductDetails } = useActions();
+  const location = useLocation()
 
   const productId = +location.pathname.match(/[0-9]+/);
-  const { product, productColors } = useSelector((state) => state.productDetails);
-  const phoneColorArr = productColors.map((prod) => prod.color);
+  const { product, loading, error } = useSelector((state) => state.productDetails);
+  const productLoaded = !loading && !error;
 
-  const changeColor = (color) => {
-    const chosenProduct = productColors.find((prod) => prod.color === color);
-    history.push(chosenProduct.itemNo);
-  };
-
-  const addToCartHandler = (id) => {
-    addToCart(id);
-  };
+  const addToCartHandler = useCallback(() => {
+    addToCart(productId);
+  }, [addToCart, productId]);
 
   useEffect(() => {
     listProductDetails(productId);
-    listProductColors(productId);
-  }, []);
+  }, [productId]);
+
+  if (!productLoaded) {
+    return (
+      <Box className={classes.cardWrapper}>
+          <Loader />
+      </Box>
+    );
+  }
+
   return (
     <Container maxWidth='lg'>
       <Box className={classes.cardWrapper}>
-        <Typography variant='h5' className={classes.header}>
-          {product.brand}
-          {' '}
-          {product.name}
-          {' '}
-          {product.color}
-        </Typography>
-
         <Grid
           container
           justifyContent='space-evenly'
@@ -65,86 +55,51 @@ const Product = () => {
             xs={12}
             sm={8}
             md={6}
-            className={(classes.mainSlider, classes.item)}
+            className={classes.productPhotosSection}
           >
-            <Slider images={product.imageUrls} />
+            <ProductPhotos
+              className={classes.productPhotos}
+              images={product.imageUrls}
+              productName={product.name}
+            />
           </Grid>
-
-          <Grid item xs={12} sm={4} md={3} className={classes.item}>
-            <Typography variant='body1' className={classes.container}>
-              Цвет:
+          <Grid justify='center' item xs={12} sm={4} md={6} className={classes.productInfoSection}>
+            <Typography variant='h2' className={classes.productName}>
+              {`${product.brand} ${product.name} ${product.color}`}
             </Typography>
-            <Grid container spacing={2} className={classes.container}>
-              {phoneColorArr.map((color, index) => (
-                <IconButton
-                  onClick={() => changeColor(color)}
-                  key={index}
-                  variant='outlined'
-                  className={classes.coloredBtn}
-                  style={{ backgroundColor: color }}
-                />
-              )) }
-            </Grid>
             <Typography variant='body1' className={classes.text}>
-              Код товара:
-              {product.itemNo}
+              {`Код товара: ${product.itemNo}`}
             </Typography>
-            <Typography variant='h4' className={classes.price}>
-              {product.currentPrice}
-              {' '}
-              грн
-            </Typography>
-            <Button className={classes.productButton} id='buyBtn' onClick={() => addToCartHandler(id)}>
-              Купить
-            </Button>
-          </Grid>
-
-          <Grid item xs={12} sm={12} md={3} className={classes.item}>
-            <Typography variant='body1' className={classes.container}>
-              Память:
-            </Typography>
-            <Grid container spacing={2} className={classes.container}>
-              {phone.memory.map((memory, index) => (
-                <Button
-                  key={index}
-                  variant='outlined'
-                  className={classes.memoryButton}
-                >
-                  {memory}
-                  {' '}
-                  Gb
-                </Button>
-              ))}
-            </Grid>
-            <Grid container spacing={3} className={classes.text}>
-              <GarantyIcon />
+            <Grid container  className={classes.badges}>
+              <div className={classes.badge}>
+                <GarantyIcon />
               <Typography variant='body1' className={classes.garanty}>
                 Гарантия 3 мес.
               </Typography>
+              </div>
+              {product.enabled
+                ? (
+                  <div className={classes.badge}>
+                    <CheckCircleIcon className={classes.exist} />
+                    <Typography variant='body1' className={classes.exist}>
+                      Есть в наличии
+                    </Typography>
+                  </div>
+                )
+                : (
+                  <div className={classes.badge}>
+                    <BlockIcon />
+                    <Typography variant='body1' className={classes.noExist}>
+                      Нет в наличии
+                    </Typography>
+                  </div>
+                )}
             </Grid>
-            {product.enabled
-              ? (
-                <Grid container spacing={3} className={classes.text}>
-                  <CheckCircleIcon />
-                  <Typography variant='body1' className={classes.exist}>
-                    Есть в наличии
-                  </Typography>
-                </Grid>
-              )
-              : (
-                <Grid container spacing={3} className={classes.text}>
-                  <Typography variant='body1' className={classes.noExist}>
-                    Нет в наличии
-                  </Typography>
-                </Grid>
-              )}
-            <Button
-              valiant='outlined'
-              className={classes.productButton}
-              id='btnBuyInCredit'
-              onClick={() => addToCartHandler(id)}
-            >
-              Купить в кредит
+            <Typography variant='h4' className={classes.price}>
+              {`Цена: ${product.currentPrice} грн`}
+            </Typography>
+            <Button className={classes.productButton} id='buyBtn' onClick={addToCartHandler}>
+              Купить
             </Button>
           </Grid>
         </Grid>

@@ -9,6 +9,15 @@ const useStyles = makeStyles((theme) => ({
     '& img': {
       objectFit: 'contain',
     },
+    '& .slider-wrapper': {
+      height: '480px',
+      '& .slider': {
+        height: '100%',
+        '& .slide': {
+          height: '100%',
+        },
+      },
+    },
     '& .carousel': {
       flexBasis: '20%',
     },
