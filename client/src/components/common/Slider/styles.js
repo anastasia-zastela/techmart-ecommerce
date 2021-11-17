@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     '& .carousel .slide': {
-      marginBottom: '134px',
+      // marginBottom: '134px',
     },
   },
 

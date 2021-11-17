@@ -17,7 +17,6 @@ import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import ProductDetailsTabs from "../../components/common/ProductDetailsTabs";
 
-// const mockId = '684124';
 const phone = {
   memory: [64, 128, 256],
 };
@@ -28,7 +27,7 @@ const Product = () => {
   const { listProductDetails } = useActions();
   const { listProductColors } = useActions();
   let location = useLocation();
-let history = useHistory();
+  let history = useHistory();
 
   const id = parseInt(location.pathname.match(/[0-9]+/));
   const product = useSelector(state => state.productDetails.product);
@@ -39,7 +38,6 @@ let history = useHistory();
     const choseProduct = productColors.find((prod) => prod.color === color);
     listProductDetails(choseProduct.itemNo);
     history.push(choseProduct.itemNo)
-    console.log('render')
   };
   const addToCartHandler = (id) => {
     addToCart(id);
@@ -77,13 +75,16 @@ let history = useHistory();
             </Typography>
             <Grid container spacing={2} className={classes.container}>
               {phoneColorArr.map((color, index) => (
-                <IconButton
+                <button
+                  id={index}
+                  role='btnColor'
+                  aria-label={'btnColor'+index}
                   onClick={() => changeProduct(color)}
                   key={index}
                   variant='outlined'
                   className={classes.coloredBtn}
                   style={{ backgroundColor: color }}
-                />
+                ></button>
               )) }
             </Grid>
             <Typography variant='body1' className={classes.text}>
@@ -93,7 +94,7 @@ let history = useHistory();
             <Typography variant='h4' className={classes.price}>
               {product.currentPrice} грн
             </Typography>
-            <Button className={classes.productButton} id='buyBtn' onClick={() => addToCartHandler(id)}>
+            <Button className={classes.productButton} role='buyBtn' onClick={() => addToCartHandler(id)}>
               Купить
             </Button>
           </Grid>
@@ -120,7 +121,7 @@ let history = useHistory();
               </Typography>
             </Grid>
               {product.enabled ? 
-                <Grid container spacing={3} className={classes.text}>
+                <Grid container spacing={3} className={classes.text} arial-label='container'>
                   <CheckCircleIcon />
                   <Typography variant='body1' className={classes.exist}>
                     Есть в наличии
@@ -135,7 +136,7 @@ let history = useHistory();
             <Button
               valiant='outlined'
               className={classes.productButton}
-              id='btnBuyInCredit'
+              role='btnBuyInCredit'
               onClick={() => addToCartHandler(id)}
             >
               Купить в кредит

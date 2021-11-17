@@ -1,10 +1,8 @@
 import React from 'react';
-
-import { render } from '@testing-library/react';
+import { render, screen, fireEvent  } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Product from '../Product';
-import Slider from '../../../components/common/Slider/Slider';
 import GarantyIcon from '../../../components/icons/GarantyIcon';
 import CheckCircleIcon from '../../../components/icons/CheckCircleIcon';
 import store from '../../../redux/store';
@@ -23,21 +21,7 @@ const renderComponent = () => (
 
 describe('Test Product', () => {
   it('Smoke test for Product', () => {
-      renderComponent();
-  });
-
-  it('Slider to be defined', () => {
-    render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <Product>
-            <Slider />
-          </Product>
-        </Provider>
-      </BrowserRouter>,
-    );
-    const slider = document.querySelector('.carousel-root');
-    expect(slider).toBeDefined();
+      render(renderComponent());
   });
 
   it('Smoke test for GarantyIcon', () => {
@@ -64,30 +48,91 @@ describe('Test Product', () => {
     );
   });
 
-  it('Data to be defined', () => {
-    render(
-      renderComponent(),
-    );
-    expect(phone).toBeDefined();
-  });
-
-  it('Check length in received array', () => {
-    render(
-      renderComponent(),
-    );
-    const arr = phone.colors.map((color) => color);
-    expect(arr).toHaveLength(arr.length);
-  });
-
   it('Check array in received params colors', () => {
     render(
-      renderComponent(),
+      // renderComponent(),
+      <BrowserRouter>
+      <Provider store={store}>
+        <Product />
+      </Provider>
+    </BrowserRouter>
     );
-    expect(['white', 'black', '#215787', '#C7F3BD', '#E70012']).toEqual(
-      expect.arrayContaining(phone.colors),
-    );
-    expect(['white', 'black']).not.toEqual(expect.arrayContaining(phone.colors));
+    
+    
+    // const btnColor =  screen.getByLabelText('btnColor0');
+    const btnColor = screen.queryAllByRole('button')
+    
+    const mockProductColors = [{ color: 'red' }, { color: 'blue' }];
+    //const color = 'red'
+    // const choseProduct = mockProductColors.find((prod) => prod.color === color);
+    const changeProd = (color) => {
+      const choseProduct = mockProductColors.find((prod) => prod.color === color);
+      expect(choseProduct.color).toBe('red')
+    };
+    // const mockFn = jest.fn();
+    btnColor.forEach((btn)=> btn.click(changeProd('red')));
+    
+    
+    // btnColor.click(mockFn('red'));
+    // expect(mockFn).toHaveBeenCalled()
+      
+      expect(mockProductColors.length).toBe(2);
+    ;
   });
+
+  it('It map colors from objects', () => {
+    render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <Product />
+        </Provider>
+      </BrowserRouter>,
+    );
+    const mockProductColors = [{ color: 'red' }, { color: 'blue' }];
+    const colors = mockProductColors.map((el) => el.color)
+
+    expect(colors[0]).toBe('red');
+    expect(['red', 'blue']).toEqual(expect.arrayContaining(colors));
+    expect(colors.length).toBe(2);
+  });
+
+  it('Check historyPush', () => {
+    // render(
+    //   renderComponent(),
+    // );
+    const mockHistoryPush = jest.fn();
+const mockId = 1;
+    jest.mock('react-router-dom', () => ({
+      ...jest.requireActual('react-router-dom'),
+      useHistory: () => ({
+        push: mockHistoryPush,
+      }),
+    }));
+  
+       /* const {queryAllByRole} = */ render(
+          <BrowserRouter>
+          <Provider store={store}>
+            <Product />
+          </Provider>
+        </BrowserRouter>
+        );
+        const btnColor = screen.queryAllByRole('button')
+        btnColor.forEach((b) => fireEvent.click(b))
+        expect(mockHistoryPush).toHaveBeenCalledWith(mockId);
+        ;
+        //expect(mockHistoryPush).toHaveBeenCall();
+        
+  
+  });
+
+// it('Rendering block if enabled is true', () => {
+//   render(
+//     renderComponent(),
+//   );
+//   const enabled = true;
+//   const container = screen.getByLabelText('container');
+//   enabled ? expect(container).toBeDefined() : expect(container).not.toBeDefined();
+// });
 
   it('Check array in received params memory', () => {
     render(
@@ -98,7 +143,7 @@ describe('Test Product', () => {
   });
 
   it('OnClick button Buy in Product', () => {
-    const onClick = jest.fn();
+   
     render(
       <BrowserRouter>
         <Provider store={store}>
@@ -107,15 +152,14 @@ describe('Test Product', () => {
       </BrowserRouter>,
     );
 
-    const button = document.getElementById('buyBtn');
+    const button = screen.getByRole('buyBtn');
     expect(button).toBeDefined();
-    button.addEventListener('click', onClick);
-    button.click();
-    expect(onClick).toHaveBeenCalled();
+    const mockFn = jest.fn();
+        button.click(mockFn());
+        expect(mockFn).toHaveBeenCalled();
   });
 
   it('OnClick button Buy in Credit in Product', () => {
-    const onClick = jest.fn();
     render(
       <BrowserRouter>
         <Provider store={store}>
@@ -124,10 +168,11 @@ describe('Test Product', () => {
       </BrowserRouter>,
     );
 
-    const button = document.getElementById('btnBuyInCredit');
+    const button = screen.getByRole('btnBuyInCredit');
     expect(button).toBeDefined();
-    button.addEventListener('click', onClick);
-    button.click();
-    expect(onClick).toHaveBeenCalled();
+    const mockFn = jest.fn();
+    button.click(mockFn());
+    expect(mockFn).toHaveBeenCalled();
+
   });
 });
